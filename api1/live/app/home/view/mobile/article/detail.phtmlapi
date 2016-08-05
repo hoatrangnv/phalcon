@@ -1,0 +1,148 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<section id="section2">
+  <div class="container">
+    <div class="row">
+        <?php echo $this->partial($__theme. '/element/layout/_breadcrumbs', array('breadcrumbs' => $breadcrumbs)); ?>
+        <div class="col-sm-8 col-md-8 congso-main-content post-info-block">
+            <div class="main-post-body">
+                <h1 class="post-title">
+                  <?php echo $article->title; ?>
+                </h1>
+                <div class="under-title">
+                    <div class="date-created">
+                        Đăng bởi 
+                        <b>
+                            <?php $slug_admin = Util::slug($name_admin->name); ?>       
+                            <a href="<?php echo $this->url->get(array('for' => 'article_list_member', 'id' => $name_admin->id, 'slug' => $slug_admin)); ?>" title="<?php echo $name_admin->name; ?>">
+                                <?php echo $name_admin->name; ?>
+                            </a>
+                        </b> | <?php echo date('d/m/Y', $article->updated_at); ?> | <span class="analytics"><?php echo $article->hits; ?></span>
+                    </div>
+                </div>
+                <div class="congso-social">
+                    <span>Đừng quên bấm thích nhé</span>
+                    <div class="fb-like" data-href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $article->id, 'slug' => $article->alias)); ?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div> 
+                    <div class="fb-share-button" data-href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $article->id, 'slug' => $article->alias)); ?>" data-layout="button_count"></div>
+                </div>
+                <div class="post-info-description">
+                  <?php echo $article->intro; ?>
+                </div>
+
+                <div class="congso-post">
+                    <?php echo $article_content->content; ?>
+                    <div class="clearfix"></div>
+                    <div class="clearfix"></div>
+                    
+                    <span class="btn btn-default btn-xs pull-right">
+                        Đăng bởi <?php echo $name_admin->name; ?>
+                    </span>
+
+                   
+                    <div class="clearfix"></div>
+                    Tags:
+                    <?php $tag = array(); ?>
+                    <?php foreach ($tags as $item): ?>
+                    <?php $tag[] = '<a href="' . $this->url->get(array('for' => 'article_list_tag', 'slug' => $item->tag_slug)). '">' . $item->tag_title . '</a>'; ?>
+                    <?php endforeach; ?>
+                    <?php echo implode(', ', $tag); ?>
+                    <div class="clearfix"></div>
+                    <div class="fb-comments" data-href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $article->id, 'slug' => $article->alias)); ?>" data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+                    <div class="clearfix"></div>
+                    <div class="like">
+                        <div>
+                            <img class="like" src="<?php echo $this->config->asset->home_image_url . 'like.png'; ?>" alt="" alt="">
+                        </div>
+                        <div class="congso-social">
+                            <div class="col-lg-5 col-md-5">
+                                <br />
+                                <div class="fb-like" data-href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $article->id, 'slug' => $article->alias)); ?>" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                                <div class="fb-share-button" data-href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $article->id, 'slug' => $article->alias)); ?>" data-layout="box_count"></div>
+                            </div>
+                            <div class="col-lg-1 col-md-1">
+                                <br />
+                                <br />
+                                Fanpage
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <?php if ($newer_layout != ''): ?>
+                        <div class="congso-post-related">
+                            <?php echo $newer_layout; ?>
+                        </div>
+                        <div class="clearfix"></div>
+                    <?php endif; ?>
+                    <?php if ($older_layout != ''): ?>
+                        <div class="congso-post-related">
+                            <?php echo $older_layout; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4 congso-main-aside">
+            <div class="congso-aside-block">
+                <h2 class="aside-title">Tin mới nhất</h2>
+                <?php echo $most_new_layout; ?>
+            </div>
+            <div class="congso-aside-block">
+                <h2 class="aside-title">Tin xem nhiều nhất</h2>
+                <?php echo $most_viewed_layout; ?>
+            </div>
+            <div class="">
+                <?php echo $link_box_four_layout; ?>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <?php echo isset($article_mbn) ? $article_mbn : ""; ?>
+        <div class="col-sm-12 col-md-12 congso-main-content">
+            <h2 class="fresh-title">Tin nổi bật</h2>
+            <div class="row">
+                <?php echo $category_fresh_layout; ?>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-12 col-md-12 congso-main-content">
+            <div class="row congso-list-sub-block">
+                <?php if ($categories_detail && count($categories_detail) > 0): ?>
+                    <?php $i = 1 ; ?>
+                    <?php foreach ($categories_detail as $item): ?>
+                        <div class="col-lg-4 col-md-4 col-sm-4 box-home">
+                            <div class="congso-sub-block">
+                                <?php if(isset($box_layout[$item->id])): ?>
+                                <?php echo $box_layout[$item->id]; ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <?php if ($i % 3 == 0): ?>
+                            <div class="clearfix"></div>
+                        <?php endif; ?>
+                        <?php $i ++ ; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</section>
+?>
+<script>
+
+
+    $(window).load(function(){
+        $('.main-post-image,.highlight-image,.main-item-image').each(function(){
+            var ratio = $(this).data('ratio');
+            var width = $(this).width();
+            $(this).height(width/ratio);
+        });
+    });
+    $(window).resize(function(){
+      $('.main-post-image,.highlight-image,main-item-image').each(function(){
+        var ratio = $(this).data('ratio');
+        var width = $(this).width();
+        $(this).height(width/ratio);
+    });
+  });
+</script>

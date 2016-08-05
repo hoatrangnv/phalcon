@@ -1,0 +1,22 @@
+<?php if(isset($result) && count($result) > 0 ): ?>
+    Có <?php echo count($result); ?> bình luận
+    <?php foreach($result as $item): ?>
+        <div class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="<?php echo $this->config->asset->home_image_url . '/default.png'; ?>" />
+            </a>
+            <div class="media-body">
+                <h5 class="media-heading">
+                    <?php //echo $item->user_id; ?>
+                    <span class="fa fa-clock-o ">
+                        <?php echo date('d-m-Y H:i:s', strtotime($item->created_at)); ?>
+                    </span>
+                </h5>
+                <span class="pull-left">
+                <p>
+                    <?php echo $item->description; ?>
+                </p>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>

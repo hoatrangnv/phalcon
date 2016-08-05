@@ -1,0 +1,27 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+<?php $status_select = Constant::statusSelectOrder(); ?>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 pull-left table-left box">
+            <?php echo $this->partial('default/element/layout/cart/_step_three'); ?>
+            <?php echo $this->flashSession->output(); ?>
+            Mã số đơn hàng của quý khách là: <?php echo $order->id; ?> - Quý khách có thể dùng Mã số đơn hàng vào website để kiểm tra tình trạng xử lý đơn hàng.</br>
+		
+            Phương thức thanh toán: <?php echo $payment->title; ?></br>
+            Phương thức vận chuyển: <?php echo $transport->title; ?></br>
+            Tình trạng giao dịch: <?php echo $status_select['P']; ?></br>
+            Thời gian bạn đặt đơn hàng: <?php echo date('d-m-Y', $order->created_at); ?></br>
+            Thời gian giao hàng: <?php echo date('d-m-Y', $order->delivery_date); ?></br>
+
+            Đơn hàng của quý khách sẽ được nhanh chóng xử lý và giao đến quý khách theo đúng thời gian yêu cầu.</br>
+
+            Quý khách lưu ý: </br>
+
+            Thông tin đơn hàng của Quý khách sẽ được gửi tới email <?php $user->email; ?> trong thời gian sớm nhất. Nếu quý khách không nhận được email thông tin đơn hàng hãy vui lòng kiểm tra trong hộp thư Spam/ Bulk hoặc gọi ngay hotline: 091 727 88 16 để được phục vụ nhanh nhất.
+
+            Nhân viên HoaTuoiDep.com sẽ liên hệ với Quý khách theo số điện thoại <?php echo $user->phone; ?> để thông báo kết quả đặt hàng và hướng dẫn Quý khách cách thức thanh toán. 
+
+            Quý khách vui lòng kiểm tra lại thông tin email và số điện thoại để tránh xảy ra sai sót. Hãy để chúng tôi phục vụ Quý khách!
+        </div>
+    </div>
+</div>

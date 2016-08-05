@@ -1,0 +1,6 @@
+<?php if (isset($form) && isset($element)): ?>
+    <?php $messages = $form->getMessagesFor($element); ?>
+    <?php if ($messages && !empty($messages)): ?>
+        <div class="has-error"><span class="help-block"><?php echo $messages[0]; ?></span></div>
+    <?php endif; ?>
+<?php endif; ?>

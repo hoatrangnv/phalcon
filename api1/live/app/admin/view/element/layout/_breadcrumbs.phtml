@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-sm-12">
+        <ol class="breadcrumb">
+            <?php if (isset($breadcrumbs)): ?>
+                <?php foreach ($breadcrumbs as $key => $item): ?>
+                    <?php if ($key == 0): ?>
+                        <?php if ($item['url'] != ''): ?>
+                            <li>
+                                <i class="clip-home-3"></i>
+                                <a href="<?php echo $item['url']; ?>"><?php echo $item['title']; ?></a>
+                            </li>
+                        <?php else: ?>
+                            <li class="active">
+                                <i class="clip-home-3"></i>
+                                <?php echo $item['title']; ?>
+                            </li>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <?php if ($item['url'] != ''): ?>
+                            <li>
+                                <a href="<?php echo $item['url']; ?>"><?php echo $item['title']; ?></a>
+                            </li>
+                        <?php else: ?>
+                            <li class="active">
+                                <?php echo $item['title']; ?>
+                            </li>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <?php if (isset($search_box) && $search_box): ?>
+                <li class="search-box">
+                    <form action="" method="GET" class="sidebar-search" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="text" name="q" value="<?php if (isset($q)): echo $q; endif; ?>" placeholder="Tìm kiếm" />
+                            <button class="submit">
+                                <i class="clip-search-3"></i>
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            <?php endif; ?>
+        </ol>
+
+        <div class="page-header">
+            <h1><?php echo $page_header; ?></h1>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<h3 class="title">
+    <?php echo isset($group_link->name) ? $group_link->name : '' ; ?>
+</h3>
+<ul class="menu">
+    <?php if($result): ?>
+        <?php foreach ($result['main'] as $item): ?>
+            <li>
+                <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>">
+                    <?php echo $item->title; ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</ul>

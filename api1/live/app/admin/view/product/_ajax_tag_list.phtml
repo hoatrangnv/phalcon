@@ -1,0 +1,5 @@
+<?php foreach ($tags as $tag): ?>
+    <a href="javascript:void(0);" onclick="javascript:deleteTag(<?php echo $tag->id; ?>);" id="<?php echo 'tag-' . $tag->id; ?>" class="btn btn-danger btn-squared btn-xs">
+        <?php echo $tag->title; ?> &times;
+    </a>
+<?php endforeach; ?>

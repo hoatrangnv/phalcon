@@ -1,0 +1,36 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Tên vị trí
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('name', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Chiều rộng
+    </label>
+    <div class="col-sm-2">
+        <?php echo $form->render('width', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'width')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Chiều cao
+    </label>
+    <div class="col-sm-2">
+        <?php echo $form->render('height', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'height')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Trạng thái
+    </label>
+    <div class="col-sm-2">
+        <?php echo $form->render('status', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'status')); ?>
+    </div>
+</div>

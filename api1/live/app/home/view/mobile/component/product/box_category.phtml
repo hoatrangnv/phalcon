@@ -1,0 +1,68 @@
+<div class=" pull-right primary col-md-9 ">
+    <div class="title-category">
+        <h2>
+            <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $result[0]->category_slug, 'id' => $result[0]->category_id )) ?>" class="title">
+                <?php echo $result[0]->category_name; ?>
+            </a>
+        </h2>
+        <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $result[0]->category_slug, 'id' => $result[0]->category_id )) ?>" class="readall">
+            Xem tất cả
+        </a>
+    </div>
+    
+        <!-- filter-category -->
+        <div class="list-post-category">
+        <?php if($result): ?>
+            <?php foreach ($result as $item): ?>
+                <?php
+                    if (!$item->alias):
+                        $item->alias = Util::slug($item->title);
+                    endif;
+                ?>
+                <div class="item">
+                    <div class="entry">
+                        <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="thumbnail-pro frame-th">
+                            <?php if ($item->image != ''): ?>
+                                <img src="<?php echo $this->config->asset->home_image_url . '250/' . $item->image; ?>" alt="<?php echo $item->title; ?>" style="width: auto; height: 100%; max-height: 100%;">
+                            <?php else: ?>
+                                <img src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" alt="<?php echo $item->title; ?>" style="width: auto; height: 100%; max-height: 100%;">
+                            <?php endif; ?>
+                        </a>
+                        <h3 class="title-post">
+                            <?php echo $item->title; ?>
+                        </h3>
+                        <div class="price">
+                            <span class="price-old">
+                                <?php
+                                if (isset($attributes[$item->id]['price_old'])):
+                                    if (is_numeric($attributes[$item->id]['price_old'])) :
+                                        echo Util::formatMoney($attributes[$item->id]['price_old']). 'đ';
+                                    else:
+                                        echo $attributes[$item->id]['price_old'];
+                                    endif;
+                                endif;
+                                ?>
+                            </span>
+                            <span class="price-new">
+                                <?php
+                                if (isset($attributes[$item->id]['price'])):
+                                    if (is_numeric($attributes[$item->id]['price'])) :
+                                        echo Util::formatMoney($attributes[$item->id]['price']). 'đ';
+                                    else:
+                                        echo $attributes[$item->id]['price'];
+                                    endif;
+                                endif;
+                                ?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            <div class="clearfix"></div>
+            
+        <?php else: ?>
+            Thông tin đang cập nhật. Bạn có thể xem các thông tin khác hoặc quay lại sau.
+        <?php endif; ?>
+        </div>
+    </div>
+</div>

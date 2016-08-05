@@ -1,0 +1,22 @@
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs');?>
+
+    <form id="form" role="form" action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+        <?php echo $this->flashSession->output(); ?>
+       <!--  <div class="form-group">
+            <div class="col-sm-12 text-right">
+                <button type="submit" class="btn btn-bricky">
+                    Cập nhật
+                </button>
+            </div>
+        </div> -->
+        <?php echo $this->partial('config/_form'); ?>
+        <div class="form-group">
+            <div class="col-sm-12 text-right">
+                <button type="submit" class="btn btn-bricky">
+                    Cập nhật
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,68 @@
+<?php  use ITECH\Datasource\Lib\Util; ?>
+
+<?php foreach ($data as $category) { ?>
+    <?php if($category['total_item'] > 0) :?>
+    <div class="block-mbn mobile">
+        <div class="container">
+            <h3 class="post-title">
+                <?php  
+                if($category['self']['slug'] == 'may-in-ky-thuat-so'){
+                    $ght = 'mayinquangcao';
+                    $url = $this->url->get(array('for'=>'mbn_list','slug'=>$ght));
+                    $categoryname = 'Máy In Quảng Cáo';
+                }else{
+                    $url = $this->url->get(array('for'=>'mbn_list','slug'=>str_replace('-','', $category['self']['slug'])));
+                }
+                ?>
+                <a href="<?php echo $url; ?>">
+                   <?php 
+                    if(isset($ght) && $ght == 'mayinquangcao'){
+                        echo 'Máy In Quảng Cáo';
+                    }else{
+                        echo $category['self']['name'];
+                    }
+                    ?>
+                    &#160(<?php echo number_format($category['total_item']); ?>)
+                </a>
+            </h3>
+            <?php if(isset($category['self']['sub_category'])) :?>
+            <div class="tags-list cate">
+                <?php foreach($category['self']['sub_category'] as $key => $item){ ?>
+                    <?php $url = $this->url->get(array('for'=>'mbn_list','id'=>$item['id'],'slug'=>str_replace('-','', $category['self']['slug'])));?>
+                        <a href="<?php echo $url; ?>">
+                            <?php echo $item['name']; ?>
+                        </a>
+                <?php } ?>
+            </div>
+            <?php endif;?>
+            <div class="list-post block-category-mbn">
+                <div class="list-wrap list-wrap list-product">
+                    <?php
+                    foreach ($category['posts'] as $key => $item) {
+                        $item = $item['_source'];
+                        echo $this->partial('../item_loop_array');
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="text-center">
+                    <?php 
+                if(isset($ght) && $ght == 'mayinquangcao'){?>
+                    <a class="btn btn-success" style="padding: 6px;" href="<?php 
+                    echo $this->url->get(array('for'=>'mbn_list','slug'=>$ght)); 
+
+                    ?>">Xem thêm tất cả sản phẩm <?php echo 'Máy In Quảng Cáo';?> »</a>
+                <?php }else{?>
+                   <a class="btn btn-success" style="padding: 6px;" href="<?php 
+                    echo $this->url->get(array('for'=>'mbn_list','id'=>$category['self']['id'],'slug'=>str_replace('-','', $category['self']['slug']))); 
+
+                    ?>">Xem thêm tất cả sản phẩm <?php echo $category['self']['name'];?> »</a>
+                <?php }
+            ?>
+            </div>
+            <br>
+        </div>
+    </div>
+    <?php endif;?>
+<?php }
+

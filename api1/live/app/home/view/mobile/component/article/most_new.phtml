@@ -1,0 +1,35 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<?php if($result && count($result) > 0): ?>
+    <?php foreach ($result as $item): ?>
+        <?php
+            if (!$item->alias):
+                $item->alias = Util::slug($item->title);
+            endif;
+        ?>
+        <div class="most-new-post-block">
+            <div class="post-image">
+                <div class="type-img">
+                <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>">
+                    <?php if ($item->image != ''): ?>
+                        <img src="<?php echo $this->config->asset->home_image_url . '150/' . $item->image; ?>" alt="<?php echo $item->title; ?>">
+                    <?php else: ?>
+                        <?php if ($item->image == ''): ?>
+                            <img src="<?php echo $this->config->asset->home_image_url . 'image_not_found.jpg'; ?>" alt="<?php echo $item->title; ?>">
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </a>
+                </div>
+            </div>
+            <div class="post-detail">
+                <h2 class="post-title">
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post">
+                        <?php echo util::niceWordsByChars($item->title,90); ?>
+                    </a>
+                </h2>
+                <span><?php echo date('d/m/Y', $item->created_at); ?></span>
+                <span class="analytics"><?php echo $item->hits; ?></span>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>

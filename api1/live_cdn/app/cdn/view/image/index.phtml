@@ -1,0 +1,18 @@
+<?php foreach ($files as $file): ?>
+    <?php if (!is_dir($file)): ?>
+        <img onclick="setLink('<?php echo 'http://localhost.cdn.itechsolution/asset/home/img/articles/'.$file; ?>')" src="<?php echo 'http://localhost.cdn.itechsolution/asset/home/img/articles/'.$file; ?>" />
+    <?php endif; ?>
+<?php endforeach; ?>
+<script type="text/javascript">
+    function getUrlParam( paramName ) {
+        var reParam = new RegExp( '(?:[\?&]|&)' + paramName + '=([^&]+)', 'i' ) ;
+        var match = window.location.search.match(reParam) ;
+
+        return ( match && match.length > 1 ) ? match[ 1 ] : null ;
+    }
+    function setLink(url) {
+        var funcNum = getUrlParam( 'CKEditorFuncNum' );
+        window.opener.CKEDITOR.tools.callFunction( funcNum, url, errorMessage);
+        window.close();
+    }
+</script>

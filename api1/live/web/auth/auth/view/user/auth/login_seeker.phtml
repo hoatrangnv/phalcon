@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="col-xs-8 primary">
+        <div class="inner-10">
+            <div class="box-content">
+                <header class="block-title">
+                    <h3 class="title font-roboto text-primary">
+                        <span class="text">Người tìm việc đăng nhập</span>
+                        <span class="line"></span>
+                        <div class="pull-right">
+                            <div class="hottline">
+                                ĐT Hỗ trợ <b class="red">1900 6118</b>
+                            </div>
+                        </div>
+                    </h3>
+               </header>
+
+               <div class="entry">
+                    <div style=" margin-top: 13px;" class="text-right">
+                        <i>Chưa có tài khoản?</i>
+                        <a href="<?php echo $this->config->static->home_url . 'dang-ky/nguoi-tim-viec'; ?>" title="Đăng ký" class="underline">
+                            Đăng ký
+                        </a>
+                        <a href="<?php echo $this->config->static->home_url . 'dang-nhap/nha-tuyen-dung'; ?>" title="Nhà tuyển dụng đăng nhập" class="m-l-10 btn btn-primary">
+                            Nhà tuyển dụng đăng nhập
+                        </a>
+                    </div>
+
+                    <form action="" method="POST" enctype="multipart/form-data" class="form-employers-register">
+                        <?php echo $this->flashSession->output(); ?>
+
+                        <div class="group-field">
+                            <label for="" class="label-form">
+                                Email
+                            </label>
+                            <?php echo $form->render('email'); ?>
+                            <?php echo $this->partial('user/element/layout/_message', array('form' => $form, 'element' => 'email')); ?>
+                        </div>
+                        <div class="group-field">
+                            <label for="" class="label-form">
+                                Mật khẩu
+                            </label>
+                            <?php echo $form->render('password'); ?>
+                            <?php echo $this->partial('user/element/layout/_message', array('form' => $form, 'element' => 'password')); ?>
+                        </div>
+                        <div class="row-btn">
+                            <div class="button-bottom">
+                                <div class="col-xs-4 offset10 text-right">
+                                    <button type="submit" class="btn btn-big btn-danger col-xs-2 col-push-2">
+                                        Đăng nhập
+                                    </button>
+                                </div>
+                                <div class="col-xs-4 offset10 text-left">
+                                    <a href="<?php echo $this->config->static->home_url . 'quen-mat-khau/nguoi-tim-viec'; ?>" class="btn-preview col-xs-2">
+                                        Quên mật khẩu
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar col-xs-4">
+        <div class="inner-10">
+            <div class="block-sidebar border3">
+                <div class="content-sidebar inner-9-15">
+                    <p><b>Nhận bản tin Việc làm mới nhất qua email</b></p>
+
+                    <form action="http://feedburner.google.com/fb/a/mailverify" method="POST" target="popupwindow" onsubmit="javascript:subscribeNewsletter();" class="form-theo-doi">
+                        <div class="input-group m-b-5">
+                            <input type="text" name="email" class="form-control text-field" placeholder="Email">
+                            <button type="submit" class="btn btn-danger">Đăng ký</button>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div><i>(Bạn nhớ check email để kích hoạt)</i></div>
+
+                        <input type="hidden" name="uri" value="timviecnhanh/vieclammoinhat">
+                        <input type="hidden" name="loc" value="en_US">
+                    </form>
+
+                    <script type="text/javascript">
+                        function subscribeNewsletter()
+                        {
+                            window.open('http://feedburner.google.com/fb/a/mailverify?uri=timviecnhanhvieclammoinhat', 'popupwindow', 'scrollbars=yes,width=550,height=520');
+                            return true;
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <div class="block-sidebar no-padding no-border">
+                <div class="content-sidebar font0">
+                    <div class="fb-like-box" data-href="https://www.facebook.com/timviecnhanh" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>

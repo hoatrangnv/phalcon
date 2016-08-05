@@ -1,0 +1,44 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="content-cart">
+    <div class="page-title">
+        <span class="review-bg"></span>
+        <h1>Thông tin đơn hàng</h1>
+    </div>
+    <div class="content-order">
+        <?php if(isset($carts) && !empty($carts)): ?>
+        <div class="mess bg-info">Bạn có <?php echo count($carts); ?>  sản phẩm trong giỏ hàng. Đặt hàng trên 150.000đ để đươc miễn phí vận chuyển.</div>
+        <div class="table-order">
+            <table width="100%">
+                <thead>
+                    <th class="name" width="70%">Sản phẩm</th>
+                    <th class="price" width="30%">Thành tiền</th>
+                </thead>
+                <tbody>
+                    <?php $total_price = 0; ?>
+                    <?php foreach($carts as $item): ?>
+                    <?php $total_price += $item['total']; ?>
+                        <tr>
+                            <td width="70%"><?php echo $item['title']; ?></td>
+                            <td width="30%"><?php echo Util::formatMoney($item['price']); ?>đ<i>(x<?php echo $item['quantity']; ?>)</i></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <?php if (isset($user['fee'])): ?>   
+                    <tr  class="sub-total bg-primary">
+                        <td width="70%">Phí giao hàng</td>
+                        <td width="30%">
+                             <?php echo Util::formatMoney($user['fee']) . 'đ'; ?>
+                        </td>
+                    </tr >
+                    <?php endif; ?>
+                    <tr class="sub-total bg-primary">
+                        <td width="70%" >Tổng cộng</td>
+                        <td width="30%"><b><?php echo Util::formatMoney($total_price); ?>đ</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <?php else: ?>
+            <div class="mess bg-info"> Không có sản phẩm nào trong giỏ hàng. Bạn có thể tìm mua sản phẩm <a href="<?php echo $this->url->get(array('for' => 'home')); ?>" title="chọn mua sản phẩm">tại đây</a></div>
+        <?php endif; ?>
+    </div>
+</div>

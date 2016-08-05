@@ -1,0 +1,83 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+    Tiêu đề    
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('title', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'title')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+    Alt    
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('alternative', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'alternative')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+    Mô tả    
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('description', array('class' => 'form-control' , "style" => "height: 150px")); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'description')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Hình ảnh
+    </label>
+    <div class="col-sm-9">
+        <?php if ($article_attachment->file_name != ''): ?> 
+            <?php
+            $delete_query = array(
+                'id' => $article_attachment->id,
+                'page' => $page,
+                'q' => $q,
+                'cache_name' => $cache_name,
+                'from' => $from
+            );
+            ?>
+        <?php if ($from == 'article'): ?>
+            <img src="<?php echo $this->config->asset->home_image_url . '150/' . $article_attachment->file_name; ?>">
+        <?php else: ?>
+            <img src="<?php echo $this->config->asset->home_image_url . '150/' . $article_attachment->file_name; ?>">
+        <?php endif; ?>            
+            <p></p>
+            <a href="<?php echo $this->url->get(array('for' => 'file_gallery_delete_image', 'query' => '?' . http_build_query($delete_query))); ?>" class="btn btn-primary">
+                Xóa
+            </a>
+        <?php else: ?>
+            <img src="<?php echo $this->config->asset->home_image_url . '/default.gif'; ?>">
+            <?php echo $form->render('file_name', array('class' => 'form-control' ,'id' => 'img-file', 'style' => 'display: none')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'file_name')); ?>
+            <br>
+            <br>
+            <div>
+                <a onclick="$('#img-file').click();" id="choose-button" class="upload-avatar modelbox btn-grey btn btn-big w117">
+                    <span class="icon icon-sm icon-image"></span><span class="text">Chọn hình ảnh</span>
+                </a>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#img-file').change(function() {
+                            $('img-file').value =
+                            $('#choose-button').html('<span class="icon icon-sm icon-image"></span><span class="text">Đã chọn</span>');
+                        });
+                    });
+                </script>
+            </div>
+        <?php endif; ?>
+            
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Số thứ tự
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('ordering', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'ordering')); ?>
+    </div>
+</div>

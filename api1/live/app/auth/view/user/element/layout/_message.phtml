@@ -1,0 +1,7 @@
+<?php if ($form && $element): ?>
+    <?php $messages = $form->getMessagesFor($element); ?>
+
+    <?php if (count($messages)): ?>
+        <span class="mess-input mess-error" data-type="error"><?php echo $messages[0]; ?></span>
+    <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,23 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php $module = Constant::moduleTypeLabel(); ?>
+
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs'); ?>
+    <?php echo $this->flashSession->output(); ?>
+    <div class="text-right">
+        <a class="btn btn-primary" href="<?php echo $this->url->get(array('for' => 'order_add')); ?>"> Thêm đơn hàng </a>
+    </div>
+    <p></p>
+    <?php echo $this->partial('order/_list'); ?>
+    <?php
+    echo $this->partial('element/layout/_pagination', array(
+        'result' => $result,
+        'for' => 'order',
+        'query' => array(
+            'page' => $page,
+            'q' => $q
+        )
+    ));
+    ?>
+</div>

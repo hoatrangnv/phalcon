@@ -1,0 +1,20 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Tên nhóm
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('name', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Số thứ tự
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('ordering', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'ordering')); ?>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<section id="section2">
+  <div class="container">
+    <div class="row">
+        <?php echo $this->partial($__theme. '/element/layout/_breadcrumbs', array('breadcrumbs' => $breadcrumbs)); ?>
+        <div class="box-content">
+            <div class="col-xs-5 img-single">
+                    <div class="img-big ">
+                        <div class="slider-img">
+                            <a href="">
+                                <?php if ($article->image != ''): ?>
+                                    <img data-thumb="<?php echo $this->config->asset->home_image_url . '150/' . $article->image; ?>" src="<?php echo $this->config->asset->home_image_url . '500/' . $article->image; ?>" alt="<?php echo $article->title; ?>">
+                                <?php else: ?>
+                                    <img data-thumb="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" alt="<?php echo $article->title; ?>">
+                                <?php endif; ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary col-xs-7">
+                    <h1 class="title-post"><?php echo $article->title; ?></h1>
+                    <p class="attr-item meta"><i class="fa fa-eye"></i> <?php echo $hits; ?> lượt</p>
+                    <p class="attr-item"><b>Thành phần:</b>
+                        <?php if($article_attribute): ?>
+                            <?php foreach ($article_attribute as $attribute): ?>
+                                <?php if($attribute->attribute_id == 1): ?>
+                                    <span class="price-new"><?php echo $attribute->attribute_value; ?></span>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </p>
+                    <p class="attr-item">
+                        <b>Chuyên mục:</b>
+                        <?php $category = array(); ?>
+                        <?php foreach ($categories as $item): ?>
+                        <?php 
+                            if (!$item->category_slug): 
+                                $item->category_slug = Util::slug($item->category_name);
+                            endif;
+                        ?>
+                        <?php $category[] = '<a href="' . $this->url->get(array('for' => 'article_list', 'slug' => $item->category_slug, 'id' => $item->category_id)). '">' . $item->category_name . '</a>'; ?>
+                        <?php endforeach; ?>
+                        <?php echo implode(', ', $category); ?>
+                    </p>
+                    <div class="price-single">
+                        <?php if($article_attribute): ?>
+                            <?php foreach ($article_attribute as $attribute): ?>
+                                <?php if($attribute->attribute_id == 1): ?>
+                                    <?php $price = Util::formatMoney($attribute->attribute_value); ?>
+                                    <?php if ($price == 0): ?>
+                                        <span class="price-new"><?php echo $attribute->attribute_value; ?></span>    
+                                    <?php else: ?>
+                                        <span class="price-new"><?php echo $price . 'đ'; ?></span>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                        <form id="form" role="form" action="<?php echo $this->url->get(array('for' => 'cart_add', 'query' => '?' . http_build_query(array('id' => $article->id)))); ?>" method="POST" enctype="multipart/form-data" class="f-addtocart">
+                            <input type="number" min="1" class="soluong" placeholder="1" name="total">
+                            <input type="submit" name="" value="Đặt hàng" class="addtocart-btn">
+                        </form>
+                    </div>
+                    <div class="excerpt">
+                        <?php echo $article->intro; ?>
+                    </div>
+                    <div class="tags-list">
+                        <h3 class="Tags">Tags</h3>
+                        <?php $tag = array(); ?>
+                        <?php foreach ($tags as $item): ?>
+                        <?php $tag[] = '<h2 class="tag btn btn-default"><a href="' . $this->url->get(array('for' => 'article_list_tag', 'slug' => $item->tag_slug)). '" >' . $item->tag_title . '</a></h2>'; ?>
+                        <?php endforeach; ?>
+                        <?php echo implode(' ', $tag); ?>
+                    </div>
+                    <div class="share">
+                        <span class="text">Chia sẻ: </span>
+                        <span class="icon-item facebook">
+                            <div id="fb-root"></div>
+                            <script>
+                                (function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=665201730210206&version=v2.0";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+                            </script>
+                            <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                        </span>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="driver"></div>
+                <div class="col-xs-12 entry">
+                    <h3 class="info-content">Thông tin chi tiết</h3>
+                        <?php echo $article_content->content; ?>
+                    <div class="clear"></div>
+                </div>
+            <div class="clearfix"></div>
+            <div class="title-related">
+                <h4 class="title">Sản phẩm liên quan</h4>
+            </div>
+
+            <div class="list-post-category">		
+                <?php if($related): ?>
+                    <div class="box_product">
+                        <ul class="list-wrap list-unstyled">
+                        <?php foreach ($related as $item): ?>
+                            <?php
+                                if (!$item->alias):
+                                    $item->alias = Util::slug($item->title);
+                                endif;
+                            ?>
+                            <div class="box-item col-md-3 col-sm-3 col-xs-6">
+                                <li class="item_box_product">
+                                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="thumnail-post">
+                                        <img src="<?php echo $this->config->asset->home_image_url . '150/' . $item->image; ?>" alt="<?php echo $item->name; ?>">
+                                    </a>
+                                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post">
+                                        <h3 class="title"><?php echo util::cutTextByChars($item->title,90); ?></h3>
+                                    </a>
+                                    <p class="intro hidden-sm hidden-xs"><?php echo Util::niceWordsByChars($item->intro, 50, '...'); ?></p>
+                                    <span class="price pull-left">
+                                            <?php 
+                                            if (isset($attributes[$item->id]['price']) && $attributes[$item->id]['price'] != '0'):
+                                                if (is_numeric($attributes[$item->id]['price'])) :
+                                                    echo Util::formatMoney($attributes[$item->id]['price']). 'đ'; 
+                                                else: 
+                                                    echo $attributes[$item->id]['price'];
+                                                endif;
+                                                echo '<sup>VND</sup>';
+                                            else : 
+                                                echo 'Giá: Liên hệ';
+                                            endif;
+                                            ?>
+                                    </span>
+                                    <a href="<?php echo $this->url->get(array('for' => 'cart_add', 'query' => '?' . http_build_query(array('id' => $item->id)))); ?>" class="add-to-cart-related pull-right">
+                                        <span>Đặt hàng</span>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </li>
+                            </div>
+                        <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div> 
+</div>

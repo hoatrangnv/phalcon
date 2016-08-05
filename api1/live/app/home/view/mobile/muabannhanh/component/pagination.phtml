@@ -1,0 +1,30 @@
+<div class="pagination-mbn" align="center">
+ <ul class="pagination">
+        <?php
+            if ($current_page != 1) {
+                echo '<li><a href="'.$url . '?'. http_build_query(array('page'=>1)).'">«</a></li>';
+            }
+            $more = 4;
+
+            $start = ($current_page - $more) > 0 ? ($current_page - $more) : 1;
+
+            if ($current_page - $start <= $more) {
+                $more = $more + ($more - ($current_page - $start));
+            }
+            $end = ($current_page + $more) <= $total_page ? ($current_page + $more) : $total_page;
+
+            if ($end - $current_page <= $more && $more == 4) {
+                $more = $more + ($more - ($end - $current_page));
+            }
+            $start = ($current_page - $more) > 0 ? ($current_page - $more) : 1;
+
+            for ($i = $start; $i <= $end; $i++) {
+                $class = ($current_page == $i) ? "active": "";
+                echo '<li class="'.$class.'"><a href="'.$url . '?'. http_build_query(array('page'=>$i)).'">'.$i.'</a></li>';
+            }
+            if ($current_page != $total_page) {
+                echo '<li><a href="'.$url . '?'. http_build_query(array('page'=>$total_page)).'">»</a></li>';
+            }
+        ?>
+    </ul>
+</div>

@@ -1,0 +1,77 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+<form action="" method="POST" enctype="multipart/form-data">
+<table class="table table-striped table-bordered table-hover table-full-width">
+        <thead>
+            <tr role="row">
+                <th>STT</th>
+                <th>Tiêu đề</th>
+                <th>Alias</th>
+                <th>Hình ảnh</th>
+                <th>Ngày tạo</th>
+                <th>Loại</th>
+                <th>Số lượng bài viết</th>
+                <th>Sắp xếp</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach ($result->items as $category): ?>
+                <?php
+                $query = array(
+                    'id' => $category->id,
+                    'module' => $category->module,
+                    'page' => $page,
+                    'q' => $q,
+                    'cache_name' => $cache_name
+                );
+                ?>
+                <tr>
+                    <td><?php echo $category->id; ?></td>
+                    <td>
+                        <a href="<?php echo $this->url->get(array('for' => 'category_edit', 'query' => '?' . http_build_query($query))); ?>">
+                            <?php echo $category->name; ?>
+                        </a>
+                    </td>
+                    <td><?php echo $category->slug; ?></td>
+                    <td class="text-center">
+                        <?php if ($category->image != ''): ?> 
+                            <img src="<?php echo $this->config->asset->home_image_url . 'category/' . $category->image; ?>">
+                        <?php else: ?>
+                            <img src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>"> 
+                        <?php endif; ?>        
+                    </td>
+                    <td><?php echo date('d-m-Y', strtotime($category->created_at)); ?></td>
+                    <td><?php echo $module[$category->module]; ?></td>
+                    <td><?php echo $category->article_count; ?></td>
+                    <td>
+                        <input type="text" name="ordering[<?php echo $category->id; ?>]" class="form-control input-sm w50" autocomplete="off" value="<?php echo $category->ordering; ?>" />
+                    </td>
+                    <td align="center">
+                        <?php if ($category->status != Constant::CATEGORY_STATUS_DELETED): ?> 
+                            <a href="<?php echo $this->url->get(array('for' => 'category_delete', 'query' => '?' . http_build_query($query))); ?>" onclick="javascript:return confirm('Đồng ý xoá?');" class="btn btn-xs btn-bricky">
+                                <i class="fa fa-times fa fa-white"></i>
+                            </a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="submit" class="btn btn-sm btn-blue">
+                        Cập nhật
+                    </button>
+                </td>
+                <td></td>
+            </tr>    
+        </tbody>
+    </table>
+    <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>" />
+</form>    

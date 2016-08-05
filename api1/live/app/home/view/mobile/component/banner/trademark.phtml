@@ -1,0 +1,26 @@
+<?php if($result): ?>
+<div class="block-pa block-style1">
+    <h3 class="title">
+        Thương hiệu
+        <span class="line" style="left:145px;"></span>
+    </h3>
+    <div class="block-partner">
+        <div class="slider-wrap">
+            <ul class="list">
+                <?php foreach ($result as $item): ?>
+                    <li class="item">
+                        <a href="" class="thumbanil">
+                            <?php if ($item->image != ''): ?>
+                                <img style="width: <?php echo $item->banner_width . 'px'; ?>; height: <?php echo $item->banner_height . 'px'; ?>" src="<?php echo $this->config->asset->home_image_url . 'banner/' . $item->image; ?>" alt="<?php echo $item->name; ?>">
+                            <?php else: ?>
+                                <img style="width: <?php echo $item->banner_width . 'px'; ?>; height: <?php echo $item->banner_height . 'px'; ?>" src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" alt="<?php echo $item->name; ?>">
+                            <?php endif; ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<?php endif; ?> 

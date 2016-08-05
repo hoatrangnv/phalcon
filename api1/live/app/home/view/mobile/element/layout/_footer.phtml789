@@ -1,0 +1,553 @@
+<?php use ITECH\Datasource\Lib\Util;?>
+<div class="container">
+    <?php echo Util::itemAds(6, $premiumList); ?>
+</div>
+<footer id="footer">
+    <div class="container footer">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-0 m-g-b-10">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-0 footer-box-one">
+                <?php echo $link_box_one_layout; ?>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-0 footer-box-tow">
+                <?php echo $link_box_tow_layout; ?>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-0 footer-box-three">
+                <?php echo $link_box_three_layout; ?>
+            </div>
+        </div>
+        <!-- BANNER 1 -->
+        <?php if (isset($premiumList) && count($premiumList) == 9 ) : ?>
+            <div class="row-banner-top">
+                <div class="banner-header">
+                    <div class="row-slide">
+                        <div class="owl-carousel" id="owl-slider-top-ads">
+                        <?php
+                            for ($i = 5 ; $i < 9; $i++) {
+                            $value = $premiumList[$i];
+                        ?>
+                            <a rel="nofollow" href="<?php echo $value['url'] ?>" target="_blank">
+                                <div class="thumbnail">
+                                    <img src="<?php echo $value['default_thumbnail_url'] ?>" alt="<?php echo $value['name'] ?>">
+                                </div>
+                                <div class="summary">
+                                    <h5 class="title"><?php echo $value['name'] ?></h5>
+                                    <div class="price">
+                                        <?php
+                                            if ($value['price'] > 0 ) {
+                                                echo number_format($value['price']) . '<sup>đ</sup>';
+                                            } else {
+                                                echo 'Liên hệ ngay';
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
+                            </a>
+                        <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#owl-slider-top-ads').owlCarousel({
+                            items: 2,
+                            afterInit : function(){
+                                $('#owl-slider-top-ads').find('.thumbnail').each(function(){
+                                    $(this).height($(this).width() / 1.3333)
+                                });
+                            },
+                            itemsMobile: [479, 2],
+                            navigation: false,
+                            pagination :false,
+                            autoPlay: 2000
+                        });
+                    });
+                </script>
+
+                <span class="author-by">Quảng cáo MuaBanNhanh</span>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php 
+        if( $this->router->getControllerName() == 'home' &&  $this->router->getActionName() == 'index'){?>
+            <div class="info-footer">
+            <div class="container">
+                <h4 align="left" style="color: White;font-size: 14px;"><?php echo Util::htmlDecode($footer_title);?></h4>
+            </div>
+            </div>
+            <div class="container">            
+                    <?php echo Util::htmlDecode($footer_for_layout);?>
+            </div>
+        <?php }else{?>
+            <div class="info-footer">
+            <div class="container">
+                <h4 align="left" style="color: White;font-size: 14px;"><?php echo $title_for_layout; ?></h4>
+            </div>
+            </div>
+            <div class="container">            
+                    <?php echo $description_for_layout;?>
+            </div>
+        <?php }
+    ?>
+    <section class="tools">
+        <div class="container">
+            <div class="title-icon">
+                <span class="text">Các chuyên trang của MuaBanNhanh.com
+                    <span class="text">Các chuyên trang của MuaBanNhanh.com</span> 
+                </span>
+            </div>
+            <div class="entry">
+                <ul class="footer-alias">
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://laptop.muabannhanh.com/" target="_blank" title="Laptop">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-laptop.png" alt="Laptop">
+                            <h3 class="title-item">
+                                Laptop
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://dienthoai.muabannhanh.com/" target="_blank" title="Điện thoại">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-dien-thoai.png" alt="Điện thoại">
+                            <h3 class="title-item">
+                                Điện thoại
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://xemay.muabannhanh.com/" target="_blank" title="Xe máy">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/3-xe-may-xe-dap.png" alt="Xe máy">
+                            <h3 class="title-item">
+                                Xe máy
+                            </h3>
+                        </a>
+                    </li>
+                    <div class="clearfix"></div>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://nhadat.muabannhanh.com/" target="_blank" title="Nhà đất">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/5-nha-dat.png" alt="Nhà đất">
+                            <h3 class="title-item">
+                                Nhà đất
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://oto.muabannhanh.com/" target="_blank" title="Ôtô">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/4-o-to-xe-tai.png" alt="Ôtô">
+                            <h3 class="title-item">
+                                Ôtô
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://quatet.muabannhanh.com/" target="_blank" title="Quà tết">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-qua-tet.png" alt="Quà tết">
+                            <h3 class="title-item">
+                                Quà tết
+                            </h3>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="footer-alias">
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://trangsuc.muabannhanh.com/" target="_blank" title="Trang sức">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-trang-suc.png" alt="Trang sức">
+                            <h3 class="title-item">
+                                Trang sức
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://lamdep.muabannhanh.com/" target="_blank" title="Làm đẹp">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-lam-dep.png" alt="Làm đẹp">
+                            <h3 class="title-item">
+                                Làm đẹp
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://mypham.muabannhanh.com/" target="_blank" title="Mỹ phẩm">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-my-pham.png" alt="Mỹ phẩm">
+                            <h3 class="title-item">
+                                Mỹ phẩm
+                            </h3>
+                        </a>
+                    </li>
+                    <div class="clearfix"></div>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://thoitrang.muabannhanh.com/" target="_blank" title="Thời trang">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/7-thoi-trang-lam-dep.png" alt="Thời trang">
+                            <h3 class="title-item">
+                                Thời trang
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://trangtri.muabannhanh.com/" target="_blank" title="Trang trí">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-trang-tri.png" alt="Trang trí">
+                            <h3 class="title-item">
+                                Trang trí
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://aosomi.muabannhanh.com/" target="_blank" title="Áo sơ mi">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-ao-so-mi.png" alt="Áo sơ mi">
+                            <h3 class="title-item">
+                                Áo sơ mi
+                            </h3>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="footer-alias">
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://monngon.muabannhanh.com/" target="_blank" title="Món ngon">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-mon-ngon.png" alt="Món ngon">
+                            <h3 class="title-item">
+                                Món ngon
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://dogiadinh.muabannhanh.com/" target="_blank" title="Đồ gia đình">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-do-gia-dinh.png" alt="Đồ gia đình">
+                            <h3 class="title-item">
+                                Đồ gia đình 
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://aokhoac.muabannhanh.com/" target="_blank" title="Áo khoác">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-ao-khoac.png" alt="Áo khoác">
+                            <h3 class="title-item">
+                                Áo khoác
+                            </h3>
+                        </a>
+                    </li>
+                    <div class="clearfix"></div>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://nhadep.muabannhanh.com/" target="_blank" title="Nhà đẹp">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-nha-dep.png" alt="Nhà đẹp">
+                            <h3 class="title-item">
+                                Nhà đẹp
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://dochoi.muabannhanh.com/" target="_blank" title="Đồ chơi">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-do-choi.png" alt="Đồ chơi">
+                            <h3 class="title-item">
+                                Đồ chơi
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://tuixach.muabannhanh.com/" target="_blank" title="Túi xách">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-tui-xach.png" alt="Túi xách">
+                            <h3 class="title-item">
+                                Túi xách
+                            </h3>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="footer-alias">
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://quatang.muabannhanh.com/" target="_blank" title="Quà tặng">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/8-qua-tang-do-choi.png" alt="Quà tặng">
+                            <h3 class="title-item">
+                                Quà tặng
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://dongho.muabannhanh.com/" target="_blank" title="Đồng hồ">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-dong-ho.png" alt="Đồng hồ">
+                            <h3 class="title-item">
+                                Đồng hồ 
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://phutungoto.muabannhanh.com/" target="_blank" title="Phụ tùng Ôtô">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-phu-tung-o-to.png" alt="Phụ tùng Ôtô">
+                            <h3 class="title-item">
+                                Phụ tùng <br>
+                                Ôtô 
+                            </h3>
+                        </a>
+                    </li>
+                    <div class="clearfix"></div>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://dienmay.muabannhanh.com/" target="_blank" title="Điện máy">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/2-dien-may.png" alt="Điện máy">
+                            <h3 class="title-item">
+                                Điện máy
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://xetai.muabannhanh.com/" target="_blank" title="Xe tải">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-xe-tai.png" alt="Xe tải">
+                            <h3 class="title-item">
+                                Xe tải
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://mayanh.muabannhanh.com/" target="_blank" title="Máy ảnh">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-camera.png" alt="Máy ảnh">
+                            <h3 class="title-item">
+                                Máy ảnh
+                            </h3>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="footer-alias">                
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://nghenhin.muabannhanh.com/" target="_blank" title="Thiết bị nghe nhìn">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-nghe-nhin.png" alt="Thiết bị nghe nhìn">
+                            <h3 class="title-item">
+                                Thiết bị <br>
+                                nghe nhìn
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://vatlieuxaydung.muabannhanh.com/" target="_blank" title="Vật liệu xậy dựng">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-vat-lieu-xay-dung.png" alt="Vật liệu xậy dựng">
+                            <h3 class="title-item">
+                                Vật liệu <br>
+                                xây dựng
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://aothun.muabannhanh.com/" target="_blank" title="Áo thun">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-ao-thun.png" alt="Áo thun">
+                            <h3 class="title-item">
+                                Áo thun
+                            </h3>
+                        </a>
+                    </li>
+                    <div class="clearfix"></div>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://thucung.muabannhanh.com/" target="_blank" title="Thú cưng">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-thu-cung.png" alt="Thú cưng">
+                            <h3 class="title-item">
+                                Thú cưng
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://phukien.muabannhanh.com/" target="_blank" title="Phụ kiện">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-phu-kien.png" alt="Phụ kiện">
+                            <h3 class="title-item">
+                                Phụ kiện
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://dienlanh.muabannhanh.com/" target="_blank" title="Điện lạnh">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-dien-lanh.png" alt="Điện lạnh">
+                            <h3 class="title-item">
+                                Điện lạnh
+                            </h3>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="footer-alias">
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://tieuthuong.muabannhanh.com/" target="_blank" title="Tiểu thương">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-tieu-thuong.png" alt="Tiểu thương">
+                            <h3 class="title-item">
+                                Tiểu thương
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://khuyenmai.muabannhanh.com/" target="_blank" title="Khuyến mãi">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-khuyen-mai.png" alt="Khuyến mãi">
+                            <h3 class="title-item">
+                                Khuyến mãi 
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://thietkeweb.muabannhanh.com/" target="_blank" title="Thiết kế web">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-thiet-ke-web.png" alt="Thiết kế web">
+                            <h3 class="title-item">
+                                Thiết kế web
+                            </h3>
+                        </a>
+                    </li>
+                    <div class="clearfix"></div>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://quangcaogoogle.muabannhanh.com/" target="_blank" title="Quảng cáo Google">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-google.png" alt="Quảng cáo Google">
+                            <h3 class="title-item">
+                                Quảng cáo <br>
+                                Google
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://quangcaofacebook.muabannhanh.com/" target="_blank" title="Quảng cáo Facebook">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-facebook.png" alt="Quảng cáo Facebook">
+                            <h3 class="title-item">
+                                Quảng cáo <br>
+                                Facebook
+                            </h3>
+                        </a>
+                    </li>
+                    <li class="col-4 col-xs-4 col-md-2">
+                        <a href="http://chuyenphatnhanh.muabannhanh.com/" target="_blank" title="Chuyển phát nhanh">
+                            <img src="https://cdnthucung.muabannhanh.com/asset/home/img/ic-chuyen-phat-nhanh.png" alt="Chuyển phát nhanh">
+                            <h3 class="title-item">
+                                Chuyển phát <br>
+                                nhanh
+                            </h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p align="center">Giấy phép MXH số 170 GP-BTTTT ngày 07/04/2016</p>
+        </div>
+    </section>
+</footer>
+<div class="float-banner active">
+ <a href="<?php echo Util::htmlDecode($float_banner);?>" title="<?php echo $title_for_layout;?>" rel="nofollow" target="blank">
+  <img class="deactive" src="https://cdnblog.muabannhanh.com/asset/home/img/1.png" alt="">
+  <img class="active" src="https://cdnblog.muabannhanh.com/asset/home/img/2.png" alt="">
+  </a>
+</div>
+<div class="button-action-float-banner text-right">
+ <span class="btn btn-xs btn-default">Ẩn</span>
+</div>
+<style>
+ .img-head.active{
+  display: block;
+ }
+ .img-head{
+  position: fixed;
+  right: -0;
+  bottom: 25px;
+  display: none;
+ }
+ .float-banner{
+  position: fixed;
+  width: 250px;
+  right: -400px;
+  bottom: -220px;
+  -webkit-transition: all .75s;
+  -o-transition: all .75s;
+  transition: all .75s;
+  z-index: 99999999999999999999999;
+ }
+ .float-banner.active,
+ .button-action-float-banner{
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  z-index: 99999999999999999999999;
+ }
+ .float-banner img{
+  display: none;
+  max-width: 100%;
+ }
+ .float-banner img.active{
+  display: block;
+ }
+ .btn {
+  margin: 3px 0px 10px 0px;
+   display: inline-block;
+   margin-bottom: 0;
+   font-weight: normal;
+   text-align: center;
+   vertical-align: middle;
+   touch-action: manipulation;
+   cursor: pointer;
+   background-image: none;
+   border: 1px solid transparent;
+   border-radius: 3px;
+   white-space: nowrap;
+   padding: 2px 12px;
+   font-size: 14px;
+   line-height: 1.42857143;
+   border-radius:3px;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+ }
+ .btn-sm,
+ .btn-group-sm > .btn {
+   padding: 2px 10px;
+   font-size: 12px;
+   line-height: 1.5;
+   border-radius:3px;
+ }
+ .text-right{
+  text-align: right;
+ }
+ .btn-default {
+   color: #333333;
+   background-color: #ffffff;
+   border-color: #cccccc;
+ }
+ .btn-default:hover,
+ .btn-default:focus,
+ .btn-default.focus,
+ .btn-default:active,
+ .btn-default.active,
+ .open > .dropdown-toggle.btn-default {
+   color: #333333;
+   background-color: #e6e6e6;
+   border-color: #adadad;
+ }
+ .btn-default:active,
+ .btn-default.active,
+ .open > .dropdown-toggle.btn-default {
+   background-image: none;
+ }
+ .btn-danger {
+   color: #ffffff;
+   background-color: #d9534f;
+   border-color: #d43f3a;
+ }
+ .btn-danger:hover,
+ .btn-danger:focus,
+ .btn-danger.focus,
+ .btn-danger:active,
+ .btn-danger.active,
+ .open > .dropdown-toggle.btn-danger {
+   color: #ffffff;
+   background-color: #c9302c;
+   border-color: #ac2925;
+ }
+ .btn-danger:active,
+ .btn-danger.active,
+ .open > .dropdown-toggle.btn-danger {
+   background-image: none;
+ }
+</style>
+<script type="text/javascript">
+ $(document).ready(function(){
+  setInterval(function(){
+    $active = $('.float-banner img.active');
+    $deactive = $('.float-banner img.deactive');
+    $active.removeClass('active').addClass('deactive');
+    $deactive.removeClass('deactive').addClass('active');
+  },3500);
+  $('.button-action-float-banner .btn').click(function(){
+   if( $(this).text() =="Ẩn" ){
+    $('.float-banner').removeClass('active');
+    $('.img-head').addClass('active');
+    $(this).text("Hiện quảng cáo").removeClass('btn-default').addClass('btn-danger');
+   }else{
+    $('.float-banner').addClass('active');
+    $('.img-head').removeClass('active');
+    $(this).text("Ẩn").removeClass('btn-danger').addClass('btn-default');
+   }
+  });
+ });
+</script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script>

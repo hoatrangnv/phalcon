@@ -1,0 +1,49 @@
+h2.h2-post-title{margin:0px 0px 0px;font-size:22px;font-weight:700;}
+.under-title{overflow:hidden;padding:7.5px 0px 10px;font-size:13px;}
+.under-title .congso-breadcrumb{float:left;}
+.under-title .congso-breadcrumb ul{padding:0px;margin:0px;overflow:hidden;}
+.under-title .congso-breadcrumb ul li{margin:0px;padding:0px;list-style:none;float:left;}
+.under-title .congso-breadcrumb ul li:after{content:"/";}
+.under-title .congso-breadcrumb ul li:last-child:after{content:"";}
+.under-title .congso-breadcrumb ul li:first-child a{padding-left:0px;}
+.under-title .congso-breadcrumb ul li a{padding:5px;text-decoration:none;font-weight:700;color:#969696;display:inline-block;}
+.under-title .congso-breadcrumb ul li a:hover{color:#b71616;}
+.under-title .date-created{color:#969696;float:left;font-weight:700;margin:5px 0px 0px 10px;}
+.under-title .post-follow{float:left;color:#232323;margin:5px 0px 0px 10px;}
+.under-title .post-follow a{color:#969696;text-decoration:none;font-weight:700;}
+.under-title .post-follow a:hover{color:#b71616;}
+.congso-social{padding:0px 0px 10px;border:1px dashed #000;border-left:0px;border-right:0px;}
+.congso-social .fb-like,
+.congso-social .fb-share-button,
+.congso-social .pinterest-button{margin-left:10px;}
+.congso-social .google-button{display:inline-block;position:relative;bottom:-8px;margin-left:10px;}
+.post-info-description{margin:15px 0px;}
+.congso-maybe-like p{margin:0px 0px 5px;font-weight:700;}
+.congso-maybe-like ul{padding-left:25px;}
+.congso-maybe-like ul li{list-style:square;padding-bottom:5px;}
+.congso-maybe-like ul li a{text-decoration:none;color:#b71616;border-bottom:1px dotted transparent;}
+.congso-maybe-like ul li a:hover{border-color:#b11616;}
+.like{margin-bottom:15px;}
+.like img.like{padding-left:20px;margin-bottom:0px;}
+.like .fb-like{margin-left:0px;}
+.congso-post-related{margin-bottom:15px;}
+.congso-post-related .related-title{display:block;border-bottom:2px solid #eaeaea;padding-top:10px;padding-bottom:10px;margin-bottom:0px 0px 20px;font-size:21px;color:#000;font-size:700;}
+.congso-post-related ul{margin:0px;padding-left:0px;}
+.congso-post-related ul li{list-style:square;font-size:13px;margin:0 0 5px 25px;}
+.congso-post-related ul li a{color:#232323;text-decoration:none;}
+.congso-post-related ul li a:hover{color:#b71616;}
+.congso-list-member{padding-top:0px;border-bottom:0px;}
+.congso-list-member .h2-title{font-size:19px;font-weight:700;display:block;padding:0px 0px 8px;border-bottom:2px solid #232323;margin-top:0px;margin-bottom:20px;}
+.congso-list-member .member-note{margin-bottom:20px;color:#3a87ad;background-color:#d9edf7;border-color:#bce8f1;border-radius:4px;font-size:14px;padding:7.5px 15px;}
+.congso-profile .member-block .member-image{text-align:center;}
+.congso-profile .member-block .member-image img{width:50%;height:auto;border-radius:50%;}
+.congso-profile .member-block .member-name{color:#000;font-weight:700;padding:7.5px 0px;display:block;text-align:center;}
+.congso-profile .member-block .member-name a{color:#000;font-weight:700;padding:5px;display:block;text-align:center;}
+.congso-profile .member-block .member-name a:hover{color:#b71616;text-decoration:none;}
+.congso-profile .member-block .member-info a{color:#b71616;font-size:12px;text-decoration:none;}
+.congso-nav-tabs li a{padding:4px 15px;color:#b71616;font-weight:700;}
+.congso-tab-content{margin-top:15px;}
+.congso-tabpanel{position:relative;}
+.send-post-button{position:absolute;top:-4px;right:0px;display:inline-block;}
+.send-post-button a{color:white;display:inline-block;background-color:#b71616;padding:5px 10px;border-radius:4px;text-decoration:none;font-weight:700;transition:all 0.2s;-webkit-transition:all 0.2s;-moz-transition:all 0.2s;-ms-transition:all 0.2s;-o-transition:all 0.2s;}
+.send-post-button a:hover{background-color:#e1e1e1;color:#000;}

@@ -1,0 +1,27 @@
+<?php
+    $query = array(
+        'page' => $page,
+        'q' => $q,
+        'cache_name' => $cache_name
+    );
+?>
+
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs'); ?>
+    <?php echo $this->flashSession->output(); ?>
+    <div class="text-right">
+        <a class="btn btn-primary" href="<?php echo $this->url->get(array('for' => 'product_add', 'query' => '?' . http_build_query($query))); ?>"> Thêm sản phẩm </a>
+    </div>
+    <p></p>
+    <?php echo $this->partial('product/_list'); ?>
+    <?php
+    echo $this->partial('element/layout/_pagination', array(
+        'result' => $result,
+        'for' => 'product',
+        'query' => array(
+            'page' => $page,
+            'q' => $q
+        )
+    ));
+    ?>
+</div>

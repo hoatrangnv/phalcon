@@ -1,0 +1,130 @@
+/* 
+*
+* IMPORTANT : This file only manager structure : width , height , margin ....
+* Style developer Mr.Minh with Bootstrap 3 Full option css
+* None RESPONSIVE
+* Email: quangminh@vinadesign.vn
+*
+*
+*/
+.container {
+  width: 1200px;
+}
+img {
+  max-width: 100%;
+}
+.M-btn {
+  font-size: 16px;
+  margin: 6px;
+  clear: both;
+  font-family: monospace;
+  white-space: nowrap;
+  margin: auto;
+  display: inline-block;
+  background: none;
+  height: 34px;
+  font-size: 0;
+}
+/* Button elements */
+.M-btn > span,
+.btn-icon > i {
+  padding: 10px;
+  display: block;
+  float: left;
+  transition: 0.25s all;
+}
+.M-btn > span {
+  padding: 5px 7px;
+}
+.M-btn > span {
+  border-radius: 1px;
+  white-space: nowrap;
+  color: #ffffff;
+  background: #27983F;
+  height: 34px;
+}
+.btn:hover > span,
+.btn:focus > span {
+  background: #95a5a6;
+}
+.btn:active > span {
+  background: #95a5a6;
+  transition: none;
+}
+/* Button with an icon */
+.btn-icon > i {
+  border-radius: 1px 0 0 1px;
+  position: relative;
+  font-style: normal;
+  color: white;
+  background: #F076AD;
+  top: 0px;
+  height: 34px;
+  font-size: 14px;
+}
+.btn-icon > i:after {
+  /*This is to create the arrow beside the icon*/
+  content: "";
+  border: 5px solid;
+  border-color: transparent transparent transparent #F076AD;
+  position: absolute;
+  top: 12px;
+  right: -9px;
+}
+.btn-icon:hover > i,
+.btn-icon:focus > i {
+  color: #ddd;
+}
+.btn-icon > span {
+  border-radius: 0 1px 1px 0;
+  font-size: 14px;
+  padding: 8px 10px;
+}
+.pace .pace-progress {
+  background: #F076AD;
+  position: fixed;
+  z-index: 9999999999999999999999999999999999999999;
+  top: 0;
+  left: 0;
+  height: 2px;
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+.pace-inactive {
+  display: none;
+}
+img.full-width {
+  height: auto !important;
+  max-width: none;
+  max-height: none;
+  width: 100% !important;
+}
+img.full-height {
+  height: 100% !important;
+  max-width: none;
+  max-height: none;
+  width: auto !important;
+}
+.btn:hover,
+.btn:focus {
+  color: white;
+  text-decoration: none;
+}
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+  outline: none;
+  outline-offset: 0px;
+}
+.bs-callout {
+  padding: 10px;
+  margin: 0px 0 5px;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 1px;
+}
+.bs-callout-danger {
+  border-left-color: #F076AD;
+}

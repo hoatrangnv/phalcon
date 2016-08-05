@@ -1,0 +1,129 @@
+<?php use TVN\Datasource\Lib\Constant; ?>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Tiêu đề
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('name', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Mô tả
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('description', array('class' => 'form-control', 'style' => 'height:300px')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'description')); ?>
+    </div>
+</div>
+<!--  -->
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Title Box :
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('title_box', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'title_box')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Title h2 :
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('category_h2', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'category_h2')); ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Nội Dung h2 :
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('category_content_2', array('class' => 'form-control editor')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'category_content_2')); ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Title h3 :
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('category_h3', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'category_h3')); ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Nội Dung h3 :
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('category_content_3', array('class' => 'form-control editor')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'category_content_3')); ?>
+    </div>
+</div>
+<!--  -->
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Hình ảnh
+    </label>
+    <div class="col-sm-9">
+        <?php if ($category->image != ''): ?> 
+            <?php
+            $query = array(
+                'id' => $category->id,
+                'module' => $category->module,
+                'page' => $page,
+                'q' => $q,
+                'cache_name' => $cache_name
+            );
+            ?>
+            <img src="<?php echo $image_url . '150/' . $category->image; ?>">
+
+            <p></p>
+            <a href="<?php echo $this->url->get(array('for' => 'category_delete_image', 'query' => '?' . http_build_query($query))); ?>" class="btn btn-primary">
+                Xóa
+            </a>
+        <?php else: ?>
+            <img src="<?php echo $image_default_url . 'default.gif'; ?>">
+            <input type="file" id="img-file" name="img-file" style="display: none;">
+            <br>
+            <br>
+            <div>
+                <a onclick="$('#img-file').click();" id="choose-button" class="upload-avatar modelbox btn-grey btn btn-big w117">
+                    <span class="icon icon-sm icon-image"></span><span class="text">Chọn avatar</span>
+                </a>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#img-file').change(function() {
+                            $('#choose-button').html('<span class="icon icon-sm icon-image"></span><span class="text">Đã chọn</span>');
+                        });
+                    });
+                </script>
+            </div>
+        <?php endif; ?>
+            
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Danh mục cha
+    </label>
+    <div class="col-sm-4">
+        <?php echo $category_layout; ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Trạng thái
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('status', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'status')); ?>
+    </div>
+</div>

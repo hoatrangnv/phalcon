@@ -1,0 +1,23 @@
+<?php if(isset($result['files']) && !empty($result['files'])): ?>
+    <?php foreach ($result['files'] as $file): ?>
+        <div class="col-md-2 col-sm-2 gallery-img">
+            <div class="wrap-image">
+                <a class="group1 block text-center" href="<?php echo $image_url . $file; ?>" title="<?php echo $file; ?>">
+                    <img onclick="setLink('<?php echo $image_url . $file; ?>')" src="<?php echo $image_url . $file; ?>" alt="<?php echo $file; ?>" class="h120 W100">
+                </a>
+                <div class="chkbox"></div>
+                <div class="tools tools-bottom">
+                    <a href="#">
+                        <i class="clip-link-4"></i>
+                    </a>
+                    <a href="#">
+                        <i class="clip-pencil-3 "></i>
+                    </a>
+                    <a href="#">
+                        <i class="clip-close-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>

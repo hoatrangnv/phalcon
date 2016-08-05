@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="col-xs-8">
+        <div class="box-content">
+            <header class="block-title">
+                <h3 class="leftTitle">
+                    <span class="text">Đăng ký thành công</span>
+                </h3>
+            </header>
+            <div class="entry">
+                <div class="entry p-10">
+                    <article class="item-icon">
+                        <div class="des">Đăng nhập tài khoản</div>
+                    </article>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar col-xs-4">
+        <div class="inner-10">
+            <div class="block-ads outner-top-10">
+                <a href="<?php echo $this->url->get(array('for' => 'login_user')); ?>">
+                    <img alt="" src="<?php echo $this->config->asset->home_image_url . 'banner-hotline.png'; ?>">
+                </a>
+            </div>
+            <?php echo $this->partial('default/element/home/_subscriber'); ?>
+            <?php echo $this->partial('default/element/home/_fb_like_box'); ?>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

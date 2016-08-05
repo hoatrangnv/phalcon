@@ -1,0 +1,120 @@
+<?php use ITECH\Datasource\Model\Category; ?>
+<?php use ITECH\Datasource\Model\Tag; ?>
+<?php use ITECH\Datasource\Model\Article; ?>
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php $module = Constant::moduleTypeLabel(); ?>
+<?php //var_dump($user);?>
+<form action="" method="POST" enctype="multipart/form-data">
+<table class="table table-striped table-bordered table-hover table-full-width">
+        <thead>
+            <tr role="row">
+                <th>STT</th>
+                <th>Tiêu đề</th>
+                <th>Hình ảnh</th>
+                <th>Người đăng</th>
+                <th>Danh mục</th>
+                <th>Tags</th>
+                <th>Ngày tạo</th>
+                <th>Sắp xếp</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach ($result->items as $article): ?>
+                <?php
+                $query = array(
+                    'id' => $article->id,
+                    'page' => $page,
+                    'q' => $q,
+                    'cache_name' => $cache_name
+                );
+                
+                $article_detail = Article::findFirst(array(
+                        'conditions' => 'id = :id:',
+                        'bind' => array('id' => $article->id)
+                ));
+                ?>
+                <tr>
+                    <td><?php echo $article->id; ?></td>
+                    <td>
+                        <a href="<?php echo $this->url->get(array('for' => 'article_edit', 'query' => '?' . http_build_query($query))); ?>">
+                            <?php echo $article->title; ?>
+                        </a>
+                    </td>
+                    <td>
+                    <?php if ($article->image != ''): ?>
+                        <img src="<?php echo $this->config->asset->home_image_url . '150/' . $article->image; ?>">
+                    <?php else: ?>
+                        <img src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>">
+                    <?php endif; ?>
+                    </td>
+                    <td><?php echo $article_detail->getAdmin()->name ?></td>
+                    <td>
+                        <?php
+                        $categories = array();
+                        if ($article_detail->getArticleCategory()): 
+                            foreach ($article_detail->getArticleCategory() as $category): 
+                                $category = Category::findFirst(array(
+                                    'conditions' => 'id = :id:',
+                                    'bind' => array('id' => $category->category_id)
+                                ));
+                                if($category):
+                                    $categories[] = '<a href="" class="btn btn-xs btn-primary btn-squared">' . $category->name . '</a><br>';
+                                endif;
+                            endforeach;
+                        endif;
+                        ?>
+                        <?php echo implode(' ', $categories); ?>
+                    </td>
+                    <td>
+                    <?php
+                    if ($article_detail->getArticleTag()): 
+                        $tags = array();
+                        foreach ($article_detail->getArticleTag() as $tag): 
+                            $tag = Tag::findFirst(array(
+                                'conditions' => 'id = :id:',
+                                'bind' => array('id' => $tag->tag_id)
+                            ));
+                            
+                            if($tag):
+                               $tags[] = '<a href="">' . $tag->title . '</a>';
+                            endif;
+                        endforeach;
+                        echo implode(',', $tags);
+                    endif;
+                    ?>   
+                    </td>
+                    <td><?php echo date('d-m-Y h:i:s', $article->created_at); ?></td>                   
+                    <td>
+                        <input type="text" name="ordering[<?php echo $article->id; ?>]" class="form-control input-sm w50" autocomplete="off" value="<?php echo $article->ordering; ?>" />
+                    </td>
+                    <td align="center">
+                        <?php if ($article->status != Constant::ARTICLE_STATUS_DELETED): ?> 
+                            <a href="<?php echo $this->url->get(array('for' => 'article_delete', 'query' => '?' . http_build_query($query))); ?>" onclick="javascript:return confirm('Đồng ý xoá?');" class="btn btn-xs btn-bricky">
+                                <i class="fa fa-times fa fa-white"></i>
+                            </a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="submit" class="btn btn-sm btn-blue">
+                        Cập nhật
+                    </button>
+                </td>
+                <td></td>
+            </tr>    
+        </tbody>
+    </table>
+    <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>" />
+</form>    

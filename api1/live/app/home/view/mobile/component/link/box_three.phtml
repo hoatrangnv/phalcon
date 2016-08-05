@@ -1,0 +1,12 @@
+<?php if($result && count($result) > 0): ?>
+    <?php if ($group_link): ?>
+        <h2 class="link-title">
+            <?php echo $group_link->name; ?>
+        </h2>
+    <?php endif; ?>
+    <?php foreach ($result['main'] as $item): ?>
+        <a target="_BLANK" class="btn btn-teal btn-xs" href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>">
+            <?php echo $item->name; ?>
+        </a>
+    <?php endforeach; ?>
+<?php endif; ?>

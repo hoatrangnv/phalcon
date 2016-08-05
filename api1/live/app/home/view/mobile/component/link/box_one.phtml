@@ -1,0 +1,16 @@
+<?php if($result && count($result) > 0): ?>
+    <?php if ($group_link): ?>
+        <h2 class="link-title">
+            <?php echo $group_link->name; ?>
+        </h2>
+    <?php endif; ?>
+    <ul>
+        <?php foreach ($result['main'] as $item): ?>
+            <li>
+                <a target="_BLANK" href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>">
+                    <span class="fa fa-angle-right "></span> <?php echo $item->name; ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

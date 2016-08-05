@@ -1,0 +1,25 @@
+<div class="block-sidebar border3">
+    <div class="content-sidebar inner-9-15">
+        <p><b>Nhận bản tin Việc làm mới nhất qua email</b></p>
+
+        <form action="http://feedburner.google.com/fb/a/mailverify" method="POST" target="popupwindow" onsubmit="javascript:subscribeNewsletter();" class="form-theo-doi">
+            <div class="input-group m-b-5">
+                <input type="text" name="email" class="form-control text-field" placeholder="Email">
+                <button type="submit" class="btn btn-danger">Đăng ký</button>
+                <div class="clearfix"></div>
+            </div>
+            <div><i>(Bạn nhớ check email để kích hoạt)</i></div>
+
+            <input type="hidden" name="uri" value="timviecnhanh/vieclammoinhat">
+            <input type="hidden" name="loc" value="en_US">
+        </form>
+
+        <script type="text/javascript">
+            function subscribeNewsletter()
+            {
+                window.open('http://feedburner.google.com/fb/a/mailverify?uri=timviecnhanhvieclammoinhat', 'popupwindow', 'scrollbars=yes,width=550,height=520');
+                return true;
+            }
+        </script>
+    </div>
+</div>

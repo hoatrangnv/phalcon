@@ -1,0 +1,333 @@
+[14-Feb-2015 08:37:05 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 46
+[14-Feb-2015 08:37:05 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 47
+[14-Feb-2015 08:37:05 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 48
+[14-Feb-2015 08:37:22 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 46
+[14-Feb-2015 08:37:22 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 47
+[14-Feb-2015 08:37:22 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 48
+[14-Feb-2015 08:37:22 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 46
+[14-Feb-2015 08:37:22 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 47
+[14-Feb-2015 08:37:22 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 48
+[14-Feb-2015 08:41:54 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 46
+[14-Feb-2015 08:41:54 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 47
+[14-Feb-2015 08:41:54 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/hoatuoidep/live/app/admin/controller/AdminController.php on line 48
+[02-Mar-2015 17:58:32 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[02-Mar-2015 17:58:45 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[02-Mar-2015 17:59:24 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[02-Mar-2015 23:52:47 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[03-Mar-2015 00:15:57 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[03-Mar-2015 09:13:08 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[03-Mar-2015 10:01:32 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[03-Mar-2015 10:06:32 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[03-Mar-2015 10:06:38 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[03-Mar-2015 10:34:40 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[03-Mar-2015 14:44:57 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[05-Mar-2015 10:42:30 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 47
+[08-Mar-2015 17:33:50 Asia/Bangkok] PHP Notice:  Undefined offset: 3 in /usr/share/nginx/html/hoatuoidep/live/app/admin/view/order/_list.phtml on line 48
+[09-Mar-2015 15:39:50 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này chưa được phân quyền.' in /usr/share/nginx/html/hoatuoidep/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/hoatuoidep/live/web/admin/index.php on line 264
+[10-Mar-2015 13:55:58 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này chưa được phân quyền.' in /usr/share/nginx/html/hoatuoidep/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/hoatuoidep/live/web/admin/index.php on line 264
+[24-Mar-2015 14:32:18 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\UserCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 164
+[24-Mar-2015 14:32:25 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\UserCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 164
+[24-Mar-2015 14:34:30 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\UserCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 164
+[24-Mar-2015 14:34:50 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[24-Mar-2015 14:34:50 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[24-Mar-2015 14:34:50 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[24-Mar-2015 14:44:17 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\UserCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 549
+[24-Mar-2015 14:44:28 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\UserCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 549
+[24-Mar-2015 14:44:29 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\UserCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 549
+[24-Mar-2015 14:44:30 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\UserCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 549
+[24-Mar-2015 14:44:30 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\UserCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 549
+[24-Mar-2015 14:44:31 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\UserCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 549
+[26-Mar-2015 13:23:18 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[26-Mar-2015 13:23:18 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[26-Mar-2015 13:23:18 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[26-Mar-2015 13:23:28 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[26-Mar-2015 13:24:09 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[26-Mar-2015 13:25:43 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[26-Mar-2015 13:25:49 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[26-Mar-2015 13:29:13 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[26-Mar-2015 13:29:16 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[31-Mar-2015 09:39:21 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này chưa được phân quyền.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 10:46:16 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[31-Mar-2015 10:46:38 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[31-Mar-2015 10:47:05 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[31-Mar-2015 10:47:22 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[31-Mar-2015 10:52:20 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[31-Mar-2015 10:52:20 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[31-Mar-2015 10:52:20 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[31-Mar-2015 10:52:42 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[31-Mar-2015 10:52:42 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[31-Mar-2015 10:52:42 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[31-Mar-2015 10:59:04 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:01:40 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:04:23 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:06:11 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:25:17 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:26:04 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:43:33 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:45:02 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:47:34 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:47:44 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:54:26 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:54:44 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:58:23 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 11:58:59 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 12:00:23 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 12:01:15 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[31-Mar-2015 12:06:14 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[31-Mar-2015 12:06:57 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 11:37:21 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này chưa được phân quyền.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[01-Apr-2015 13:19:05 Asia/Bangkok] PHP Notice:  Undefined variable: category in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 103
+[01-Apr-2015 13:19:05 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 103
+[01-Apr-2015 13:19:05 Asia/Bangkok] PHP Warning:  Creating default object from empty value in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 104
+[01-Apr-2015 13:19:05 Asia/Bangkok] PHP Fatal error:  Call to undefined method stdClass::update() in /usr/share/nginx/html/blogmbn/live/app/admin/controller/ArticleController.php on line 105
+[01-Apr-2015 13:20:25 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 13:20:25 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 13:20:25 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 19:59:10 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 19:59:10 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 19:59:10 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 19:59:16 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 20:11:15 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 20:11:23 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 20:11:23 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 20:11:23 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 21:23:08 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 21:23:08 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 21:23:08 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 21:23:12 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 21:23:12 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 21:23:12 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 21:24:45 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 21:25:04 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 21:25:06 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 21:25:06 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 21:25:06 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 21:25:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 21:25:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 21:25:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 21:35:28 Asia/Bangkok] PHP Fatal error:  Class 'ITECH\Admin\Controller\FileCategory' not found in /usr/share/nginx/html/blogmbn/live/app/admin/controller/FileController.php on line 810
+[01-Apr-2015 22:11:36 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:11:36 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:11:36 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:11:57 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:11:57 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:11:57 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:12:25 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /usr/share/nginx/html/blogmbn/live/app/admin/controller/UserController.php on line 247
+[01-Apr-2015 22:16:22 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 22:16:54 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 22:19:31 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[01-Apr-2015 22:19:46 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[01-Apr-2015 22:19:57 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 22:20:45 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 22:21:38 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:21:38 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:21:38 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:23:54 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:23:54 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:23:54 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:23:59 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:23:59 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:23:59 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:24:04 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:24:04 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:24:04 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:24:09 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[01-Apr-2015 22:26:28 Asia/Bangkok] PHP Warning:  in_array() expects parameter 2 to be array, null given in /usr/share/nginx/html/blogmbn/live/app/admin/controller/UserController.php on line 227
+[01-Apr-2015 22:26:28 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /usr/share/nginx/html/blogmbn/live/app/admin/controller/UserController.php on line 247
+[01-Apr-2015 22:27:41 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /usr/share/nginx/html/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[01-Apr-2015 22:28:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:28:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:28:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:31:42 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:31:42 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:31:42 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:31:44 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:31:44 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:31:44 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:32:48 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:32:48 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:32:48 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[01-Apr-2015 22:32:52 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[01-Apr-2015 22:32:52 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[01-Apr-2015 22:32:52 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[02-Apr-2015 08:44:57 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này chưa được phân quyền.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[02-Apr-2015 09:11:58 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[02-Apr-2015 09:13:01 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[02-Apr-2015 09:13:30 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[02-Apr-2015 09:17:43 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[02-Apr-2015 09:18:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[02-Apr-2015 09:18:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[02-Apr-2015 09:18:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[02-Apr-2015 09:20:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[02-Apr-2015 09:20:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[02-Apr-2015 09:20:07 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[02-Apr-2015 09:20:29 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[02-Apr-2015 09:20:38 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[02-Apr-2015 09:20:38 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[02-Apr-2015 09:20:38 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /usr/share/nginx/html/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[02-Apr-2015 09:21:25 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /usr/share/nginx/html/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 264
+[02-Apr-2015 17:21:46 Asia/Bangkok] PHP Warning:  Phalcon\Session\Adapter::start(): open(/tmp/sess_seqeq9pmqe88opi1ivp969ih86, O_RDWR) failed: Permission denied (13) in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 181
+[02-Apr-2015 21:38:06 Asia/Bangkok] PHP Warning:  Phalcon\Session\Adapter::start(): open(/tmp/sess_4f48rfjt2rp4j0egudc6d6v911, O_RDWR) failed: Permission denied (13) in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 181
+[02-Apr-2015 21:44:55 Asia/Bangkok] PHP Warning:  Phalcon\Session\Adapter::start(): open(/tmp/sess_4f48rfjt2rp4j0egudc6d6v911, O_RDWR) failed: Permission denied (13) in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 181
+[02-Apr-2015 21:48:32 Asia/Bangkok] PHP Warning:  Phalcon\Session\Adapter::start(): open(/tmp/sess_4f48rfjt2rp4j0egudc6d6v911, O_RDWR) failed: Permission denied (13) in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 181
+[02-Apr-2015 21:53:19 Asia/Bangkok] PHP Warning:  Phalcon\Session\Adapter::start(): open(/tmp/sess_4f48rfjt2rp4j0egudc6d6v911, O_RDWR) failed: Permission denied (13) in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 181
+[02-Apr-2015 21:54:31 Asia/Bangkok] PHP Warning:  Phalcon\Session\Adapter::start(): open(/tmp/sess_4f48rfjt2rp4j0egudc6d6v911, O_RDWR) failed: Permission denied (13) in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 181
+[02-Apr-2015 21:57:38 Asia/Bangkok] PHP Warning:  Phalcon\Session\Adapter::start(): open(/tmp/sess_4f48rfjt2rp4j0egudc6d6v911, O_RDWR) failed: Permission denied (13) in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 181
+[02-Apr-2015 21:57:48 Asia/Bangkok] PHP Warning:  Phalcon\Session\Adapter::start(): open(/tmp/sess_4f48rfjt2rp4j0egudc6d6v911, O_RDWR) failed: Permission denied (13) in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 181
+[02-Apr-2015 22:02:54 Asia/Bangkok] PHP Warning:  Phalcon\Session\Adapter::start(): open(/tmp/sess_9t1okcs5pi91ein7k9f90trn55, O_RDWR) failed: Permission denied (13) in /usr/share/nginx/html/blogmbn/live/web/admin/index.php on line 181
+[03-Apr-2015 15:56:41 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /home/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[03-Apr-2015 15:56:41 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /home/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[03-Apr-2015 15:56:41 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /home/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[03-Apr-2015 16:55:30 Asia/Bangkok] PHP Notice:  Undefined variable: image_default_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 43
+[03-Apr-2015 16:55:35 Asia/Bangkok] PHP Notice:  Undefined variable: image_default_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 43
+[03-Apr-2015 19:54:42 Asia/Bangkok] PHP Notice:  Undefined variable: query in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[03-Apr-2015 19:54:42 Asia/Bangkok] PHP Warning:  http_build_query(): Parameter 1 expected to be Array or Object.  Incorrect value given in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[03-Apr-2015 19:54:49 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/blogmbn/live/app/admin/form/CategoryForm.php on line 45
+[03-Apr-2015 19:54:49 Asia/Bangkok] PHP Notice:  Undefined variable: image_default_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 43
+[03-Apr-2015 19:54:56 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/blogmbn/live/app/admin/form/CategoryForm.php on line 45
+[03-Apr-2015 19:54:56 Asia/Bangkok] PHP Notice:  Undefined variable: image_default_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 43
+[03-Apr-2015 19:55:03 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/blogmbn/live/app/admin/form/CategoryForm.php on line 45
+[04-Apr-2015 09:08:47 Asia/Bangkok] PHP Notice:  Undefined variable: query in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[04-Apr-2015 09:08:47 Asia/Bangkok] PHP Warning:  http_build_query(): Parameter 1 expected to be Array or Object.  Incorrect value given in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[04-Apr-2015 09:08:51 Asia/Bangkok] PHP Notice:  Undefined variable: query in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[04-Apr-2015 09:08:51 Asia/Bangkok] PHP Warning:  http_build_query(): Parameter 1 expected to be Array or Object.  Incorrect value given in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[04-Apr-2015 09:08:53 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/blogmbn/live/app/admin/form/CategoryForm.php on line 45
+[04-Apr-2015 09:08:53 Asia/Bangkok] PHP Notice:  Undefined variable: image_default_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 43
+[04-Apr-2015 10:09:06 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/blogmbn/live/app/admin/form/CategoryForm.php on line 45
+[04-Apr-2015 10:09:11 Asia/Bangkok] PHP Notice:  Undefined variable: image_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 36
+[04-Apr-2015 10:09:24 Asia/Bangkok] PHP Notice:  Undefined variable: query in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[04-Apr-2015 10:09:24 Asia/Bangkok] PHP Warning:  http_build_query(): Parameter 1 expected to be Array or Object.  Incorrect value given in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[04-Apr-2015 10:09:26 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/blogmbn/live/app/admin/form/CategoryForm.php on line 45
+[04-Apr-2015 10:09:26 Asia/Bangkok] PHP Notice:  Undefined variable: image_default_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 43
+[04-Apr-2015 10:09:59 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/blogmbn/live/app/admin/form/CategoryForm.php on line 45
+[04-Apr-2015 10:10:02 Asia/Bangkok] PHP Notice:  Undefined variable: query in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[04-Apr-2015 10:10:02 Asia/Bangkok] PHP Warning:  http_build_query(): Parameter 1 expected to be Array or Object.  Incorrect value given in /home/blogmbn/live/app/admin/view/category/choose.phtml on line 25
+[04-Apr-2015 10:10:06 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/blogmbn/live/app/admin/form/CategoryForm.php on line 45
+[04-Apr-2015 10:10:06 Asia/Bangkok] PHP Notice:  Undefined variable: image_default_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 43
+[04-Apr-2015 10:11:33 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/blogmbn/live/app/admin/form/CategoryForm.php on line 45
+[04-Apr-2015 10:14:21 Asia/Bangkok] PHP Notice:  Undefined variable: image_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 36
+[04-Apr-2015 10:17:01 Asia/Bangkok] PHP Notice:  Undefined variable: image_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 36
+[04-Apr-2015 10:17:13 Asia/Bangkok] PHP Notice:  Undefined variable: image_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 36
+[04-Apr-2015 10:17:16 Asia/Bangkok] PHP Notice:  Undefined variable: image_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 36
+[04-Apr-2015 10:17:18 Asia/Bangkok] PHP Notice:  Undefined variable: image_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 36
+[04-Apr-2015 10:17:21 Asia/Bangkok] PHP Notice:  Undefined variable: image_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 36
+[04-Apr-2015 10:17:23 Asia/Bangkok] PHP Notice:  Undefined variable: image_url in /home/blogmbn/live/app/admin/view/category/_form.phtml on line 36
+[04-Apr-2015 22:00:58 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::is_leader in /home/blogmbn/live/app/admin/controller/AdminController.php on line 46
+[04-Apr-2015 22:00:58 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::leader_id in /home/blogmbn/live/app/admin/controller/AdminController.php on line 47
+[04-Apr-2015 22:00:58 Asia/Bangkok] PHP Notice:  Access to undefined property ITECH\Datasource\Model\Admin::area in /home/blogmbn/live/app/admin/controller/AdminController.php on line 48
+[04-Apr-2015 22:01:02 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /home/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[04-Apr-2015 22:03:46 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /home/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[04-Apr-2015 22:04:07 Asia/Bangkok] PHP Notice:  Undefined variable: category_layout in /home/blogmbn/live/app/admin/view/user/_form.phtml on line 71
+[04-Apr-2015 22:49:39 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /home/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /home/blogmbn/live/web/admin/index.php on line 264
+[05-Apr-2015 23:05:27 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /home/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /home/blogmbn/live/web/admin/index.php on line 264
+[05-Apr-2015 23:05:40 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /home/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /home/blogmbn/live/web/admin/index.php on line 264
+[05-Apr-2015 23:05:44 Asia/Bangkok] PHP Fatal error:  Uncaught exception 'Phalcon\Exception' with message 'Tài khoản này không có quyền truy cập.' in /home/blogmbn/live/web/admin/index.php:264
+Stack trace:
+#0 {main}
+  thrown in /home/blogmbn/live/web/admin/index.php on line 264
+[08-Jul-2015 09:43:46 Asia/Bangkok] PHP Notice:  Undefined variable: query in /home/myphamphap/app/admin/view/category/choose.phtml on line 25
+[08-Jul-2015 09:43:46 Asia/Bangkok] PHP Warning:  http_build_query(): Parameter 1 expected to be Array or Object.  Incorrect value given in /home/myphamphap/app/admin/view/category/choose.phtml on line 25
+[08-Jul-2015 09:43:47 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/myphamphap/app/admin/form/CategoryForm.php on line 45
+[08-Jul-2015 09:43:47 Asia/Bangkok] PHP Notice:  Undefined variable: image_default_url in /home/myphamphap/app/admin/view/category/_form.phtml on line 43
+[08-Jul-2015 09:43:59 Asia/Bangkok] PHP Notice:  Trying to get property of non-object in /home/myphamphap/app/admin/form/CategoryForm.php on line 45
+[08-Jul-2015 09:59:06 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/myphamphap/app/admin/controller/UserController.php on line 247
+[09-Jul-2015 13:38:29 Asia/Bangkok] PHP Notice:  Undefined variable: image_default_url in /home/myphamphap/app/admin/view/category/_form.phtml on line 43

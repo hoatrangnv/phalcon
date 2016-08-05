@@ -1,0 +1,62 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php
+    $query_preview = array(
+        'id' => $article->id,
+        'page' => $page,
+        'q' => $q,
+        'cache_name' => $cache_name,
+        'from' => $from
+    );
+?>
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs');?>
+    <div class="text-right">
+        <a class="btn btn-primary" href="<?php echo $this->url->get(array('for' => 'file_gallery', 'query' => '?' . http_build_query($query_preview))); ?>"> Thêm </a>
+    </div>
+    <p></p>
+    <?php echo $this->flashSession->output(); ?>
+    <?php echo $this->partial('file/_list_gallery'); ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-eye"></i>
+            Thêm mới hình ảnh
+            <div class="panel-tools">
+                <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+                </a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="form" role="form" action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                <?php echo $this->flashSession->output(); ?>
+                <?php echo $this->partial('file/_form_gallery'); ?>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn btn-bricky">
+                            Thêm
+                        </button>
+                        <?php
+                        switch ($from) {
+                            case 'article':
+                                $action = 'article_edit';
+                                break;
+                            case 'product':
+                                $action = 'product_edit';
+                                break;
+                            case 'page':
+                                $action = 'page_edit';
+                                break;
+                        }
+                        ?>
+                        <a href="<?php echo $this->url->get(array('for' => $action, 'query' => '?' . http_build_query($query_preview))); ?>" class="btn btn-primary">
+                            Trở lại
+                        </a>
+                    </div>
+                </div>
+                <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>">
+            </form>
+        </div>
+    </div>
+</div>

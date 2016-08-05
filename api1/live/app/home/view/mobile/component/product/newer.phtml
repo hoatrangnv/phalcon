@@ -1,0 +1,43 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<?php if($result && count($result) > 0): ?>
+    <h2 class="aside-title">Sản phẩm mới</h2>
+    <div class="block-post list-post-category">
+        <?php foreach ($result as $item): ?>
+            <?php
+                if (!$item->alias):
+                    $item->alias = Util::slug($item->title);
+                endif;
+            ?>
+            <ul class="list-wrap list-unstyled">
+                <li class="item">
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post">
+                        <h2 class="title"><?php echo util::cutTextByChars($item->title,90); ?></h2>
+                    </a>
+                    <div class="info-left ">
+                        <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post">
+                            <img src="<?php echo $this->config->asset->home_image_url . '150/' . $item->image; ?>" alt="<?php echo $item->name; ?>">
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <h3 class="price">
+                            <?php 
+                            if (isset($attributes[$item->id]['price']) && $attributes[$item->id]['price'] != '0'):
+                                if (is_numeric($attributes[$item->id]['price'])) :
+                                    echo Util::formatMoney($attributes[$item->id]['price']). 'đ'; 
+                                else: 
+                                    echo $attributes[$item->id]['price'];
+                                endif;
+                                echo '<sup>VND</sup>';
+                            else : 
+                                echo 'Giá: Liên hệ';
+                            endif;
+                            ?>
+                        </h3>
+                        <p class="intro"><?php echo Util::niceWordsByChars($item->intro, 50, '...'); ?></p>
+                    </div>
+                </li>
+            </ul>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

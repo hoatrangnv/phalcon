@@ -1,0 +1,15 @@
+<?php foreach ($result->items as $item): ?>
+    <div class="item">
+        <a class="img-thumbs" title="546d9ac512b57_1416469189.png" rel="<?php echo $this->config->asset->home_image_url . '150/' . $item->file_name; ?>" href="">
+            <img class="img-polaroid" width="130" height="90" src="<?php echo $this->config->asset->home_image_url . '150/' . $item->file_name; ?>">
+        </a>
+        <div>
+            <a class="pull-left transparent change-file" rel="546d9ac512b57_1416469189.png" title="Change Name" href="">
+            <a class="pull-right transparent delete-file" title="Delete" rel="uploads%2F546d9ac512b57_1416469189.png" data-path="uploads%2F" href="">
+            <i class="icon-trash"></i>
+            </a>
+            <div class="clearfix"></div>
+            <p class="caption"><?php echo $item->title; ?></p>
+        </div>
+    </div>
+<?php endforeach; ?>

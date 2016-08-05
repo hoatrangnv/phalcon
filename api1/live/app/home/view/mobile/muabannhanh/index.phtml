@@ -1,0 +1,34 @@
+<?php if (isset($listPostApi)): ?>
+<?php echo $listPostApi ? $listPostApi : '' ?>
+<?php endif; ?>
+<div class="container">
+	<div class="row congso-list-main-post">
+	    <div class="col-sm-12 col-md-12">
+	        <h2 class="fresh-title">Tin nổi bật</h2>
+	    </div>
+	    <?php echo $fresh_layout; ?>
+	</div>
+</div>
+<div class="container">
+	<?php if ($categories && count($categories) > 0): ?>
+	    <div class="clearfix"></div>
+	    <div class="">
+	        <div class="row congso-list-sub-block">
+	            <?php $i = 1 ; ?>
+	            <?php foreach ($categories as $item): ?>
+	                <div class="col-lg-4 col-md-4 col-sm-4 box-home">
+	                    <div class="congso-sub-block box-detail">
+	                        <?php if(isset($box_layout[$item->id])): ?>
+	                        <?php echo $box_layout[$item->id]; ?>
+	                        <?php endif; ?>
+	                    </div>
+	                </div>
+	                <?php if ($i % 3 == 0): ?>
+	                    <div class="clearfix"></div>
+	                <?php endif; ?>
+	                <?php $i ++ ; ?>
+	            <?php endforeach; ?>
+	        </div>
+	    </div>
+	<?php endif; ?>
+</div>

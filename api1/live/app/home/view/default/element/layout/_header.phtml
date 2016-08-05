@@ -1,0 +1,322 @@
+<header id="header">
+    <div class="container">
+        <div class="col-sm-12 col-md-12 col-0" >
+            <a href="<?php echo $this->url->get(array('for' => 'home')); ?>" id="logo">
+                <img width="400px" style=";margin-top: 31px;" src="<?php echo $this->config->asset->home_image_url . 'logo.png'; ?>"  alt="<?php echo $title_for_layout;?>">
+            </a>
+            <!-- BANNER 1 -->
+        <?php if (isset($premiumList) && count($premiumList) == 9 ) : ?>
+            <div class="banner-header">
+                <div class="owl-carousel" id="owl-slider-top-ads">
+                <?php
+                    for ($i = 5 ; $i < 9; $i++) {
+                    $value = $premiumList[$i];
+                ?>
+                    <a rel="nofollow" href="<?php echo $value['url'] ?>" target="_blank">
+                        <div class="thumbnail">
+                            <img src="<?php echo $value['default_thumbnail_url'] ?>" alt="<?php echo $value['name'] ?>">
+                        </div>
+                        <div class="summary">
+                            <h5 class="title"><?php echo $value['name'] ?></h5>
+                            <div class="price">
+                                <?php
+                                    if ($value['price'] > 0 ) {
+                                        echo number_format($value['price']) . '<sup>đ</sup>';
+                                    } else {
+                                        echo 'Liên hệ ngay';
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </a>
+                <?php } ?>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#owl-slider-top-ads').owlCarousel({
+                        items: 3,
+                        afterInit : function(){
+                            $('#owl-slider-top-ads').find('.thumbnail').each(function(){
+                                $(this).height($(this).width() / 1.3333)
+                            });
+                        },
+                        navigation: true,
+                        pagination :false,
+                        autoPlay: 2000
+                    });
+                });
+            </script>
+        <?php endif; ?>
+        </div>
+        <div class="col-sm-9 col-md-9">
+            <div class="ad-header">
+            </div>
+        </div>
+        
+        <?php /* if (!$this->session->has('USER')): ?>
+            <a href="<?php echo $this->url->get(array('for' => 'login_facebook')); ?>">
+                Đăng nhập bằng Facebook
+            </a>
+        <?php else: ?>
+            <?php $facebook = $this->session->has('USER'); ?>
+            Đã đăng nhập thành công
+        <?php endif; */?>
+	<?php /*
+        <div class="blog-login">
+            <?php
+            if ($this->session->has('USER')):
+                $user = $this->session->get('USER');
+            ?>
+            Xin chào, <?php echo $user->result->name; ?><b></b>
+            <a href="<?php echo $this->url->get(array('for' => 'logout')); ?>" title="Đăng xuất">
+                <i class="fa fa-angle-double-right"></i>
+                Đăng xuất
+            </a>
+            <?php else: ?>
+            <div class="btn btn-default bt-login">
+                Đăng nhập
+            </div>
+            <div class="box-login">
+                <span class="button b-close">
+                    <span>X</span>
+                </span>
+                <div class="content">
+                    <div class="overlay-login">
+                        <img src="<?php echo $this->config->asset->home_image_url . 'ajax-loader.gif'; ?>" alt="Dữ liệu đang xử lý">
+                    </div>
+                    <div class="mess-login"></div>
+                    <form id="form-login" role="form" action="<?php echo $this->url->get(array('for' => 'login_mbn')); ?>" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                Dùng tài khoản bên www.muabannhanh.com để đăng nhập.<br />
+                                <br />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3">Số điện thoại</label>
+                            <div class="col-sm-9">
+                                <?php echo $form_l->render('phone', array('class' => 'form-control')); ?>
+                                <div class="mess-phone"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3">Mật khẩu</label>
+                            <div class="col-sm-9">
+                                <?php echo $form_l->render('password', array('class' => 'form-control')); ?>
+                                <div class="mess-password"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3"></label>
+                            <div class="col-sm-9">
+                               <button type="submit" class="btn pull-right">Đăng nhập</button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="referral_url" value="<?php echo 'http://' . $this->request->getHttpHost() . $this->request->getServer('REQUEST_URI'); ?>">
+                    </form>
+                </div>
+            </div>
+            <div class="btn btn-default bt-register">
+                <a href="http://muabannhanh.com" title="Đăng ký thành viên">Đăng ký</a>
+            </div>
+
+            <div class="box-register">
+                <span class="button b-close">
+                    <span>X</span>
+                </span>
+                <div class="content">
+                    <div class="overlay-register">
+                        <img src="<?php echo $this->config->asset->home_image_url . 'ajax-loader.gif'; ?>" alt="Dữ liệu đang xử lý">
+                    </div>
+                    <div class="mess-register"></div>
+                    <form id="form-register" role="form" action="<?php echo $this->url->get(array('for' => 'register_mbn')); ?>" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-sm-3">Số điện thoại</label>
+                            <div class="col-sm-9">
+                                <?php echo $form_r->render('phone', array('class' => 'form-control')); ?>
+                                <div class="mess-phone"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3">Mật khẩu</label>
+                            <div class="col-sm-9">
+                                <?php echo $form_r->render('password', array('class' => 'form-control')); ?>
+                                <div class="mess-password"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3">Mật khẩu</label>
+                            <div class="col-sm-9">
+                                <?php echo $form_r->render('confirm_password', array('class' => 'form-control')); ?>
+                                <div class="mess-confirm-password"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3">Họ và tên</label>
+                            <div class="col-sm-9">
+                                <?php echo $form_r->render('name', array('class' => 'form-control')); ?>
+                                <div class="mess-name"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3">Email</label>
+                            <div class="col-sm-9">
+                                <?php echo $form_r->render('email', array('class' => 'form-control')); ?>
+                                <div class="mess-email"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3"></label>
+                            <div class="col-sm-9">
+                               <button type="submit" class="btn pull-right">Đăng ký</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <?php endif; ?>
+        </div>
+    </div> */ ?>
+        <div class="clearfix"></div>
+    <?php echo $link_main_menu_layout; ?>
+</header>
+<?php /*
+<script>  
+$(document).ready(function(){
+    $(document).on('click', '.bt-login', function() {
+        document.getElementById("form-register").reset();
+        document.getElementById("form-login").reset();
+        $( ".mess-phone" ).html('');
+        $( ".mess-password" ).html('');
+        $( ".mess-confirm-password" ).html('');
+        $( ".mess-name" ).html('');
+        $( ".mess-email" ).html('');
+        $( ".mess-login" ).html('');
+        $( ".mess-login" ).html('');
+        $('.box-login').bPopup({
+            fadeSpeed: 'slow',
+            followSpeed: 1500
+        });
+        
+    });
+    $(document).on('click', '.bt-register', function() {
+        document.getElementById("form-register").reset();
+        document.getElementById("form-login").reset();
+        $( ".mess-phone" ).html('');
+        $( ".mess-password" ).html('');
+        $( ".mess-confirm-password" ).html('');
+        $( ".mess-name" ).html('');
+        $( ".mess-email" ).html('');
+        $( ".mess-login" ).html('');
+        $( ".mess-register" ).html('');
+        $('.box-register').bPopup({
+            fadeSpeed: 'slow',
+            followSpeed: 1500
+        });
+    });
+    
+    $("#form-register").submit(function() {
+        var url = $('#form-register').attr('action'),
+            data = $("#form-register").serialize();
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            beforeSend: function(){
+                $( ".overlay-register" ).show();
+            },
+            success: function(response) {
+                if (response.status == 200) {
+                    document.getElementById("form-register").reset();
+                    $( ".overlay-register" ).hide();
+                    $( ".mess-login" ).html('<div class="alert alert-danger">' + response.message + '</div>');
+                    $( ".box-register" ).hide();
+                    $( ".b-moda" ).remove();
+                    $('.box-login').bPopup({
+                        fadeSpeed: 'slow',
+                        followSpeed: 1500
+                    });
+                    
+                }
+                if (response.status == 400) {
+                    $( ".overlay-register" ).hide();
+                    $( ".mess-register" ).html('<div class="alert alert-danger">' + response.message + '</div>');
+                    if (typeof response.results.phone != 'undefined' && response.results.phone != '') {
+                        $( ".mess-phone" ).html('<span class="mess-input mess-error">' + response.results.phone + '</span>');
+                    } else {
+                        $( ".mess-phone" ).html('');
+                    }
+
+                    if (typeof response.results.password != 'undefined' && response.results.password != '') {
+                        $( ".mess-password" ).html('<span class="mess-input mess-error">' + response.results.password + '</span>');
+                    } else {
+                        $( ".mess-password" ).html('');
+                    }
+
+                    if (typeof response.results.confirm_password != 'undefined' && response.results.confirm_password != '') {
+                        $( ".mess-confirm-password" ).html('<span class="mess-input mess-error">' + response.results.confirm_password + '</span>');
+                    } else {
+                        $( ".mess-confirm-password" ).html('');
+                    }
+
+                    if (typeof response.results.name != 'undefined' && response.results.name != '') {
+                        $( ".mess-name" ).html('<span class="mess-input mess-error">' + response.results.name + '</span>');
+                    } else {
+                        $( ".mess-name" ).html('');
+                    }
+
+                    if (typeof response.results.email != 'undefined' && response.results.email != '') {
+                        $( ".mess-email" ).html('<span class="mess-input mess-error">' + response.results.email + '</span>');
+                    } else {
+                        $( ".mess-email" ).html('');
+                    }
+                }
+            }
+         });
+
+        return false;
+    });
+
+    $("#form-login").submit(function() {
+        var url = $('#form-login').attr('action'),
+            data = $("#form-login").serialize();
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            beforeSend: function(){
+                $( ".overlay-login" ).show();
+            },
+            success: function(response) {
+                if (response.status == 200) {
+                    $( ".overlay-login" ).hide();
+                    document.getElementById("form-login").reset();
+                    window.location.href = '' + response.results.referral_url + '';
+                }
+                if (response.status == 400) {
+                    $( ".overlay-login" ).hide();
+                    $( ".mess-login" ).html('<div class="alert alert-danger">' + response.message + '</div>');
+                    if (typeof response.results.phone != 'undefined' && response.results.phone != '') {
+                        $( ".mess-phone" ).html('<span class="mess-input mess-error">' + response.results.phone + '</span>');
+                    } else {
+                        $( ".mess-phone" ).html('');
+                    }
+
+                    if (typeof response.results.password != 'undefined' && response.results.password != '') {
+                        $( ".mess-password" ).html('<span class="mess-input mess-error">' + response.results.password + '</span>');
+                    } else {
+                        $( ".mess-password" ).html('');
+                    }
+                }
+            }
+         });
+
+        return false;
+    });
+})
+</script>
+*/ ?>

@@ -1,0 +1,80 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 pull-left table-left box onepage">
+            <div class="col-xs-8">
+                <?php echo $this->partial('default/element/layout/cart/_step_tow'); ?>
+                <h3 class="title">
+                    Thông tin bắt buộc
+                </h3>
+                <?php echo $this->flashSession->output(); ?>
+                <form id="form" role="form" action="" method="POST" enctype="multipart/form-data" class="form-logon-order">
+                    <div class="form-group">
+                        <label class="col-sm-12 required"><em>*</em>Email</label>
+                        <div class="col-sm-6">
+                            <?php echo $form->render('email', array('class' => 'form-control', 'placeholder' => 'info@hoatuoidep.com')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'email')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group content-radio">
+                        <label class="col-sm-12 required"><em>*</em>Mật khẩu</label>
+                        <div class="col-sm-6">
+                            <?php echo $form->render('password', array('class' => 'form-control')); ?>
+                            <?php if (isset($mess_password)): ?>
+                                <div class="has-error">
+                                    <span class="help-block"><?php echo $mess_password; ?></span>
+                                </div>
+                            <?php endif; ?>
+                            <div class="text-right" style="padding-top:5px;">
+                                <a href="" class="forgetpass text-right">Quên mật khẩu</a>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="form-group radio-block  ">
+                        <div class="col-sm-12 col-no-padding">
+                            <input type="radio" name="account" id="no-res" <?php  if (!$has_account): ?> checked="checked" <?php endif; ?> value="no-account"> <label for="no-res"> Đặt hàng không cần đăng ký</label> <br>
+                            <input type="radio" name="account" id="has-acount" <?php if ($has_account): ?> checked="checked" <?php endif; ?> value="has-account"> <label for="has-acount"> Đã có tài khoản</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <button type="submit" class="btn submit-cart">Tiếp tục đặt hàng</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-4 col-no-padding" id="ajax-cart">
+                <?php echo $cart_mini_layout; ?>	
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="<?php echo $this->config->asset->home_js_url . 'index.js?' . $this->config->asset->version; ?>"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+            if( $('.radio-block input:checked').val() == 'has-account' ){
+                    $('.content-radio').slideDown('fast');				
+            } 
+            $('.radio-block input').on('click',function(){
+                if( $('.radio-block input:checked').val() == 'has-account' ){
+                    $('.content-radio').slideDown('fast');				
+                }else {
+                    $('.content-radio').slideUp('fast');				
+                }     
+            })
+
+            $('#payment').on('change', function() {
+                $.ajax({
+                    type: 'post',
+                    url: '<?php echo $this->url->get(array('for' => 'ajax_payment')); ?>',
+                    data: {
+                        id: $(this).val()
+                    },
+                    success: function($res) {
+                        if (typeof $res != undefined) {
+                            $('#payment-description').html($res);
+                        }
+                    }
+                });
+            })
+    })	
+    
+</script>

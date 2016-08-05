@@ -1,0 +1,37 @@
+<?php use TVN\Datasource\Lib\Constant; ?>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Tiêu đề
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('name', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Mô tả
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('description', array('class' => 'form-control', 'style' => 'height:300px')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'description')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Danh mục cha
+    </label>
+    <div class="col-sm-4">
+        <?php echo $category_layout; ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Trạng thái
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('status', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'status')); ?>
+    </div>
+</div>

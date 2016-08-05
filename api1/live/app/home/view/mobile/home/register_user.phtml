@@ -1,0 +1,158 @@
+<div class="container">
+    <div class="col-xs-8">
+        <div class="box-content">
+            <header class="block-title">
+                <h3 class="leftTitle">
+                    <span class="text">Thành viên đăng nhập</span>
+                </h3>
+            </header>
+
+            <div class="entry p-10">
+                <div class="text-right " style=" margin-top: 13px;">
+                    <i>Đã là thành viên?</i>
+                    <a href="<?php echo $this->url->get(array('for' => 'login_user')); ?>" title="Đăng nhập thành viên" class="underline">
+                        Đăng nhập
+                    </a>
+                </div>
+
+                <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal" role="form">
+                    <?php echo $this->flashSession->output(); ?>
+
+                    <h3 class="f-r-title m-g-b-10">Thông tin đăng nhập</h3>
+                    <div class="clearfix"></div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="form-field-1"> 
+                            Email <span>*</span> 
+                        </label>
+                        <div class="col-sm-9">
+                            <?php echo $form->render('email', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'email')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Mật khẩu <span class="icon icon-xs icon-hoa-thi"></span>
+                        </label>
+                        <div class="col-sm-9">
+                            <?php echo $form->render('password', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'password')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-2 control-label">
+                            Nhập lại mật khẩu <span class="icon icon-xs icon-hoa-thi"></span>
+                        </label>
+                        <div class="col-sm-9">
+                            <?php echo $form->render('confirm_password', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'confirm_password')); ?>
+                        </div>
+                    </div> 
+                    
+                    <h3 class="f-r-title m-g-b-10">Thông tin cá nhân</h3>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Họ tên <span class="icon icon-xs icon-hoa-thi"></span>
+                        </label>
+                        <div class="col-sm-9">
+                            <?php echo $form->render('name', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Giới tính <span class="icon icon-xs icon-hoa-thi"></span>
+                        </label>
+                        <div class="col-sm-9">
+                            <div class="style-button w165" style="">
+                                <?php echo $form->render('gender', array('class' => 'select-style form-control')); ?>
+                                <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'gender')); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Tỉnh/thành phố <span class="icon icon-xs icon-hoa-thi"></span>
+                        </label>
+                        <div class="col-sm-9">
+                            <div class="style-button w165" style="">
+                                <?php echo $form->render('province', array('class' => 'select-style form-control')); ?>
+                                <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'province')); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Địa chỉ <span class="icon icon-xs icon-hoa-thi"></span>
+                        </label>
+                        <div class="col-sm-9">
+                            <?php echo $form->render('address', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'address')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">
+                            Ngày sinh <span class="icon icon-xs icon-hoa-thi"></span>
+                        </label>
+                        <div class="col-sm-9">
+                            <script type="text/javascript">
+                                $(document).ready(function() {
+                                    chooseDate('.block-date-choose');
+                                });
+                            </script>
+                            <div class="block-date-choose">
+                                <?php echo $form->render('day', array('class' => 'ngay select-style form-control w100 float-left', 'data-disS' => '1')); ?>
+                                <?php echo $form->render('month', array('class' => 'thang select-style form-control w100 float-left m-g-l-5', 'data-disS' => '1')); ?>
+                                <?php echo $form->render('year', array('class' => 'nam select-style form-control w100 float-left m-g-l-5 defaultS')); ?>
+                                <div class="clearfix"></div>
+                                <?php if(count($form->getMessagesFor('day')) || count($form->getMessagesFor('month')) || count($form->getMessagesFor('year'))): ?>
+                                <div class="has-error">
+                                    <span class="help-block" data-type="error">Yêu cầu chọn đầy đủ ngày, tháng, năm sinh.</span>
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Di động</label>
+                        <div class="col-sm-9">
+                            <?php echo $form->render('mobile' , array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'mobile')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label">Thỏa thuận sử dụng</div>
+                        <div class="col-sm-9">
+                            <?php echo $policy_detail->content; ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-9">
+                            Bằng việc nhấn nút đăng ký, bạn đã đồng ý với
+                            <a href="" class="text-primary" title="Thỏa thuận sử dụng">thỏa thuận sử dụng</a>
+                            của Chợ Nông Nghiệp
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-big btn-danger col-xs-2 col-push-2">
+                                Đăng ký
+                            </button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar col-xs-4">
+            <?php echo $this->partial('default/element/home/_subscriber'); ?>
+            <?php echo $this->partial('default/element/home/_fb_like_box'); ?>
+    </div>
+    <div class="clearfix"></div>
+</div>

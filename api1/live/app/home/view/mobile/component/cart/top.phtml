@@ -1,0 +1,55 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<a class="M-btn  btn-icon  btn-primary" href=#>
+    <i class="fa fa-shopping-cart"></i>
+    <span>
+        Giỏ hàng (
+        <?php
+            if(isset($carts) && !empty($carts)):
+                echo count($carts);
+            else:
+                echo '0';
+            endif;
+        ?>
+        sp)
+    </span>
+</a>
+<div class="mini-cart ">
+    <div class="cart-content">
+        <?php if(isset($carts) && !empty($carts)): ?>
+            <table class="cart-table" width="300px;">
+                <thead>
+                    <th width="20%">Hình</th>
+                    <th width="60%">Tên</th>
+                    <th width="20%">Giá</th>
+                </thead>
+                <tbody>
+                <?php foreach($carts as $item): ?>
+                    <tr>
+                        <td width="20%">
+                            <?php if ($item['image'] != ''): ?>
+                                <img src="<?php echo $image_url . '150/' . $item['image']; ?>" alt="<?php echo $item['title']; ?>" alt="<?php echo $item['title']; ?>">
+                            <?php else: ?>
+                                <img src="<?php echo $image_default_url . '/default.gif'; ?>" alt="<?php echo $item['title']; ?>" alt="<?php echo $item['title']; ?>">
+                            <?php endif; ?>
+                        </td>
+                        <td width="60%" class="name"><?php echo $item['title']; ?></td>
+                        <td width="20%" class="text-right">
+                            <div class="price">
+                                <?php echo Util::formatMoney($item['price']); ?>đ (<small>x<?php echo $item['quantity']; ?></small>)
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                    <tr>
+                        <td colspan="3" class="action">
+                            <a href="<?php echo $this->url->get(array('for' => 'cart_check_out')); ?>" class="checkout"><i class="fa fa-arrow-right"></i> Thanh toán</a>
+                            <a href="<?php echo $this->url->get(array('for' => 'cart')); ?>" class="viewcart"><i class="fa fa-shopping-cart"></i> Xem giỏ</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <?php else: ?>
+            Không có sản phẩm nào trong giỏ hàng. Bạn có thể tìm mua sản phẩm <a href="<?php echo $this->url->get(array('for' => 'home')); ?>" title="chọn mua sản phẩm">tại đây</a>
+        <?php endif; ?>
+    </div>
+</div>

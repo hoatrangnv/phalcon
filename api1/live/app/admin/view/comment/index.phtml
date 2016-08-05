@@ -1,0 +1,79 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php $user = $this->session->get('USER'); ?>
+<?php $status_select = Constant::commentStatusLabel(); ?>
+
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs'); ?>
+    <?php echo $this->flashSession->output(); ?>
+
+    <p></p>
+    <table class="table table-striped table-bordered table-hover table-full-width">
+        <thead>
+            <tr role="row">
+                <th>Id</th>
+                <th>Nội dung</th>
+                <th>Bài viết</th>
+                <th>Ngày đăng</th>
+                <th>Tình trạng</th>
+                <th>Xử lý</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($result->items as $comment): ?>
+                <?php
+                $query = array(
+                    'id' => $comment->id,
+                    'page' => $page,
+                    'q' => $q
+                );
+                ?>
+                <tr>
+                    <td>
+                        <?php echo $comment->id; ?>
+                    </td>
+                    <td>
+                        <?php echo $comment->description; ?>
+                    </td>
+                    <td>
+                        <a href="<?php echo $this->config->application->base_home_url . $comment->article_alias . '/' . $comment->article_id; ?>" title="<?php echo $comment->article_title; ?>" target="_BLANK">
+                            <?php echo $comment->article_title; ?>
+                        </a>
+                    </td>
+                    <td><?php echo date('d-m-Y H:i:s', strtotime($comment->created_at)); ?></td>
+                    <td align="center">
+                        <?php echo $status_select[$comment->status]; ?>
+                    </td>
+                    <td align="center">
+                        <?php if($comment->status != Constant::COMMENT_STATUS_DELETED): ?>
+                            <a class ="btn btn-bricky btn-sm" href="<?php echo $this->url->get(array('for' => 'comment_delete', 'query' => '?' . http_build_query($query))); ?>">
+                                Xóa
+                            </a>
+                        <?php endif; ?>
+                        <?php if($comment->status != Constant::COMMENT_STATUS_ACTIVED): ?>
+                            <a class ="btn btn-success btn-sm" href="<?php echo $this->url->get(array('for' => 'comment_actived', 'query' => '?' . http_build_query($query))); ?>">
+                                Duyệt
+                            </a>
+                        <?php endif; ?>
+                        <?php if($comment->status != Constant::COMMENT_STATUS_INACTIVED): ?>
+                            <a class ="btn btn-yellow btn-sm" href="<?php echo $this->url->get(array('for' => 'comment_inactived', 'query' => '?' . http_build_query($query))); ?>">
+                                Ẩn
+                            </a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <?php
+    echo $this->partial('element/layout/_pagination', array(
+        'result' => $result,
+        'for' => 'comment',
+        'query' => array(
+            'page' => $page,
+            'q' => $q
+        )
+    ));
+    ?>
+</div>

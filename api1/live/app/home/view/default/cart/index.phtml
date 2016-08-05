@@ -1,0 +1,82 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<div class="container">
+    <div class="row">
+        <div class="box-content">
+            <div class="cart-preview">
+                <div class="content-cart box ">
+                    <?php echo $this->partial('default/element/layout/cart/_step_one'); ?>
+                    <header>
+                        <h3 class="order">
+                            Đơn hàng của bạn
+                        </h3>
+                    </header>
+                    <?php echo $this->flashSession->output(); ?>
+                    <?php if(isset($carts) && !empty($carts)): ?>
+                    <form id="form" role="form" action="<?php echo $this->url->get(array('for' => 'cart_update')); ?>" method="POST" enctype="multipart/form-data" class="f-addtocart">
+                        <div class="content-order">
+                            <div class="mess bg-info">Bạn có <?php echo count($carts); ?> sản phẩm trong giỏ hàng. Đặt hàng trên 150.000đ để đươc miễn phí vận chuyển.</div>
+                            <div class="table-order">
+                                <table width="100%">
+                                    <thead>
+                                        <th width="40%">Sản phẩm</th>
+                                        <th width="15%">Hình ảnh</th>
+                                        <th width="10%">Số lượng</th>
+                                        <th width="15%">Giá</th>
+                                        <th width="15%">Thành tiền</th>
+                                        <th width="5%"></th>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($carts as $item): ?>
+                                            <tr>
+                                                <td><?php echo $item['title']; ?></td>
+                                                <td>
+                                                    <?php if ($item['image'] != ''): ?>
+                                                        <img src="<?php echo $image_url . '150/' . $item['image']; ?>" alt="<?php echo $item['title']; ?>" class="w50 h50">
+                                                    <?php else: ?>
+                                                        <img src="<?php echo $image_default_url . '/default.gif'; ?>" alt="<?php echo $item['title']; ?>" class="w50 h50">
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="soluong" name="quantity[]" value="<?php echo $item['quantity']; ?>">
+                                                </td>
+                                                <td><?php echo Util::formatMoney($item['price']); ?>đ</td>
+                                                <td><?php echo Util::formatMoney($item['total']); ?>đ</td> 
+                                                <td><a href="<?php echo $this->url->get(array('for' => 'cart_delete', 'query' => '?' . http_build_query(array('id' => $item['id'])))); ?>"><i class="fa fa-trash-o"></i></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>   
+                        </div>
+                        <div class="clearfix m-b-5"></div>
+                        <div class="pull-right">
+                            <button id="continue" class="btn submit-cart" type="button">Tiếp tục mua hàng</button>
+                            <button class="btn submit-cart" type="submit">Cập nhật</button>
+                            <button id="delete" class="btn submit-cart" type="button">Xóa giỏ hàng</button>
+                            <button id="checkout" class="btn submit-cart" type="button">Thanh toán</button>
+                        </div>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                $('#continue').on('click', function() {
+                                    window.location.href = '<?php echo $this->url->get(array('for' => 'home')); ?>';
+                                });
+                                
+                                $('#checkout').on('click', function() {
+                                    window.location.href = '<?php echo $this->url->get(array('for' => 'cart_check_out')); ?>';
+                                });
+                                
+                                $('#delete').on('click', function() {
+                                    window.location.href = '<?php echo $this->url->get(array('for' => 'cart_delete_all')); ?>'; 
+                                });
+                            });
+                        </script>
+                    </form>
+                    <?php else: ?>
+                        <div class="mess bg-info"> Không có sản phẩm nào trong giỏ hàng. Bạn có thể tìm mua sản phẩm <a href="<?php echo $this->url->get(array('for' => 'home')); ?>" title="chọn mua sản phẩm">tại đây</a></div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

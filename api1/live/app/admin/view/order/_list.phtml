@@ -1,0 +1,76 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<?php 
+$payment_status = Constant::paymentStatusLabel();
+$order_status = Constant::orderStatusLabel();
+?>
+<form action="" method="POST" enctype="multipart/form-data">
+<table class="table table-striped table-bordered table-hover table-full-width">
+        <thead>
+            <tr role="row">
+                <th>STT</th>
+                <th>Khách hàng</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+                <th>Thanh toán</th>
+                <th>Trạng thái</th>
+                <th>Giao hàng</th>
+                <th>Phí</th>
+                <th>Ngày đặt</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach ($result->items as $order): ?>
+                <?php
+                $query = array(
+                    'id' => $order->id,
+                    'page' => $page,
+                    'q' => $q,
+                    'cache_name' => $cache_name
+                );
+                ?>
+                <tr>
+                    <td><?php echo $order->id; ?></td>
+                    <td>
+                        <a href="<?php echo $this->url->get(array('for' => 'order_edit', 'query' => '?' . http_build_query($query))); ?>">
+                            <?php echo $order->order_user_name; ?>
+                        </a>
+                    </td>
+                    <td><?php echo $order->total; ?></td>
+                    <td><?php echo Util::formatMoney($order->total_amount) . 'đ'; ?></td>
+                    <td><?php echo $payment_status[$order->payment_status]; ?></td>
+                    <td><?php echo $order_status[$order->status]; ?></td>
+                    <td><?php echo Util::formatMoney($order->delivery_fee) . 'đ'; ?></td>
+                    <td><?php echo $transports[$order->delivery_method]['title']; ?></td>
+                    <td><?php echo date('d-m-Y', $order->created_at); ?></td>
+                    <td align="center">
+                        <?php if ($order->status != Constant::STATUS_DELETED): ?> 
+                            <a href="<?php echo $this->url->get(array('for' => 'order_delete', 'query' => '?' . http_build_query($query))); ?>" onclick="javascript:return confirm('Đồng ý xoá?');" class="btn btn-xs btn-bricky">
+                                <i class="fa fa-times fa fa-white"></i>
+                            </a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="submit" class="btn btn-sm btn-blue">
+                        Cập nhật
+                    </button>
+                </td>
+                <td></td>
+            </tr>    
+        </tbody>
+    </table>
+    <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>" />
+</form>    

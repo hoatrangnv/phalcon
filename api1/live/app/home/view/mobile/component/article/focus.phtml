@@ -1,0 +1,43 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php if($result && count($result) > 0): ?>
+    <?php foreach ($result as $item): ?>
+        <div class="congso-post-block">
+            <div class="post-image focus-img">
+                <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>">
+                <?php if ($item->image != ''): ?>
+                    <img src="<?php echo $this->config->asset->home_image_url . '250/' . $item->image; ?>" alt="<?php echo $item->title; ?>">
+                <?php else: ?>
+                    <?php if ($item->image == ''): ?>
+                        <img src="<?php echo $this->config->asset->home_image_url . 'image_not_found.jpg'; ?>" alt="<?php echo $item->title; ?>">
+                    <?php endif; ?>
+                <?php endif; ?>
+                </a>
+            </div>
+            <div class="post-detail box-focus">
+                <h3 class="post-title">
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post">
+                        <?php echo util::niceWordsByChars($item->title,90); ?>
+                    </a>
+                </h3>
+                <div class="post-author">
+                    <a class="author-name" href="">
+                        <b style="color: red"><?php echo $item->admin_name; ?></b>, <?php echo Constant::MEMBER; ?>
+                    </a>
+                </div>
+                <div class="post-body">
+                    <?php echo util::niceWordsByChars($item->intro,300); ?>
+                </div>
+                <div class="post-footer">
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="congso-readmore">
+                        Đọc tiếp <i class="fa fa-share"></i>
+                    </a>
+                    <span><?php echo date('d/m/Y H:i:s', $item->created_at); ?></span>
+                    <span class="analytics"><?php echo $item->hits; ?></span>
+
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>

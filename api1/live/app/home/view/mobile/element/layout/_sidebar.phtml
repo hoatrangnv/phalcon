@@ -1,0 +1,56 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<?php $action = $this->router->getActionName(); ?>
+<?php if ($action == 'index' || $action == 'tagList1' || $action == 'categoryList'): ?>
+    <div class="adver-block">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Blog_MBN_home_cate_web_sidebar -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="ca-pub-1637346731627697"
+             data-ad-slot="6543320111"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+<?php endif; ?>
+<style>
+    .fixed-block-funding {
+        position: fixed;
+        top: 0;
+        width: 303px;
+    }
+</style>
+
+<script>
+            $(window).load(function() {
+                setTimeout(function(){
+                    $offTop = $('.block-funding').offset().top;
+                    if ($(window).width() > 991){
+                        fix_menu();
+                    } 
+                    $(window).scroll(function() {
+                        if ($(window).width() > 991){
+                            fix_menu();
+                        }  
+                    });
+                },300)
+        
+    });
+
+            function fix_menu() {
+                $top = $(window).scrollTop();
+                $hhtml = $('html').height(); 
+                $hfoot = $('#footer').height(); 
+                $hfund = $('.block-funding').height(); 
+                $temp = $hhtml - $hfoot - $hfund;
+                if ($top > $offTop && $top < $temp) {
+             
+            $('.block-funding').addClass('fixed-block-funding');
+            $('.block-funding').css('margin-top', 20);
+        } else {
+            $('.block-funding').removeClass('fixed-block-funding');
+            $('.block-funding').css('margin-top', 0);
+        }
+    }
+</script>

@@ -1,0 +1,19 @@
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs'); ?>
+    <?php echo $this->flashSession->output(); ?>
+    <div class="text-right">
+        <a class="btn btn-primary" href="<?php echo $this->url->get(array('for' => 'page_add')); ?>"> Thêm bài viết </a>
+    </div>
+    <p></p>
+    <?php echo $this->partial('page/_list'); ?>
+    <?php
+    echo $this->partial('element/layout/_pagination', array(
+        'result' => $result,
+        'for' => 'page',
+        'query' => array(
+            'page' => $page,
+            'q' => $q
+        )
+    ));
+    ?>
+</div>

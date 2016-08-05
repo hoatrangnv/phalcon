@@ -1,0 +1,31 @@
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f2ee9b58909107"></script>
+
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $social_facebook_for_layout; ?>";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk')
+    );
+ 
+
+function hide_ads_bottom_right() {
+    var content = document.getElementById('ads-bottom-right');
+    var hide = document.getElementById('ads-hide_bottom-right');
+    if (content.style.display == "none") {
+        content.style.display = "block";
+        hide.innerHTML = '<a href="javascript:hide_ads_bottom_right()">Tắt</a>';
+    }
+    else {
+        content.style.display = "none";
+        hide.innerHTML = '<a href="javascript:hide_ads_bottom_right()">Bật</a>';
+    }
+}
+
+</script>
+
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=+OH8l1aoqAD2cv" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->

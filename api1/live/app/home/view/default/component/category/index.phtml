@@ -1,0 +1,32 @@
+<div class="block-category">
+    <div class="asd-left">
+        <a href="">
+            <img src="<?php echo $this->config->asset->home_image_url . 'asd.png'; ?>" alt="">
+        </a>
+    </div>
+    <div class="category-right">
+        <?php if($result): ?>
+            <?php foreach ($result as $item): ?>
+                <div class="item">
+                    <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $item->slug)); ?>" class="thumbnail">
+                        <?php if ($item->image != ''): ?>
+                            <img src="<?php echo $this->config->asset->home_image_url . '150/' . $item->image; ?>" alt="<?php echo $item->title; ?>" style="width:137px; height:137px">
+                        <?php else: ?>
+                            <img src="<?php echo $this->config->asset->home_image_url . '/default.gif'; ?>" alt="<?php echo $item->title; ?>" style="width:137px; height:137px">
+                        <?php endif; ?>
+                    </a>
+                    <div class="summary">
+                        <h3 class="title">
+                            <?php echo $item->name; ?>
+                        </h3>
+                        <h4 class="des">
+                            <?php echo $item->description; ?>
+                        </h4>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix "></div>
+</div>

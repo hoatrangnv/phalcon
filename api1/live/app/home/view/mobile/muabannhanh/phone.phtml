@@ -1,0 +1,82 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="block-mbn mobile">
+<div class="container">
+<?php if (isset($article) > 0 && count($article['result'])) : ?>
+    <h1 class="post-title" style="color: #428bca">
+        <?php echo $user->name ? $user->name : '' ?>
+    </h1>
+    <br>
+    <div class="list-post block-category-mbn">
+        <div class="list-wrap list-wrap list-product">
+            <?php
+
+            foreach ($article['result'] as $key => $item) {
+                $item = $item['_source'];
+                if (isset($item) && count($item) > 0) :
+            $url = $this->url->get(array('for'=>'mbn_detail','id'=>$item['id'],'slug'=>$item['slug']));
+            $name           = $item['name'] ? Util::niceWordsByChars($item['name'],45) : "";
+            $thumbnail      = $item['default_thumbnail_url'] ? $item['default_thumbnail_url'] : "";
+            $price          = $item['price'] ? number_format($item['price'],0,".",".").'<sup>VND</sup>' : "Liên hệ" ;
+            $type           = $item['type_value'] == 1 ? "Cần bán/ Dịch vụ" : "Cần mua/ Cần tìm" ;
+            $conditions     = $item['conditions'] ? $item['conditions'] : "";
+            $local          = $item['province']['name'] ? $item['province']['name'] : "";
+            $phone          = $item['user']['phone'] ? $item['user']['phone'] : "";
+            $updated        = $item['updated_at'];
+            $category_name  = $item['category']['name'];
+            $hits           = number_format($item['view_count'],0,".",".");
+            $user_name      = $item['user']['name'];
+            $category_id    = $item['category']['id'];
+            
+            ?>
+                <div class="item box-shadow">
+                    <div class="entry">
+                        <a class="link-spec" href="<?php echo $url ?>"></a>
+                        <div class="img-thumbnail">
+                            <img src="<?php echo $thumbnail ?>" alt="">
+                        </div>
+                        <div class="summary">
+                            <h3 class="title-post" itemprop="name">
+                            <?php if($item['user']['membership_value']==23){
+                                echo '<span class="label-premium Partner">Partner</span>';
+                                }elseif($item['user']['membership_value']==22){
+                                    echo '<span class="label-premium">Vip</span>';
+                                }else{
+                                    echo '';
+                            }?>
+                                <?php echo $name; ?>
+                            </h3>
+                            <div class="price">
+                                <?php echo $price;?>
+                            </div>
+                            <div class="text-left">
+                                <div class="post-meta">
+                                    <?php echo $user_name.' - '.$local; ?>
+                                </div>
+                            </div>
+                            <div class="term">
+                                <a href="">
+                                    <?php echo $category_name ; ?>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <span class="analytics"><?php echo $hits.' &#8226; '.$conditions.' &#8226; '.$updated;?></span>
+                    </div>
+                </div>
+               
+            <?php endif; ?>
+            <?php }
+            ?>
+        </div>
+    </div>
+    <?php echo $pagination ? $pagination : ''; ?>
+<?php else: ?>
+    <div class="">
+        <div class="alert alert-danger">
+            Không tìm thấy tin đăng
+            <a href="<?php echo $this->url->get(array('for' => 'mbn_home')); ?>" class="btn btn-success">Xem tin khác</a>
+        </div>
+    </div>
+<?php endif; ?>
+</div>
+</div>

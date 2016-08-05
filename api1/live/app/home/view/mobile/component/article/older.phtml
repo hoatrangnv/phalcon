@@ -1,0 +1,21 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<?php if($result && count($result) > 0): ?>
+    <h2 class="related-title">Bài viết cũ hơn</h2>
+    <?php foreach ($result as $item): ?>
+        <?php
+            if (!$item->alias):
+                $item->alias = Util::slug($item->title);
+            endif;
+        ?>
+        <ul class="sub-item">
+            <li>
+                <span class="date red"><?php echo date('d/m/Y', $item->created_at); ?></span>
+                <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post">
+                    <?php echo util::niceWordsByChars($item->title,90); ?>
+                </a>
+                <span class="analytics"><?php echo $item->hits; ?></span>
+            </li>
+        </ul>
+    <?php endforeach; ?>
+<?php endif; ?>

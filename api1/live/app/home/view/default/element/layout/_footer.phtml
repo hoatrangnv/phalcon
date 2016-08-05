@@ -1,0 +1,179 @@
+<?php use ITECH\Datasource\Lib\Util;?>
+<div class="container">
+    <?php echo Util::itemAds(5, $premiumList); ?>
+</div>
+<footer id="footer">
+    <div class="container footer">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-0 m-g-b-10">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-0 footer-box-one">
+                <?php echo $link_box_one_layout; ?>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 footer-box-tow">
+                <?php echo $link_box_tow_layout; ?>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-0 footer-box-three">
+                <?php echo $link_box_three_layout; ?>
+            </div>
+        </div>
+    </div>
+     <?php 
+        if( $this->router->getControllerName() == 'home' &&  $this->router->getActionName() == 'index'){?>
+            <div class="info-footer">
+            <div class="container">
+                <h4 align="left" style="color: White;"><?php echo Util::htmlDecode($footer_title);?></h4>
+            </div>
+            </div>
+            <div class="container" style="margin-top: 10px;">            
+                    <?php echo Util::htmlDecode($footer_for_layout);?>
+            </div>
+        <?php }else{?>
+            <div class="info-footer">
+            <div class="container">
+                <h4 align="left" style="color: White;"><?php echo $title_for_layout; ?></h4>
+            </div>
+            </div>
+            <div class="container" style="margin-top: 10px;">            
+                    <?php echo $description_for_layout;?>
+            </div>
+        <?php }
+    ?>
+    <div class="float-banner active">
+ <a href="<?php echo Util::htmlDecode($float_banner);?>" title="<?php echo Util::htmlDecode($float_banner_title);?>" rel="nofollow" target="blank">
+  <img class="deactive" src="https://cdnblog.muabannhanh.com/asset/home/img/1.png" alt="<?php echo $title_for_layout;?>">
+  <img class="active" src="https://cdnblog.muabannhanh.com/asset/home/img/2.png" alt="<?php echo $title_for_layout;?>">
+ </a>
+</div>
+<div class="button-action-float-banner text-right">
+ <span class="btn btn-xs btn-default" style="padding: 6px;">Ẩn</span>
+</div>
+<style>
+ .img-head.active{
+  display: block;
+ }
+ .img-head{
+  position: fixed;
+  right: -0;
+  bottom: 25px;
+  display: none;
+ }
+ .float-banner{
+  position: fixed;
+  right: -400px;
+  bottom: -220px;
+  -webkit-transition: all .75s;
+  -o-transition: all .75s;
+  transition: all .75s;
+  z-index: 99999999999999999999999;
+ }
+ .float-banner.active,
+ .button-action-float-banner{
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  z-index: 99999999999999999999999;
+ }
+ .float-banner img{
+  display: none;
+ }
+ .float-banner img.active{
+  display: block;
+ }
+ .btn {
+   display: inline-block;
+   margin-bottom: 0;
+   font-weight: normal;
+   text-align: center;
+   vertical-align: middle;
+   touch-action: manipulation;
+   cursor: pointer;
+   background-image: none;
+   border: 1px solid transparent;
+   border-radius: 3px;
+   white-space: nowrap;
+   padding: 2px 12px;
+   font-size: 14px;
+   line-height: 1.42857143;
+   border-radius:3px;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+ }
+ .btn-sm,
+ .btn-group-sm > .btn {
+   padding: 2px 10px;
+   font-size: 12px;
+   line-height: 1.5;
+   border-radius:3px;
+ }
+ .text-right{
+  text-align: right;
+ }
+ .btn-default {
+   color: #333333;
+   background-color: #ffffff;
+   border-color: #cccccc;
+ }
+ .btn-default:hover,
+ .btn-default:focus,
+ .btn-default.focus,
+ .btn-default:active,
+ .btn-default.active,
+ .open > .dropdown-toggle.btn-default {
+   color: #333333;
+   background-color: #e6e6e6;
+   border-color: #adadad;
+ }
+ .btn-default:active,
+ .btn-default.active,
+ .open > .dropdown-toggle.btn-default {
+   background-image: none;
+ }
+ .btn-danger {
+   color: #ffffff;
+   background-color: #d9534f;
+   border-color: #d43f3a;
+ }
+ .btn-danger:hover,
+ .btn-danger:focus,
+ .btn-danger.focus,
+ .btn-danger:active,
+ .btn-danger.active,
+ .open > .dropdown-toggle.btn-danger {
+   color: #ffffff;
+   background-color: #c9302c;
+   border-color: #ac2925;
+ }
+ .btn-danger:active,
+ .btn-danger.active,
+ .open > .dropdown-toggle.btn-danger {
+   background-image: none;
+ }
+</style>
+<script type="text/javascript">
+ $(document).ready(function(){
+  setInterval(function(){
+    $active = $('.float-banner img.active');
+    $deactive = $('.float-banner img.deactive');
+    $active.removeClass('active').addClass('deactive');
+    $deactive.removeClass('deactive').addClass('active');
+  },3500);
+  $('.button-action-float-banner .btn').click(function(){
+   if( $(this).text() =="Ẩn" ){
+    $('.float-banner').removeClass('active');
+    $('.img-head').addClass('active');
+    $(this).text("Hiện quảng cáo").removeClass('btn-default').addClass('btn-danger');
+   }else{
+    $('.float-banner').addClass('active');
+    $('.img-head').removeClass('active');
+    $(this).text("Ẩn").removeClass('btn-danger').addClass('btn-default');
+   }
+  });
+ });
+
+
+</script>       </trong>
+<!--  -->
+    <!-- </div> -->
+</div>
+</footer>

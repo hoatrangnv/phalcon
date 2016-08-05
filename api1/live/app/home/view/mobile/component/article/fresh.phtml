@@ -1,0 +1,24 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<?php if($result && count($result) > 0): ?>
+    <?php foreach ($result as $item): ?> 
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 main-post-block-320">
+            <div class="main-post-block box-fresh">
+                <div class="main-post-image" data-ratio="1.333">
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>">
+                        <?php if ($item->image != ''): ?>
+                            <img src="<?php echo $this->config->asset->home_image_url . '250/' . $item->image; ?>" alt="<?php echo $item->title; ?>">
+                        <?php else: ?>
+                            <?php if ($item->image == ''): ?>
+                                <img src="<?php echo $this->config->asset->home_image_url . 'image_not_found.jpg'; ?>" alt="<?php echo $item->title; ?>">
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </a>
+                </div>
+                <div class="main-post-title">
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post"><?php echo $item->title; ?></a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>

@@ -1,0 +1,78 @@
+<?php if (isset($result) && isset($for) && isset($query)): ?>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="dataTables_info">
+                <?php if ($result->total_pages > 0): ?>
+                    Trang <?php echo $result->current; ?>/<?php echo $result->total_pages; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="dataTables_paginate paging_bootstrap">
+                <?php if ($result->total_pages > 1): ?>
+                    <ul class="pagination">
+                        <li class="prev">
+                            <?php if ($result->before == $result->current): ?>
+                                <span>Trước</span>
+                            <?php else: ?>
+                                <?php $query['page'] = $result->before; ?>
+                                <a href="<?php echo $this->url->get(array('for' => $for, 'query' => '?' . http_build_query($query))); ?>">
+                                    Trước
+                                </a>
+                            <?php endif; ?>
+                        </li>
+
+                        <?php if ($result->current == $result->last): ?>
+                            <?php $start = $result->current - 4; ?>
+                        <?php else: ?>
+                            <?php $start = $result->current - 3; ?>
+                        <?php endif; ?>
+
+                        <?php for ($i = $start; $i < $result->current; $i++): ?>
+                            <?php if ($i > 0): ?>
+                                <li>
+                                    <?php $query['page'] = $i; ?>
+                                    <a href="<?php echo $this->url->get(array('for' => $for, 'query' => '?' . http_build_query($query))); ?>">
+                                        <?php echo $i; ?>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+
+                        <li class="active">
+                            <span><?php echo $result->current; ?></span>
+                        </li>
+
+                        <?php if ($result->current == 1): ?>
+                            <?php $end = $result->current + 4; ?>
+                        <?php else: ?>
+                            <?php $end = $result->current + 3; ?>
+                        <?php endif; ?>
+
+                        <?php for ($i = $result->current + 1; $i <= $end; $i++): ?>
+                            <?php if ($i <= $result->last): ?>
+                                <li>
+                                    <?php $query['page'] = $i; ?>
+                                    <a href="<?php echo $this->url->get(array('for' => $for, 'query' => '?' . http_build_query($query))); ?>">
+                                        <?php echo $i; ?>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+
+                        <li class="next">
+                            <?php if ($result->next == $result->current): ?>
+                                <span>Sau</span>
+                            <?php else: ?>
+                                <?php $query['page'] = $result->next; ?>
+                                <a href="<?php echo $this->url->get(array('for' => $for, 'query' => '?' . http_build_query($query))); ?>">
+                                    Sau
+                                </a>
+                            <?php endif; ?>
+                        </li>
+                    </ul>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

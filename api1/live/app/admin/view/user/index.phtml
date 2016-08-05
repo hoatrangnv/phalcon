@@ -1,0 +1,77 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php $user = $this->session->get('USER'); ?>
+<?php $admin_type_label = Constant::adminTypeLabel(); ?>
+<?php $admin_is_leader_label = Constant::adminIsLeaderLabel(); ?>
+
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs'); ?>
+    <?php echo $this->flashSession->output(); ?>
+    <div class="text-right">
+        <a href="<?php echo $this->url->get(array('for' => 'user_add')); ?>" class="btn btn-primary">
+            Thêm thành viên
+        </a>
+    </div>
+
+    <p></p>
+    <table class="table table-striped table-bordered table-hover table-full-width">
+        <thead>
+            <tr role="row">
+                <th>Tên đăng nhập</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Điện thoại</th>
+                <th>Đăng nhập</th>
+                <th>Loại</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($result->items as $admin): ?>
+                <?php
+                $query = array(
+                    'id' => $admin->id,
+                    'page' => $page,
+                    'q' => $q
+                );
+                ?>
+                <tr>
+                    <td>
+                        <a href="<?php echo $this->url->get(array('for' => 'user_edit', 'query' => '?' . http_build_query($query))); ?>">
+                            <?php echo $admin->username; ?>
+                        </a>
+                    </td>
+                    <td><?php echo $admin->name; ?></td>
+                    <td><?php echo $admin->email; ?></td>
+                    <td><?php echo $admin->phone; ?></td>
+                    <td>
+                        <?php if ($admin->logined_at): ?>
+                            <?php echo date('d-m-Y H:i:s', strtotime($admin->logined_at)); ?>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php echo $admin_type_label[$admin->type]; ?>
+                    </td>
+                    <td align="center">
+                        <?php if ($user['id'] != $admin->id && $admin->type != Constant::ADMIN_TYPE_INACTIVED): ?>
+                            <a href="<?php echo $this->url->get(array('for' => 'user_delete', 'query' => '?' . http_build_query($query))); ?>" onclick="javascript:return confirm('Đồng ý xoá?');" class="btn btn-xs btn-bricky">
+                                <i class="fa fa-times fa fa-white"></i>
+                            </a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <?php
+    echo $this->partial('element/layout/_pagination', array(
+        'result' => $result,
+        'for' => 'user_list',
+        'query' => array(
+            'page' => $page,
+            'q' => $q
+        )
+    ));
+    ?>
+</div>

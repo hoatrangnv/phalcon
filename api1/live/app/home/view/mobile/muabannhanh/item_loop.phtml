@@ -1,0 +1,51 @@
+<?php
+use ITECH\Datasource\Lib\Util as Util;
+
+if (isset($item) && $item) :
+if($item->category->slug == 'may-in-ky-thuat-so'){
+    $url = $this->url->get(array('for'=>'mbn_detail','id'=>$item->id,'mbnver'=>'mayinquangcao','slug'=>$item->slug));
+}else{
+    $url = $this->url->get(array('for'=>'mbn_detail','id'=>$item->id,'mbnver'=>str_replace('-','',$item->category->slug),'slug'=>$item->slug));
+}
+$name           = $item->name ? Util::niceWordsByChars($item->name,45) : "";
+$thumbnail      = $item->default_thumbnail_url ? $item->default_thumbnail_url : "";
+$price          = $item->price ? number_format($item->price,0,".",".").'<sup>VND</sup>' : "Liên hệ" ;
+$type           = $item->type_value == 1 ? "Cần bán/ Dịch vụ" : "Cần mua/ Cần tìm" ;
+$conditions     = $item->conditions ? $item->conditions : "";
+$local          = $item->province->name ? $item->province->name : "";
+$phone          = $item->user->phone ? $item->user->phone : "";
+$updated        = $item->updated_at;
+$user_name      = $item->user->name;
+?>
+<div class="item box-shadow">
+    <div class="entry">
+        <a class="link-spec" href="<?php echo $url ?>"></a>
+        <p class="text-grey">Ngày cập nhật: <?php echo $updated; ?></p>
+        <div class="img-thumbnail">
+            <img src="<?php echo $thumbnail ?>" alt="">
+        </div>
+        <div class="summary">
+            <h3 class="title-post" itemprop="name">
+            <?php if($item['user']['membership_value']==23){
+                    echo '<span class="label-premium Partner">Partner</span>';
+                    }elseif($item['user']['membership_value']==22){
+                        echo '<span class="label-premium">Vip</span>';
+                    }else{
+                        echo '';
+                }?>
+                <?php echo $name; ?>
+            </h3>
+            <div class="block-price">
+                <div class="price-new"><?php echo $price;?></div>
+            </div>
+            <div class="text-left">
+                <div class="post-meta">
+                    <?php echo $type." - ".$conditions.' - '.$local; ?>
+                </div>
+                <p class="author-post text-grey"><?php echo $item->user->name; ?></p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<?php endif; ?>

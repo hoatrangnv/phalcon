@@ -1,0 +1,36 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Tên
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('name', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Kiểu
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('type', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'type')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Nhóm sản phẩm
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('attribute_group_id', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'attribute_group_id')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Trạng thái
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('status', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'status')); ?>
+    </div>
+</div>

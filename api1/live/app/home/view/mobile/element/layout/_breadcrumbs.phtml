@@ -1,0 +1,31 @@
+<div class="col-sm-12">
+    <ol class="breadcrumb">
+        <?php if (isset($breadcrumbs)): ?>
+            <?php foreach ($breadcrumbs as $key => $item): ?>
+                <?php if ($key == 0): ?>
+                    <?php if ($item['url'] != ''): ?>
+                        <li>
+                            <a href="<?php echo $item['url']; ?>"><?php echo $item['title']; ?></a>
+                        </li>
+                    <?php else: ?>
+                        <li class="active">
+                            <i class="fa fa-home "></i>
+                            <?php echo $item['title']; ?>
+                        </li>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <?php if ($item['url'] != ''): ?>
+                        <li>
+                            <h1><a href="<?php echo $item['url']; ?>"><?php echo $item['title']; ?></a></h1> 
+                        </li>
+                    <?php else: ?>
+                        <li class="active">
+                            <h1><?php echo $item['title']; ?></h1>
+                        </li>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </ol>   
+</div>
+<div class="clearfix"></div>

@@ -1,0 +1,57 @@
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs'); ?>
+
+    <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+        <?php echo $this->flashSession->output(); ?>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Tên đăng nhập
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('username', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'username')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Họ tên
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('name', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Email
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('email', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'email')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Điện thoại
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('phone', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'phone')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-9">
+                <button type="submit" class="btn btn-bricky">
+                    Cập nhật
+                </button>
+                <a href="<?php echo $this->url->get(array('for' => 'profile_change_password')); ?>" class="btn btn-primary">
+                    Đổi mật khẩu
+                </a>
+            </div>
+        </div>
+
+        <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>">
+    </form>
+</div>

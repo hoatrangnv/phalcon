@@ -1,0 +1,84 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<?php use ITECH\Datasource\Lib\Constant; ?>
+<div class="block-category">
+     <div class="title-category">
+        <h2>
+            <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $result[0]->category_slug, 'id' => $result[0]->category_id )) ?>" class="title">
+                <?php echo $result[0]->category_name; ?>
+            </a>
+        </h2>
+        <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $result[0]->category_slug, 'id' => $result[0]->category_id )) ?>" class="readall">
+            Xem tất cả
+        </a>
+    </div>
+    <div class="content-block font-0">
+        <div class="row">
+            <?php if($result): ?>
+                <?php foreach ($result as $key=>$item): ?>
+                    <?php if ($key < 1): ?>
+                        <?php
+                            if (!$item->alias):
+                                $item->alias = Util::slug($item->title);
+                            endif;
+                        ?>
+                        <div class="col-xs-4 col-no-padding col-left">
+                            <span class="box-item">
+                                <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" title="<?php echo $item->title; ?>" class="th-frame" data-ratio='0.68'>
+                                    <?php if ($item->image != ''): ?>
+                                        <img class="thumbnail" src="<?php echo $this->config->asset->home_image_url . '500/' . $item->image; ?>" alt="<?php echo $item->title; ?>">
+                                    <?php else: ?>
+                                        <img class="thumbnail" src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" alt="<?php echo $item->title; ?>">
+                                    <?php endif; ?>
+                                    <h2 class="name-product"><?php echo $item->title; ?>
+                                    <p class="intro"><?php echo Util::niceWordsByChars($item->intro, 150, '...'); ?></p>
+                                     <span class="gia ">250.000đ</span>
+                                    </h2>
+
+                                </a>
+                                <a href="#" class="M-btn  btn-icon  btn-primary"><i class="fa fa-shopping-cart"></i><span>Đặt hàng</span></a>
+                                <div class="action-item-product">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://linkproduct.com" target="_blank" ta class="icon-facebook"><i class="fa fa-facebook"></i></a> <!-- Thay linproduct = link muôn share  -->
+                                    <a href="https://plus.google.com/share?url=http://linkproduct.com" target="_blank" class="icon-you"><i class="fa fa-google-plus"></i> </a>
+                                    <a href="" class="icon-love"><i class="fa fa-heart-o"></i></a>
+                                </div>
+                            </span>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <div class="col-xs-8 col-no-padding col-right">
+            <?php if($result): ?>
+                <?php foreach ($result as $key=>$item): ?>
+                    <?php if ($key > 0): ?>
+                        <?php
+                            if (!$item->alias):
+                                $item->alias = Util::slug($item->title);
+                            endif;
+                        ?>
+                        <span class="box-item">
+                            <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" title="<?php echo $item->title; ?>" class="th-frame" data-ratio='0.9' > 
+                            <?php if ($item->image != ''): ?>
+                                        <img class="thumbnail" src="<?php echo $this->config->asset->home_image_url . '500/' . $item->image; ?>" alt="<?php echo $item->title; ?>">
+                                    <?php else: ?>
+                                        <img class="thumbnail" src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" alt="<?php echo $item->title; ?>">
+                                    <?php endif; ?>
+                            <h2 class="name-product"><?php echo $item->title; ?>
+                                <span class="gia ">250.000đ</span>
+                            </h2>
+                            </a>
+                            <a href="#" class="M-btn  btn-icon  btn-primary"><i class="fa fa-shopping-cart"></i><span>Đặt hàng</span></a>
+                            <div class="action-item-product">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=http://linkproduct.com" target="_blank" ta class="icon-facebook"><i class="fa fa-facebook"></i></a> <!-- Thay linproduct = link muôn share  -->
+                                <a href="https://plus.google.com/share?url=http://linkproduct.com" target="_blank" class="icon-you"><i class="fa fa-google-plus"></i> </a>
+                                <a href="" class="icon-love"><i class="fa fa-heart-o"></i></a>
+                            </div>
+                        </span>
+           
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+         </div>
+         </div>
+    </div>
+    <div class="clearfix"></div>
+</div> <!-- End block-category -->

@@ -1,0 +1,75 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+<div class="row">
+    <div class="col-md-9"> 
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Tên đăng nhập
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('username', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'username')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Mật khẩu
+            </label>
+            <div class="col-sm-9">
+                <?php if (isset($admin)): ?>
+                    <?php echo $form->render('new_password', array('class' => 'form-control')); ?>
+                    <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'new_password')); ?>
+                <?php else: ?>
+                    <?php echo $form->render('password', array('class' => 'form-control')); ?>
+                    <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'password')); ?>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Họ tên
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('name', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Email
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('email', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'email')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Điện thoại
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('phone', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'phone')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Loại
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('type', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'type')); ?>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-external-link-square"></i>
+                Danh mục
+            </div>
+            <div class="panel-body">
+                <?php echo $category_layout; ?>   
+            </div>
+        </div>
+    </div>
+</div>

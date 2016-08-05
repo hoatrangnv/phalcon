@@ -1,0 +1,11 @@
+<?php
+    if (!$data) :
+        echo '<div class="text-center container">
+                <div class="alert alert-danger">Chưa có tin đăng hoặc chuyên mục không hợp lệ.
+                    <a href="'.$this->url->get(array('for'=>'mbn_home')).'" class="btn btn-sm btn-success">Xem trang khác</a>
+                </div>
+            </div>';
+    else :
+        echo $data;
+    endif;
+?>

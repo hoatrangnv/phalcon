@@ -1,0 +1,43 @@
+<?php if($result): ?>
+<nav id="nav" class="navbar navbar-default">
+        <div class="navbar-header congso-navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse congso-navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav congso-nav">
+                <li class="active"><a href="<?php echo $this->url->get(array('for' => 'home')); ?>"><i class="fa fa-home"></i></a></li>
+                <?php foreach ($result['main'] as $item): ?>
+                <?php if (count($result['sub'][$item->id]) > 0): ?>
+                    <li class="dropdown congso-dropdown">
+                        <a href="<?php echo $item->url; ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="<?php echo $item->title; ?>"><?php echo $item->name; ?> <span class="caret"></span>        
+                        </a>
+                <?php else: ?>
+                    <li>
+                        <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>">
+                            <?php echo $item->name; ?>
+                        </a>
+                <?php endif; ?>
+                    
+                    <?php if (count($result['sub'][$item->id]) > 0): ?>
+                        <ul class="dropdown-menu congso-dropdown-menu" role="menu">
+                            <?php foreach ($result['sub'][$item->id] as $sub_item): ?>
+                                <li>
+                                    <a href="<?php echo $sub_item->url; ?>" title="<?php echo $sub_item->title; ?>">
+                                        <?php echo $sub_item->name; ?>
+                                    </a>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    <?php endif; ?>
+
+                </li> 
+                <?php endforeach; ?>
+            </ul>
+        </div>
+</nav>
+<?php endif; ?>

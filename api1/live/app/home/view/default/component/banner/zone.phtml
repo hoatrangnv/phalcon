@@ -1,0 +1,24 @@
+<?php if($result): ?>
+<div class="slide-show">
+    <div class="list-slider-one text-center">
+        <?php foreach ($result as $item): ?>
+        <a href="">
+            <?php if ($item->image != ''): ?>
+                <img style="width: <?php echo $item->banner_width . 'px'; ?>; height: <?php echo $item->banner_height . 'px'; ?>" src="<?php echo $this->config->asset->home_image_url . 'banner/' . $item->image; ?>" alt="<?php echo $item->name; ?>">
+            <?php else: ?>
+                <img style="width: <?php echo $item->banner_width . 'px'; ?>; height: <?php echo $item->banner_height . 'px'; ?>" src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" alt="<?php echo $item->name; ?>">
+            <?php endif; ?>
+        </a>
+        <?php endforeach; ?>
+    </div>
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</div>
+<div class="slide-banner">
+    <div class="banner-content">
+        
+    </div>
+</div>
+<?php endif; ?> 

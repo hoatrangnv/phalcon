@@ -1,0 +1,141 @@
+
+.item-ads .thumbnail{
+    width: 200px;
+    float: left;
+    padding: 0px;
+    margin: auto;
+}
+.item-ads .summary .meta-post{
+    margin-top: 10px;
+}
+.item-ads .summary .price{
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.item-ads .summary{
+    padding-left: 210px;
+}
+.item-ads .summary .title{
+    color: #001277;
+    font-weight: bold;
+    font-size: 14px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+.item-ads:hover {
+    text-decoration: none;
+    color: #444;
+}
+.item-ads .btn-buy-now{
+    display: inline-block;
+    color: #fff;
+    background-color: red;
+    font-size: 13px;
+    padding: 4px 15px;
+    border-radius: 4px;
+    margin-left: 10px;
+    position: relative;
+    top: -3px;
+}
+.item-ads .author-by{
+    color: black;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    font-size: 10px;
+    background: #fff;
+    padding: 1px 3px;
+    border-radius: 0;
+    border-top: 1px solid #A1BAC5;
+    border-left: 1px solid #A1BAC5;
+    font-style: italic;
+}
+.item-ads {
+    position: relative;
+    overflow: hidden;
+    background-color: #ECF9FF;
+    border: 1px solid #A1BAC5;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    color: #444;
+}
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+.banner-header .owl-item{
+    padding: 0 10px;
+}
+.banner-header .owl-item a {
+    display: block;
+    position: relative;
+}
+.banner-header .summary{
+    position: relative;
+    bottom: 0;
+    background: #fff;
+    height: 35px;
+    padding: 5px;
+}
+.banner-header .summary .price {
+    font-size: 11px;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    top: -25px;
+    left: 0px;
+    background-color: red;
+    padding: 2px 5px;
+    display: block;
+    color: white;
+}
+
+.banner-header .summary .title{
+    color: #000;
+    margin: auto;
+    font-size: 11px;
+    line-height: 12px;
+    height: 24px;
+    overflow: hidden;
+}
+
+.banner-header .thumbnail {
+    overflow: hidden;
+    padding: 0px;
+    margin: auto;
+    padding: 0px;
+}
+.banner-header {
+    position: absolute;
+    top: 10px;
+    bottom: 0px;
+    right: 0;
+    width: 500px;
+    z-index: 9;
+}
+.banner-header .owl-theme .owl-controls .owl-buttons div {
+    width: 34px;
+    height: 40px;
+    background: none;
+    border-radius: 0;
+    margin: auto;
+    background-image: url(img/ic-next-slide-button.png);
+    background-repeat: no-repeat;
+    background-size: 23px;
+    position: absolute;
+    top: 35px;
+    left: -19px;
+    font-size: 0;
+    background-position: center center;
+}
+.banner-header .owl-theme .owl-controls .owl-buttons div.owl-next {
+    background-image: url(img/ic-back-slide-button.png);
+    left: auto;
+    right: -19px;
+}

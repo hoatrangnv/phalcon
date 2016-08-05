@@ -1,0 +1,22 @@
+<?php use ITECH\Datasource\Lib\Constant;?>
+<section id="section2">
+<div class="container">
+    <div class="row">
+        <div class="text1">
+            Đường dẫn bạn vừa truy cập không tồn tại
+        </div>
+        <div class="text2">
+            <h1 class="home-h1"><?php echo Constant::SEO_WEB_SITE_DESCRIPTION.' ';?><a href="<?php echo $this->url->get(array('for' => 'home')); ?>"><?php echo Constant::SEO_WEB_SITE;?></a></h1>
+        </div>
+        <br><br>
+        <div class="text2">
+            Mời bạn truy cập:
+        </div>
+        <a href="<?php echo $this->url->get(array('for' => 'home')); ?>" title="">
+            Trang chủ
+        </a>
+        <br><br>
+    </div>
+    <div class="clearfix"></div>
+</div>
+</section>

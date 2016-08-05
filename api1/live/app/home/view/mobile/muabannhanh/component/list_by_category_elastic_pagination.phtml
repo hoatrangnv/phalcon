@@ -1,0 +1,45 @@
+<?php  use ITECH\Datasource\Lib\Util; ?>
+<?php foreach ($data as $category) { ?>
+<?php if($category['total_item'] > 0 ){?>
+
+    <div class="block-mbn mobile">
+        <div class="container">
+            <h3 class="post-title">
+                 <?php  
+                    if($category['self']['slug'] == 'may-in-ky-thuat-so'){
+                    $ght = 'mayinquangcao';
+                    $url = $this->url->get(array('for'=>'mbn_list','slug'=>$ght));
+                    $categoryname = 'Máy In Quảng Cáo';
+                }else{
+                    $url = $this->url->get(array('for'=>'mbn_list','slug'=>str_replace('-','', $category['self']['slug'])));
+                }
+                ?>
+                <a href="<?php echo $url; ?>">
+                    <?php 
+                    if(isset($ght) && $ght == 'mayinquangcao'){
+                        echo 'Máy In Quảng Cáo';
+                    }else{
+                        echo $category['self']['name'];
+                    }
+                    ?>
+                    &#160(<?php echo number_format($category['total_item']); ?>)
+                </a>
+            </h3><br>
+
+            <div class="list-post block-category-mbn">
+                <div class="list-wrap list-wrap list-product">
+                    <?php
+                    foreach ($category['posts'] as $key => $item) {
+                        $item = $item['_source'];
+                        echo $this->partial('../item_loop_array');
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php echo isset($pagination) ? $pagination : '';}?>
+        </div>
+    </div>
+           
+<?php }
+
+

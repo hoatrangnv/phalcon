@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="col-xs-8 primary">
+        <div class="inner-10">
+            <div class="icon-seekers col-xs-12 offset10">
+                <div class="border-1">
+                    <?php echo $this->flashSession->output(); ?>
+                    <form id="form" role="form" action="" method="POST" enctype="multipart/form-data" class="form-logon-order">
+                        <div class="form-group">
+                            <label class="col-sm-12 required"><em>*</em>Email</label>
+                            <div class="col-sm-6">
+                                <?php echo $form->render('email', array('class' => 'form-control', 'placeholder' => 'info@hoatuoidep.com')); ?>
+                                <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'email')); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 required"><em>*</em>Mật khẩu</label>
+                            <div class="col-sm-6">
+                                <?php echo $form->render('password', array('class' => 'form-control')); ?>
+                                <?php if (isset($mess_password)): ?>
+                                    <div class="has-error">
+                                        <span class="help-block"><?php echo $mess_password; ?></span>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="text-right" style="padding-top:5px;">
+                                    <a href="<?php echo $this->url->get(array('for' => '')); ?>" class="forgetpass text-right">Quên mật khẩu</a>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <button type="submit" class="btn submit-cart">Đăng nhập</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar col-xs-4">
+        <div class="inner-10">
+            <?php //echo $this->partial('default/element/home/_subscriber'); ?>
+            <?php //echo $this->partial('default/element/home/_fb_like_box'); ?>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>

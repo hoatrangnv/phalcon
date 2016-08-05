@@ -1,0 +1,23 @@
+<?php
+    $query = array(
+        'page' => $page,
+        'q' => $q,
+        'cache_name' => $cache_name
+    );
+?>
+<div class="box-list">
+    <?php echo $this->partial('element/layout/_breadcrumbs'); ?>
+    <?php echo $this->flashSession->output(); ?>
+    <p></p>
+    <?php echo $this->partial('ajax/_list'); ?>
+    <?php
+    echo $this->partial('element/layout/_pagination', array(
+        'result' => $result,
+        'for' => 'ajax_file',
+        'query' => array(
+            'page' => $page,
+            'q' => $q
+        )
+    ));
+    ?> 
+</div>

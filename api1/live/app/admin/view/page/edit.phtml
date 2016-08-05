@@ -1,0 +1,29 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php
+$query = array(
+    'page' => $page,
+    'q' => $q
+);
+?>
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs');?>
+
+    <form id="form" role="form" action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+        <?php echo $this->flashSession->output(); ?>
+        <?php echo $this->partial('page/_form'); ?>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-9">
+                <button type="submit" class="btn btn-bricky">
+                    Cập nhật
+                </button>
+                <a href="<?php echo $this->url->get(array('for' => 'page', 'query' => '?' . http_build_query($query))); ?>" class="btn btn-primary">
+                    Trở lại
+                </a>
+            </div>
+        </div>
+        <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>">
+    </form>
+</div>

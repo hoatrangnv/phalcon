@@ -1,0 +1,45 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="clear-fix">
+<?php if($result && count($result) > 0): ?>
+    <h2 class="aside-title">Sản phẩm xem nhiều nhất</h2>
+    <div class="box_product">
+        <ul class="list-wrap list-unstyled">
+        <?php foreach ($result as $item): ?>
+            <?php
+                if (!$item->alias):
+                    $item->alias = Util::slug($item->title);
+                endif;
+            ?>
+            <div class="box-item col-md-3 col-sm-3 col-xs-6">
+                <li class="item_box_product">
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="thumnail-post">
+                        <img src="<?php echo $this->config->asset->home_image_url . '150/' . $item->image; ?>" alt="<?php echo $item->name; ?>">
+                    </a>
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post">
+                        <h3 class="title"><?php echo util::cutTextByChars($item->title,90); ?></h3>
+                    </a>
+                    <p class="intro hidden-sm hidden-xs"><?php echo Util::niceWordsByChars($item->intro, 50, '...'); ?></p>
+                    <span class="price pull-left">
+                            <?php 
+                            if (isset($attributes[$item->id]['price']) && $attributes[$item->id]['price'] != '0'):
+                                if (is_numeric($attributes[$item->id]['price'])) :
+                                    echo Util::formatMoney($attributes[$item->id]['price']). 'đ'; 
+                                else: 
+                                    echo $attributes[$item->id]['price'];
+                                endif;
+                                echo '<sup>VND</sup>';
+                            else : 
+                                echo 'Giá: Liên hệ';
+                            endif;
+                            ?>
+                    </span>
+                    <a href="<?php echo $this->url->get(array('for' => 'cart_add', 'query' => '?' . http_build_query(array('id' => $item->id)))); ?>" class="add-to-cart-related pull-right">
+                        <span>Đặt hàng</span>
+                    </a>
+                    <div class="clearfix"></div>
+                </li>
+            </div>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,40 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="block-style1">
+    <h3 class="title">
+        Sản phẩm bán chạy
+        <span class="line"></span>
+    </h3>
+    <div class="block-slider">
+        <div class="slider-wrap">
+                <ul class="list">
+                    <?php if($result): ?>
+                        <?php foreach ($result as $item): ?>
+                        <?php
+                            if (!$item->alias):
+                                $item->alias = Util::slug($item->title);
+                            endif;
+                        ?>
+                        <li class="item">
+                            <a class="thumbanil" href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" title="<?php echo $item->title; ?>">
+                                <?php if ($item->image != ''): ?>
+                                    <img src="<?php echo $this->config->asset->home_image_url . '250/' . $item->image; ?>" alt="<?php echo $item->title; ?>">
+                                <?php else: ?>
+                                    <img src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" alt="<?php echo $item->title; ?>">
+                                <?php endif; ?>
+                                <span class="text price">
+                                    <?php echo $item->title; ?><br />
+                                    <?php
+                                        if (isset($attributes[$item->id]['price'])):
+                                            echo Util::formatMoney($attributes[$item->id]['price']). 'đ';
+                                        endif;
+                                    ?>
+                                </span>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

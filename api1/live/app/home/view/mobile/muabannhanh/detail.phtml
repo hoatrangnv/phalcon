@@ -1,0 +1,289 @@
+<?php use ITECH\Datasource\Lib\Util;?>
+<div class="container">
+
+    <?php if (isset($article) && $article ) : ?>
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->home_css_url . 'swiper.css?'. $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->home_css_url . 'mobile/muabannhanh.css?'. $this->config->asset->version; ?>">
+        <script type="text/javascript" src="<?php echo $this->config->asset->home_js_url . 'swiper.min.js?'. $this->config->asset->version; ?>"></script>
+        <!-- Script private -->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var mySwiper = $('.single-product .list-img-mbn .wrap-s').swiper({
+                    //freeMode: true,
+                    freeModeFluid: true,
+                    slidesPerView: 1,
+                    // If we need pagination
+                    pagination: '.swiper-pagination',
+                    // Navigation arrows
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    loop: true,
+                    paginationClickable: true,
+                    spaceBetween: 15
+                });
+            });
+        </script>
+        <?php
+            $post = $article;
+            $galleries = $post->gallery ? $post->gallery : array() ;
+            $name = $post->name ? $post->name : "";
+            $view_count = $post->view_count ? number_format($post->view_count,0,'.','.') : 0;
+            $conditions = $post->conditions;
+            $province = $post->province;
+            $is_sale = $post->type_value ? "Cần mua/ Cần tìm" : 'Cần bán/ Dịch vụ' ;
+            $updated_at = $post->updated_at;
+            $category = $post->category ? $post->category : array();
+            $price = $post->price ? number_format($post->price,0,'.','.').'</span> <sup>VNĐ</sup>' : "Liên hệ";
+            $user = $post->user;
+            if($category->slug == 'may-in-ky-thuat-so'){
+                $url_category = $this->url->get(array('for'=>'mbn_list','id'=>$category->id,'slug'=>'mayinquangcao'));
+                $tenchuyenmuc = 'Máy In Quảng Cáo';
+            }else{
+                $url_category = $this->url->get(array('for'=>'mbn_list','id'=>$category->id,'slug'=>str_replace('-','', $category->slug)));
+            }
+            $url_user = $this->url->get(array('for'=>'mbn_list_by_phone','phone'=>$user->phone_number));
+        ?>
+        <div class="single-product">
+            <div itemscope itemtype="http://schema.org/Product">
+                <div class="box-shadow FloatLeft W1000" data-snap-ignore="true" >
+                    <div class="clearfix"></div>
+                        <div class="">
+                            <div class="list-thumbnail">
+                                <div class="list-img-mbn">
+                                    <div class="wrap-s">
+                                        <div class="swiper-wrapper">
+                                            <?php foreach ($galleries as $item) { ?>
+                                            <div class="swiper-slide ">
+                                                <a class="block fix-frame" title="<?php echo $name ?>" data-ratio="1.217">
+                                                    <img itemprop="image" src="<?php echo $item->image_url; ?>"  alt="<?php echo $name; ?>">
+                                                </a>
+                                            </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="summary-excerpt">
+                                <div class="content-summary">
+                                    <div class="row1">
+                                        <h1 class="title title-style1" itemprop="name"><?php echo $name ?></h1>
+                                        <div class="post-by">
+                                            Đã đăng <?php echo $updated_at; ?> -
+                                            <span class="viewed"> Đã xem (<?php echo $view_count; ?>)</span>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="row2">
+                                        <div class="">
+                                            <div class="block-info1">
+                                                <p>
+                                                   -<span class="text">
+                                                        Chuyên mục: <a href="<?php echo $url_category;?>"><b><?php 
+                                                        if(isset($tenchuyenmuc)){
+                                                            echo 'Máy In Quảng Cáo';
+                                                        }else{
+                                                            echo $category->name ;
+                                                        }
+                                                         ?></b></a>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                - <span class="text"><?php echo $is_sale; ?></span>
+                                                </p>
+                                                <p>
+                                                - <span class="text"><?php echo $conditions ?></span>
+                                                </p>
+                                                <p>
+                                                - <b class="text"> <?php echo $province->name; ?></b>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="action-main" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                        <div class="block-price">
+                                            <meta itemprop="priceCurrency" content="VND" />
+                                            <meta itemprop="price" content="<?php echo $post->price;?>" />
+                                            <meta itemprop="itemCondition" content="<?php echo $conditions ?>"/>
+                                            <div class="price-new"><?php echo $price; ?></div>
+                                            <p>
+                                                <a href="tel:<?php echo $user->phone_number ?>" class="btn btn-success btn-call"><?php echo $user->phone ?></a> <br>
+                                            </p>
+                                            Gặp <a href="<?php echo $url_user; ?>"><b itemprop="seller"> <?php echo $user->name; ?></b></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="info-partent-small">
+                                    <div class="address-box">
+                                        <p class="line-icon"><b>Địa chỉ: </b> <?php echo $post->user->address ?></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="Clear"></div>
+                <div class="box-shadow box-content" >
+                    <h3 class="title-block-medium">Thông tin chi tiết</h3>
+                    <div class="entry-mbn">
+                        <div class="wyswyg-content">
+                            <meta itemprop="description" content="<?php echo $description_for_layout ?>">
+                            <p class="main-content">
+                                <?php echo nl2br($post->description); ?>
+                            </p>
+                            <?php foreach ($galleries as $item) { ?>
+                                <p class="text-center img img1">
+                                    <img src="<?php echo $item->image_url ?>" alt="<?php echo $name;?>"><br>
+                                    <i class="block"><?php echo  $item->caption; ?></i>
+                                </p>
+                            <?php } ?>
+
+                            <p>Liên hệ: <a href="tel:<?php echo $user->phone_number ?>" class="text-danger"><b><?php echo $user->phone ?></b></a> gặp <b><?php echo $user->name ?></b>
+                            <br>Địa chỉ: <b><?php echo $user->address ?></b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout1">
+                <div class="">
+                    <div class="block-mbn mobile">
+                        <div class="">
+                                <h2 class="post-title">
+                                <a style="color:#4caf50" href="<?php echo $url_user; ?>">
+                                    Tin đăng cùng người bán
+                                </a>
+                                </h2>
+                            <br>
+                            <div class="list-post">
+                                <div class="list-wrap list-wrap list-product">
+                                    <?php
+                                    if ($related['user'] && count($related['user']) > 0) :
+                                        foreach ($related['user'] as $key => $item) {
+                                            $item = $item['_source'];
+                                            $category_id = $item['category']['id'];
+                                            foreach ($limitca as $key => $value) {
+                                                if($category_id == $value){
+                                                    $limitcate = $category_id;
+                                                }
+                                            }
+                                            if(isset($limitcate) && $category_id == $limitcate){ 
+                                            echo $this->partial($__theme. '/muabannhanh/item_loop_array');
+                                            }
+                                        }
+                                    endif;
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <?php if (isset($most_new_layout)): ?>
+                <div class="congso-main-aside">
+                    <div class="congso-aside-block">
+                        <h2 class="aside-title">Tin mới nhất</h2>
+                        <?php echo $most_new_layout; ?>
+                    </div>
+                     <div class="congso-aside-block" style="border: #d7d7d7 solid 1px;border-radius: 6px;margin-bottom: 30px;line-height: 1.3;">
+                 
+                     <h2 style="font-size: 15px;max-width:280px;font-weight:bold;margin-top: 10px;margin-left:10px;"><?php echo Util::htmlDecode($title_h2);?></h2>
+                        <div style="font: 13px; max-width: 280px;margin-left:10px;"><?php echo Util::htmlDecode($noidung_h2);?></div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                 <div class="congso-aside-block" style="border: #d7d7d7 solid 1px;border-radius: 6px;margin-bottom: 30px;    line-height: 1.3;">
+
+                    <h2 style="font-size: 15px;max-width:280px;font-weight:bold;margin-top: 10px;margin-left:10px;"><?php echo Util::htmlDecode($title_h3);?></h2>
+                    <div style="font: 13px; max-width: 290px;margin-left:10px;"><?php echo Util::htmlDecode($noidung_h3);?></div>
+                </div>
+                    <div class="">
+                        <?php echo $link_box_four_layout; ?>
+                    </div>
+                </div>
+                <?php endif; ?>
+
+            </div>
+            <div class="clearfix"></div>
+            <?php if(isset($related['category']) && count ($related['category']) ):?>
+            <div class="block-mbn mobile">
+                <div class="">
+                        <h2 class="post-title">
+                            <a href="<?php echo $url_category; ?>">
+                            <?php if(isset($tenchuyenmuc)){
+                            echo $tenchuyenmuc;
+                            }else{
+                                echo $category->name ;
+                        }?>
+                            </a>
+                        </h2>
+                        <br>
+                    <div class="list-post">
+                        <div class="list-wrap list-wrap list-product">
+                            <?php
+                            foreach ($related['category'] as $key => $item) {
+                                $item = $item['_source'];
+                                echo $this->partial($__theme. '/muabannhanh/item_loop_array');
+                            }
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <a class="btn btn-success" style="padding: 6px;" href="<?php echo $url_category; ?>">Xem thêm tất cả sản phẩm  »</a>
+                    </div>
+
+                </div>
+            </div>
+            <?php endif;?>
+        </div>
+    <?php else: ?>
+
+        <div class="alert alert-danger">
+            Không tim thấy tin đăng này. <a href="<?php echo $this->url->get(array('for'=>'mbn_home')) ?>" class="btn btn-success">Xem các tin khác</a>
+        </div>
+    <?php endif; ?>
+    <section id="section1">
+        <?php if (isset($fresh_layout)) : ?>
+        <div class="">
+            <div class="row congso-list-main-post">
+                <div class="col-sm-12 col-md-12">
+                    <h2 class="fresh-title">Tin nổi bật</h2>
+                </div>
+                <?php echo $fresh_layout; ?>
+            </div>
+        </div>
+        <?php endif; ?>
+
+        <div class="clearfix"></div>
+        <div class="congso-main-content container">
+            <div class="row congso-list-sub-block">
+                <?php if (isset($categories) && $categories && count($categories) > 0): ?>
+                    <?php $i = 1 ; ?>
+                    <?php foreach ($categories as $item): ?>
+                        <div class="box-home">
+                            <div class="congso-sub-block box-detail">
+                                <?php if(isset($box_layout[$item->id])): ?>
+                                <?php echo $box_layout[$item->id]; ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <?php if ($i % 3 == 0): ?>
+                            <div class="clearfix"></div>
+                        <?php endif; ?>
+                        <?php $i ++ ; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+</div>

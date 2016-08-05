@@ -1,0 +1,279 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 pull-left table-left box onepage">
+            <?php echo $this->partial('default/element/layout/cart/_step_tow'); ?>
+            <h3 class="title">Thanh toán</h3>
+            <?php echo $this->flashSession->output(); ?>
+            <form id="form" role="form" action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                <div class="col-xs-4 col-no-padding">
+                    <div class="page-title">
+                        <span class="billing-bg"></span>
+                        <h1>Thông tin giao hàng</h1>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12 required"><em>*</em>Họ và tên</label>
+                        <div class="col-sm-12">
+                            <?php echo $form->render('name', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12 required"><em>*</em>Số điện thoại</label>
+                        <div class="col-sm-12">
+                            <?php echo $form->render('phone', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'phone')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12 required"><em>*</em>Tỉnh/Thành phố</label>
+                        <div class="col-sm-8">
+                            <?php echo $form->render('province', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'province')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12 required"><em>*</em>Quận/Huyện</label>
+                        <div class="col-sm-8">
+                            <?php echo $form->render('district', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'district')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12 required"><em>*</em>Địa chỉ</label>
+                        <div class="col-sm-12">
+                            <?php echo $form->render('address', array('class' => 'form-control', 'placeholder' => 'Số nhà, đường, phường...')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'address')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12 required"><em>*</em>Ngày nhận hàng</label>
+                        <div class="col-sm-4 box-data-beatpicker">
+                            <?php $date_to = explode('-', date('d-m-Y'));?>
+                            <?php echo $form->render('delivery_date', array('class' => 'form-control', 'data-beatpicker' => 'true', 'data-beatpicker-position' => '["*","*"]', 'data-beatpicker-disable' => '{from:[1960,1,6],to:[' . $date_to[2] . ', ' .$date_to[1] . ', ' . (int)$date_to[0] . ']}')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'date_delivery')); ?>
+                        </div>
+                        <div class="col-sm-4">
+                            <?php echo $form->render('hour', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'hour')); ?>
+                        </div>
+                        <div class="col-sm-4">
+                            <?php echo $form->render('minute', array('class' => 'form-control')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'minute')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group checkbox-block">
+                        <div class="col-sm-12">
+                            <input type="checkbox" name="other-address" <?php  if ($other_address && $other_address != ''): ?> checked="checked" <?php endif; ?> id="other-address">
+                            <label for="no-res">Giao hàng khác địa chỉ</label>
+                        </div>
+                    </div>
+                    <div class="content-receiver"> 
+                        <div class="form-group">
+                            <label class="col-sm-12 required"><em>*</em>Họ và tên</label>
+                            <div class="col-sm-12">
+                                <?php echo $form_r->render('recipient_name', array('class' => 'form-control')); ?>
+                                <?php echo $this->partial('default/element/layout/_message', array('form' => $form_r, 'element' => 'recipient_name')); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 required"><em>*</em>Số điện thoại</label>
+                            <div class="col-sm-12">
+                                <?php echo $form_r->render('recipient_phone', array('class' => 'form-control')); ?>
+                                <?php echo $this->partial('default/element/layout/_message', array('form' => $form_r, 'element' => 'recipient_phone')); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 required"><em>*</em>Tỉnh/ thành phố</label>
+                            <div class="col-sm-8">
+                                <?php echo $form_r->render('recipient_province', array('class' => 'form-control')); ?>
+                                <?php echo $this->partial('default/element/layout/_message', array('form' => $form_r, 'element' => 'recipient_province')); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 required"><em>*</em>Quận/Huyện</label>
+                            <div class="col-sm-8">
+                                <?php echo $form_r->render('recipient_district', array('class' => 'form-control')); ?>
+                                <?php echo $this->partial('default/element/layout/_message', array('form' => $form_r, 'element' => 'recipient_district')); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 required"><em>*</em>Địa chỉ</label>
+                            <div class="col-sm-12">
+                                <?php echo $form_r->render('recipient_address', array('class' => 'form-control', 'placeholder' => 'Số nhà, đường, phường...')); ?>
+                                <?php echo $this->partial('default/element/layout/_message', array('form' => $form_r, 'element' => 'recipient_address')); ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 required"><em>*</em>Thông điệp</label>
+                            <div class="col-sm-12">
+                                <?php echo $form_r->render('recipient_note', array('class' => 'form-control h150', 'placeholder' => 'Số nhà, đường, phường...')); ?>
+                                <?php echo $this->partial('default/element/layout/_message', array('form' => $form_r, 'element' => 'recipient_note')); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-xs-4">
+                    <div class="page-title">
+                        <span class="shipping-method-bg"></span>
+                        <h1>Phương thức vận chuyển</h1>
+                    </div>
+                    <div class="col-xs-12 col-no-padding shipment-methods">
+                        <div class="checkout-agreements">
+                            <?php foreach ($transports as $item): ?>
+                                <input data-id="<?php echo $item->id; ?>" type="radio" class="transport-radio" name="transport" <?php  if ($item->id == $transport->id ): ?> checked="checked" <?php endif; ?> value="<?php echo $item->id; ?>">
+                                <label for="transport-radio"><?php echo $item->title; ?></label>
+                                <div class="transport-radio-<?php echo $item->id; ?>">
+                                    <?php  if ($item->id == $transport->id ): ?>
+                                        <div class="col-xs-12 banktransfer-instructions-content agreement-content transport-content">
+                                            <?php echo $transport->description; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                </br>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="page-title">
+                        <span class="payment-bg"></span>
+                        <h1>Phương thức thanh toán</h1>
+                    </div>
+                    <div class="col-xs-12 col-no-padding payment-methods">
+                        <div class="checkout-payments">
+                            <?php foreach ($payments as $item): ?>
+                                <input data-id="<?php echo $item->id; ?>" class="payment-radio" type="radio" name="payment" <?php  if ($item->id == $payment->id ): ?> checked="checked" <?php endif; ?> value="<?php echo $item->id; ?>">
+                                <label for="payment-radio"><?php echo $item->title; ?></label>
+                                <div class="payment-radio-<?php echo $item->id; ?>">
+                                    <?php  if ($item->id == $payment->id ): ?>
+                                        <div class="col-xs-12 banktransfer-instructions-content agreement-content payment-content">
+                                            <?php echo $payment->description; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                </br>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-xs-4 col-no-padding" id="ajax-cart">
+                    <?php echo $cart_mini_layout; ?>
+                </div>
+                <div class="col-xs-12 pull-right text-right col-no-padding">
+                    <button type="submit" class="btn submit-cart">Tiếp tục đặt hàng</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() { 
+        $('.transport-radio').on('click', function() {
+            var id = $(this).attr('data-id');
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_transport')); ?>',
+                data: {
+                    id: id
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('.transport-content').remove();
+                        $('.transport-radio-' + id).html('<div class="col-xs-12 banktransfer-instructions-content agreement-content transport-content">' + $res + '</div>');
+                    }
+                }
+            });  
+        }) 
+        
+        $('.payment-radio').on('click', function() {
+            var id = $(this).attr('data-id');
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_payment')); ?>',
+                data: {
+                    id: id
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('.payment-content').remove();
+                        $('.payment-radio-' + id).html('<div class="col-xs-12 banktransfer-instructions-content agreement-content payment-content">' + $res + '</div>');
+                    }
+                }
+            });  
+        })
+        
+        $('#province').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_district')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#district').html($res);
+                    }
+                }
+            });
+        })
+        
+        $('#district').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_cart')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#ajax-cart').html($res);
+                    }
+                }
+            });
+        })
+        
+        $('#recipient_province').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_district')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#recipient_district').html($res);
+                    }
+                }
+            });
+        })
+        
+        $('#recipient_district').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_cart')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#ajax-cart').html($res);
+                    }
+                }
+            });
+        })
+        
+        if( $('.checkbox-block input:checked').val() == 'on'){
+            $('.content-receiver').slideDown('fast');				
+        } 
+        
+        $('.checkbox-block input').on('click',function(){
+            if($('.checkbox-block input:checked').val() == 'on' ){
+                $('.content-receiver').slideDown('fast');				
+            }else {
+                $('.content-receiver').slideUp('fast');				
+            }     
+        })
+    });
+</script>

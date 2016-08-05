@@ -1,0 +1,17 @@
+[28-Mar-2015 10:52:59 Asia/Bangkok] PHP Notice:  Undefined property: Phalcon\Mvc\Model\Row::$slug in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 75
+[28-Mar-2015 10:52:59 Asia/Bangkok] PHP Notice:  Undefined property: Phalcon\Mvc\Model\Row::$slug in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 75
+[30-Mar-2015 16:48:50 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:50:05 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:50:07 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:50:09 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:50:52 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:50:52 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:50:53 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:51:39 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:55:04 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:56:23 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:58:24 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:58:24 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:58:26 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 16:58:49 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41
+[30-Mar-2015 17:01:04 Asia/Bangkok] PHP Fatal error:  Call to undefined function apc_fetch() in /usr/share/nginx/html/blogmbn/live/app/api/controller/ArticleController.php on line 41

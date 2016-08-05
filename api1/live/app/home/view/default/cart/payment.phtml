@@ -1,0 +1,89 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-9 pull-left table-left box">
+            <h3 class="title">Phương thức thanh toán</h3>
+             <div class="content-tabs col-xs-12">
+                <form id="form" role="form" action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Phương thức thanh toán</label>
+                        <div class="col-sm-4">
+                            <?php echo $form->render('payment', array('class' => 'form-control', 'id' => 'payment')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'payment')); ?>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="payment-description" class="payment-description">
+                                <?php echo $payment->description; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Phương thức vận chuyển</label>
+                        <div class="col-sm-4">
+                            <?php echo $form->render('transport', array('class' => 'form-control', 'id' => 'transport')); ?>
+                            <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'transport')); ?>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="transport-description" class="transport-description">
+                                <?php echo $transport->description; ?>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="block">
+                        <p><b>Lưu ý</b>:</p>
+                        <ul>
+                            <li>- Phí giao hàng (nếu giá trị đơn hàng dưới 150,000 đ)</li>
+                            <li>- Phụ phí hàng cồng kềnh (nếu có)</li>
+                            <li>- Phí giao hàng: <?php echo $district->fee . 'đ'; ?>
+                        </ul>	
+                        <p>
+                            <span><i>Bạn sẽ được thông báo về tình trạng đơn hàng qua email và tin nhắn.</i></span><br>
+                            <span><i>* Bạn tiếp tục đặt hàng là đã đồng ý với các điều khoản sử dụng của Hoatuoidep.com</i></span>
+                        </p>
+                    </div>
+                    <div class="block text-right">
+                        <button type="submit" class="btn submit-cart">Tiếp tục đặt hàng</button>	
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-xs-3 pull-right cart-preview">
+            <?php echo $cart_mini_layout; ?>    
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#payment').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_payment')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#payment-description').html($res);
+                    }
+                }
+            });
+        })
+        
+        $('#transport').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_transport')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#transport-description').html($res);
+                    }
+                }
+            });
+        })
+    });
+</script>

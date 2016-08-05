@@ -1,0 +1,62 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<form action="" method="POST" enctype="multipart/form-data">
+<table class="table table-striped table-bordered table-hover table-full-width">
+        <thead>
+            <tr role="row">
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Slug</th>
+                <th>Trạng thái</th>
+                <th>Sắp xếp</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach ($result->items as $item): ?>
+                <?php
+                $query = array(
+                    'id' => $item->id,
+                    'page' => $page,
+                    'q' => $q,
+                    'cache_name' => $cache_name
+                );
+                ?>
+                <tr>
+                    <td><?php echo $item->id; ?></td>
+                    <td>
+                        <a href="<?php echo $this->url->get(array('for' => 'category_attribute_group_edit', 'query' => '?' . http_build_query($query))); ?>">
+                            <?php echo $item->name; ?>
+                        </a>
+                    </td>
+                    <td><?php echo $item->slug; ?></td>
+                    <td><?php echo $module[$item->status]; ?></td>
+                    <td>
+                        <input type="text" name="ordering[<?php echo $item->id; ?>]" class="form-control input-sm w50" autocomplete="off" value="<?php echo $item->ordering; ?>" />
+                    </td>
+                    <td align="center">
+                        <?php if ($item->status != Constant::STATUS_DELETED): ?> 
+                            <a href="<?php echo $this->url->get(array('for' => 'category_attribute_group_delete', 'query' => '?' . http_build_query($query))); ?>" onclick="javascript:return confirm('Đồng ý xoá?');" class="btn btn-xs btn-bricky">
+                                <i class="fa fa-times fa fa-white"></i>
+                            </a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="submit" class="btn btn-sm btn-blue">
+                        Cập nhật
+                    </button>
+                </td>
+                <td></td>
+            </tr>    
+        </tbody>
+    </table>
+    <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>" />
+</form>    

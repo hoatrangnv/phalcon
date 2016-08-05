@@ -1,0 +1,249 @@
+<header id="header">
+    <div class="container">
+        <div class="col-lg-12 col-md-12 col-0">
+            <a href="<?php echo $this->url->get(array('for' => 'home')); ?>" id="logo">
+                <img style="max-width: 80% !important;" src="<?php echo $this->config->asset->home_image_url . 'logo.png'; ?>"  alt="Blog MuaBánNhanh">
+            </a>
+            
+        </div>
+	
+        <div class="clearfix"></div>
+    <?php echo $link_main_menu_layout; ?>
+</header>
+<style type="text/css">
+#footer .summary .price sup{
+    color: white;
+}
+.item-ads .summary .meta-post {
+    display: none !important;
+}
+#footer .row-banner-top .author-by{
+    display: none;
+}
+iframe{ max-width:100%;}
+.tags-list.cate {
+    background: #EFF8FF;
+    padding: 10px;
+    margin: 10px -15px;
+    border: 1px solid #CFE5F7;
+    border-left: none;
+    border-right: none;
+}
+.tags-list.cate a {
+    color: #000;
+    padding: 3px 10px;
+    border-radius: 3px;
+    display: inline-block;
+    border: 1px solid #DFDFDF;
+    margin-right: 7px;
+    margin-bottom: 7px;
+    white-space: nowrap;
+    font-size: 13px;
+    background: #EFEFEF none repeat scroll 0% 0%;
+}
+.ads-style1 {
+    background: #E8F2F3;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #C6E1E4;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin: 10px;
+    text-align: left;
+}
+.ads-style1 .des{
+    color: #000;
+}
+.ads-style1 a{
+    text-decoration: none;
+}
+.ads-style1 .title{
+    margin: auto;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #005598;
+}
+body {
+    font-family: "Arial";
+    font-size: 13px;
+}
+
+
+
+.item-ads .thumbnail{
+    width: 140px;
+    float: left;
+    padding: 0px;
+    margin: auto;
+}
+.item-ads .summary .meta-post{
+    margin-top: 10px;
+}
+.item-ads .summary .price{
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    display: block;
+}
+.item-ads .summary .meta-post{
+    display: none;
+}
+.item-ads .summary{
+    padding-left: 150px;
+}
+.item-ads .summary .title{
+    color: #001277;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: normal;
+    margin: auto;
+    margin-bottom: 15px;
+}
+.item-ads:hover {
+    text-decoration: none;
+    color: #444;
+}
+.item-ads .btn-buy-now{
+    display: inline-block;
+    color: #fff;
+    background-color: red;
+    font-size: 13px;
+    padding: 4px 15px;
+    border-radius: 4px;
+    position: relative;
+    top: -3px;
+}
+.item-ads .author-by{
+    color: black;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    font-size: 10px;
+    background: #fff;
+    padding: 1px 3px;
+    border-radius: 0;
+    border-top: 1px solid #A1BAC5;
+    border-left: 1px solid #A1BAC5;
+    font-style: italic;
+}
+.item-ads {
+    position: relative;
+    overflow: hidden;
+    background-color: #ECF9FF;
+    border: 1px solid #A1BAC5;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    color: #444;
+}
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+.row-banner-top .author-by{
+    color: black;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    font-size: 10px;
+    background: #fff;
+    padding: 1px 3px;
+    border-radius: 0;
+    border-left: 1px solid #A1BAC5;
+    border-right: 1px solid #A1BAC5;
+    border-bottom: 1px solid #A1BAC5;
+    font-style: italic;
+}
+
+.row-banner-top {
+    margin-right: -15px;
+    margin-left: -15px;
+    background-color: #ECF9FF;
+    border-top: 1px solid #A1BAC5;
+    border-bottom: 1px solid #A1BAC5;
+    padding: 0 10px;
+    border-radius: 0px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+.banner-header .owl-item{
+    padding: 0 10px;
+}
+.banner-header .owl-item a {
+    display: block;
+    position: relative;
+}
+.banner-header .summary{
+    position: relative;
+    bottom: 0;
+    background: #fff;
+    height: 35px;
+    padding: 5px;
+}
+.banner-header .summary .price {
+    font-size: 11px;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    top: -25px;
+    left: 0px;
+    background-color: red;
+    padding: 2px 5px;
+    display: block;
+    color: white;
+}
+
+.banner-header .summary .title{
+    color: #000;
+    margin: auto;
+    font-size: 11px;
+    line-height: 12px;
+    height: 24px;
+    overflow: hidden;
+}
+
+.banner-header .thumbnail {
+    overflow: hidden;
+    padding: 0px;
+    margin: auto;
+    padding: 0px;
+}
+.banner-header .row-slide{
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.banner-header {
+    margin-top: 10px;
+    position: relative;
+    top: 0;
+    bottom: 0px;
+    right: 0;
+    z-index: 9;
+}
+
+.banner-header .owl-theme .owl-controls .owl-buttons div {
+    width: 34px;
+    height: 40px;
+    background: none;
+    border-radius: 0;
+    margin: auto;
+    background-image: url(img/ic-next-slide-button.png);
+    background-repeat: no-repeat;
+    background-size: 23px;
+    position: absolute;
+    top: 35px;
+    left: -19px;
+    font-size: 0;
+    background-position: center center;
+}
+.banner-header .owl-theme .owl-controls .owl-buttons div.owl-next {
+    background-image: url(img/ic-back-slide-button.png);
+    left: auto;
+    right: -19px;
+}
+</style>

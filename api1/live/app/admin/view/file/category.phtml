@@ -1,0 +1,30 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php $module = Constant::moduleTypeLabel(); ?>
+
+<?php
+    $query = array(
+        'page' => $page,
+        'q' => $q,
+        'cache_name' => $cache_name
+    );
+?>
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs'); ?>
+    <?php echo $this->flashSession->output(); ?>
+    <div class="text-right">
+        <a class="btn btn-primary" href="<?php echo $this->url->get(array('for' => 'file_category_add', 'query' => '?' . http_build_query($query))); ?>"> Thêm thư mục </a>
+    </div>
+    <p></p>
+    <?php echo $this->partial('file/_list_category'); ?>
+    <?php
+    echo $this->partial('element/layout/_pagination', array(
+        'result' => $result,
+        'for' => 'file_category',
+        'query' => array(
+            'page' => $page,
+            'q' => $q
+        )
+    ));
+    ?>
+</div>

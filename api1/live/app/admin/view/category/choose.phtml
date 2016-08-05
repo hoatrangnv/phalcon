@@ -1,0 +1,35 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+<?php $module = Constant::moduleTypeLabel(); ?>
+
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs');?>
+
+    <form id="form" role="form" action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+        <?php echo $this->flashSession->output(); ?>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-3">
+            <select class="form-control" name='module' >
+                <?php foreach($module as $key => $item): ?>
+                    <option  value="<?php echo $key; ?>"><?php echo $item; ?></option>
+                <?php endforeach; ?>
+            </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-9">
+                <button type="submit" class="btn btn-bricky">
+                    Tiếp tục
+                </button>
+                <a href="<?php echo $this->url->get(array('for' => 'category', 'query' => '?' . http_build_query($query))); ?>" class="btn btn-primary">
+                    Trở lại
+                </a>
+            </div>
+        </div>
+        <input type="hidden" name="page" value="<?php echo $page; ?>">
+        <input type="hidden" name="q" value="<?php echo $q; ?>">
+        <input type="hidden" name="cache_name" value="<?php echo $cache_name; ?>">
+        <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>">
+    </form>
+</div>

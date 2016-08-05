@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+    <head>
+        <title>Administrator - Developed by VinaDesign</title>
+        <meta charset="utf-8">
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,IE=8,chrome=1"><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="robots" content="noindex, nofollow">
+
+        <link rel="shortcut icon" href="<?php echo $this->config->asset->admin_image_url . 'favicon.ico'; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap/css/bootstrap.min.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'font-awesome/css/font-awesome.min.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_font_url . 'style.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_css_url . 'main.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_css_url . 'main-responsive.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'iCheck/skins/all.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-colorpalette/css/bootstrap-colorpalette.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'perfect-scrollbar/src/perfect-scrollbar.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_css_url . 'theme_light.css?' . $this->config->asset->version; ?>" id="skin_color">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_css_url . 'print.css?' . $this->config->asset->version; ?>" media="print">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'DataTables/media/css/DT_bootstrap.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'datepicker/css/datepicker.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'select2/select2.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'jQuery-Tags-Input/jquery.tagsinput.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-fileupload/bootstrap-fileupload.min.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'dropzone/downloads/css/dropzone.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-modal/css/bootstrap-modal-bs3patch.css?' . $this->config->asset->version; ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-modal/css/bootstrap-modal.css?' . $this->config->asset->version; ?>">
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'respond.min.js?' . $this->config->asset->version; ?>"></script>
+            <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'excanvas.min.js?' . $this->config->asset->version; ?>"></script>
+            <script type="text/javascript" src="<?php echo $this->config->asset->admin_js_url . 'jquery.js?' . $this->config->asset->version; ?>"></script>
+        <![endif]-->
+        <!--[if gte IE 9]><!-->
+            <script type="text/javascript" src="<?php echo $this->config->asset->admin_js_url . 'jquery.js?' . $this->config->asset->version; ?>"></script>
+        <!--<![endif]-->
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <?php echo $this->partial('element/layout/_header'); ?>
+            </div>
+        </div>
+
+        <div class="main-container">
+            <div class="navbar-content">
+                <?php echo $this->partial('element/layout/_sidebar'); ?>
+            </div>
+            <div class="main-content">
+                <?php echo $this->getContent(); ?>
+            </div>
+        </div>
+
+        <div class="footer clearfix">
+            <div class="footer-inner">
+                2014 &copy; ITECH
+            </div>
+            <div class="footer-items">
+                <span class="go-top"><i class="clip-chevron-up"></i></span>
+            </div>
+        </div>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'jquery-ui/jquery-ui-1.10.2.custom.min.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap/js/bootstrap.min.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'blockUI/jquery.blockUI.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'iCheck/jquery.icheck.min.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'perfect-scrollbar/src/jquery.mousewheel.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'perfect-scrollbar/src/perfect-scrollbar.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'less/less-1.5.0.min.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'jquery-cookie/jquery.cookie.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-colorpalette/js/bootstrap-colorpalette.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_js_url . 'main.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-datepicker/js/bootstrap-datepicker.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'select2/select2.min.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'select2/select2_locale_vi.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'jQuery-Tags-Input/jquery.tagsinput.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'ckeditor/ckeditor.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'ckeditor/adapters/jquery.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-fileupload/bootstrap-fileupload.min.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'nestable/jquery.nestable.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_js_url . 'ui-nestable.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-modal/js/bootstrap-modal.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'bootstrap-modal/js/bootstrap-modalmanager.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_plugin_url . 'tinymce/tinymce.min.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" src="<?php echo $this->config->asset->admin_js_url . 'ui-modals.js?' . $this->config->asset->version; ?>"></script>
+        <script type="text/javascript" type="text/javascript">
+            $(document).ready(function() {
+                Main.init();
+                UINestable.init();
+                UIModals.init();
+
+                $('.date-picker').datepicker({
+                    autoclose: true,
+                    format: 'dd-mm-yyyy'
+                });
+
+                $('.search-select').select2({
+                    allowClear: true,
+                    maximumSelectionSize: 3
+                });
+                
+               // CKEDITOR.disableAutoInline = true;
+              //  $('.ckeditor').ckeditor({
+               //     height: '300px',
+               //     filebrowserBrowseUrl : '<?php echo $this->url->get(array('for' => 'article_list_image')); ?>',
+               //     filebrowserImageBrowseUrl : '<?php echo $this->url->get(array('for' => 'article_list_image')); ?>',
+                //    filebrowserFlashBrowseUrl : '<?php echo $this->url->get(array('for' => 'article_list_image')); ?>',
+                //    filebrowserUploadUrl: '<?php echo $this->url->get(array('for' => 'article_list_image')); ?>'
+               // });
+                
+                $('.nestable').each(function(){
+                    var $nestable = $(this);
+                    $nestable.nestable({
+                    })
+                        .on('change', function(e) {
+                                return $.post($nestable.attr('data-url'), {links:$nestable.nestable('serialize')});
+                            })
+                        .on('mouseenter mouseleave', 'div.dd3-content', function(event){
+                            var $task = $(this).find('.btn-task-group').stop(true,true);
+                            if(event.type == 'mouseenter'){
+                                $task.css('visibility', 'visible');  
+                            } else {
+                                $task.css('visibility', 'hidden');  
+                            }
+                            return false;
+                    });
+                });
+                
+                $('#nestable3').nestable();
+                $('#tag-string').tagsInput({width:'auto'});
+            });
+                
+        </script>
+        <script type="text/javascript">
+        tinyMCE.init({
+            selector: "textarea.editor",
+            theme : "modern",
+            skin : "lightgray",
+            plugins: [
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking save table contextmenu directionality",
+                "emoticons template paste textcolor colorpicker textpattern"
+            ],
+            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor | emoticons",
+            image_advtab: true,
+            fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt",
+            height : 450
+                
+        });
+        </script>
+        <!-- <?php echo round(microtime(true) - START_TIME, 3) . 's'; ?> -->
+    </body>
+</html>

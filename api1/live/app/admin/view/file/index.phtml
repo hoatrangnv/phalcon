@@ -1,0 +1,44 @@
+<?php
+    $query = array(
+        'page' => $page,
+        'q' => $q,
+        'cache_name' => $cache_name
+    );
+?>
+<div class="container">
+    <?php echo $this->partial('element/layout/_breadcrumbs'); ?>
+    <?php echo $this->flashSession->output(); ?>
+    <div class="text-right">
+        <a class="btn btn-primary" href="<?php echo $this->url->get(array('for' => 'file_add', 'query' => '?' . http_build_query($query))); ?>"> Thêm file </a> 
+        <a href="#responsive" data-toggle="modal" class="btn btn-primary">
+            Thêm nhiều file
+        </a>
+    </div>
+    <p></p>
+    <?php echo $this->partial('file/_list'); ?>
+    <?php
+    echo $this->partial('element/layout/_pagination', array(
+        'result' => $result,
+        'for' => 'file',
+        'query' => array(
+            'page' => $page,
+            'q' => $q
+        )
+    ));
+    ?>
+    
+    <div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+            </button>
+            <h4 class="modal-title">Quản lý hình ảnh</h4>
+        </div>
+        <div class="modal-body">
+            <iframe src="http://localhost.admin.itechsolution/uploads/image/image.php" frameborder="0" width="100%" height="500px"></iframe>
+        </div>
+        <div class="modal-footer">
+            
+        </div>
+    </div>
+</div>

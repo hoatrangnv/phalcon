@@ -1,0 +1,121 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<?php foreach ($data as $category) { ?>
+<?php if($category['total_item'] > 0 ){?>
+    <div class="block-mbn">
+        <div class="container">
+            <h3 class="post-title">
+                <?php  
+                    if($category['self']['slug'] == 'may-in-ky-thuat-so'){
+                    $ght = 'mayinquangcao';
+                    $url = $this->url->get(array('for'=>'mbn_list','slug'=>$ght));
+                    $categoryname = 'Máy In Quảng Cáo';
+                }else{
+                    $url = $this->url->get(array('for'=>'mbn_list','slug'=>str_replace('-','', $category['self']['slug'])));
+                }
+                ?>
+                <a href="<?php echo $url; ?>">
+                    <?php 
+                    if(isset($ght) && $ght == 'mayinquangcao'){
+                        echo 'Máy In Quảng Cáo';
+                    }else{
+                        echo $category['self']['name'];
+                    }
+                    ?>
+                    &#160(<?php echo number_format($category['total_item']); ?>)
+                </a>
+            </h3>
+
+            <div class="list-post block-category-mbn">
+                <div class="list-wrap">
+                    <?php
+                    foreach ($category['posts'] as $key => $item) {
+
+                        if (isset($item) && $item) :
+                            $item = $item['_source'];
+
+                            if(isset($ght) && $ght == 'mayinquangcao'){
+                                $url = $this->url->get(array('for'=>'mbn_detail','mbnver'=>$ght,'id'=>$item['id'],'slug'=>$item['slug']));
+                            }else{
+                               $url = $this->url->get(array('for'=>'mbn_detail','mbnver'=>str_replace('-','',$category['self']['slug']),'id'=>$item['id'],'slug'=>$item['slug']));
+                            }
+                            $name           = $item['name'] ? Util::niceWordsByChars($item['name'],45) : "";
+                            $thumbnail      = $item['default_thumbnail_url'] ? $item['default_thumbnail_url'] : "";
+                            $price          = $item['price'] ? number_format($item['price'],0,".",".").'<sup>VND</sup>' : "Liên hệ" ;
+                            $type           = $item['type_value'] == 1 ? "Cần bán/ Dịch vụ" : "Cần mua/ Cần tìm" ;
+                            $conditions     = $item['conditions'] ? $item['conditions'] : "";
+                            $local          = $item['province']['name'] ? $item['province']['name'] : "";
+                            $phone          = $item['user']['phone'] ? $item['user']['phone'] : "";
+                            $updated        = $item['updated_at'];
+                            $user_name      = $item['user']['name'];
+                            $type_user      = $item['user']['membership_value'] == 23
+                                                ? '<span class="label-premium Partner">Partner</span>'
+                                                :  $item['user']['membership_value'] == 22
+                                                ? '<span class="label-premium">Vip</span>' : '';
+                            ?>
+                            <li class="item">
+                                <div class="entry-item">
+                                    <a href="<?php echo $url; ?>">
+                                        <div class="info-left">
+                                            <span class="thumbnail fix-frame" data-ratio="1.333">
+                                                <img src="<?php echo $thumbnail; ?>" height="398" width="600" alt="<?php echo $name;?>">
+                                            </span>
+                                        </div>
+                                        <div class="summary">
+                                            <div class="block-info">
+                                                <h2 class="title">
+                    <?php if($item['user']['membership_value']==23){
+                    echo '<span class="label-premium Partner">Partner</span>';
+                    }elseif($item['user']['membership_value']==22){
+                        echo '<span class="label-premium">Vip</span>';
+                    }else{
+                        echo '';
+                }?><?php echo $name; ?></h2>
+
+                                                <p>
+                                                    <span class="fa fa-tags"></span>
+                                                    <span class="text"><?php echo $type ?></span>
+                                                </p>
+
+                                                <p>
+                                                    <span class="fa fa-info-circle"></span>
+                                                    <span class="text" itemprop="itemCondition"><?php echo $conditions ?></span>
+                                                </p>
+
+                                                <div class="clearfix"></div>
+
+                                                <p>
+                                                    <span class="fa fa-map-marker"></span>
+                                                    <span class="text"><?php echo $local ?></span>
+                                                </p>
+
+                                                <p class="telephone-number">
+                                                    <span class="fa fa-phone"></span>
+                                                    <b class="text"><?php echo $phone ?></b>
+                                                </p>
+
+                                                <div class="clearfix"></div>
+                                                <div class="price">
+                                                    <span>
+                                                        <?php echo $price ?>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="post-meta">
+                                            <div class="author-post"><?php echo $user_name ?></div>
+                                            <div class="date-update">Cập nhật: <?php echo $updated ?></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        <?php endif;
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php echo isset($pagination) ? $pagination : '';}?>
+        </div>
+    </div>
+           
+<?php }

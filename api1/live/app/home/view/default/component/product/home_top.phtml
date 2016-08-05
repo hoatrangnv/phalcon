@@ -1,0 +1,46 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<div class="col-md-4">
+    <div class="block-head">
+        <h3 class="title">Top sản phẩm</h3>
+    </div>
+    <div class="list-recent">
+        <ul>
+            <?php if($result): ?>
+                <?php foreach ($result as $item): ?>
+                <?php
+                    if (!$item->alias):
+                        $item->alias = Util::slug($item->title);
+                    endif;
+                ?>
+                <li>
+                    <a class="thumbnail-recent" href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" title="<?php echo $item->title; ?>">
+                        <?php if ($item->image != ''): ?>
+                            <img src="<?php echo $this->config->asset->home_image_url . '250/' . $item->image; ?>" alt="<?php echo $item->title; ?>">
+                        <?php else: ?>
+                            <img src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" alt="<?php echo $item->title; ?>">
+                        <?php endif; ?>
+                    </a>
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" title="<?php echo $item->title; ?>">
+                        <h3 class="title-post">Lorem ipsum dolor sit amet, consectetur.</h3> 
+                    </a>
+                    <div class="price">
+                        <span class="price-old">
+                            <?php
+                                if (isset($attributes[$item->id]['price'])):
+                                    echo Util::formatMoney($attributes[$item->id]['price']). 'đ/m2';
+                                endif;
+                            ?>
+                        </span> 
+                        <?php
+                            if (isset($attributes[$item->id]['price'])):
+                                echo Util::formatMoney($attributes[$item->id]['price']). 'đ/m2';
+                            endif;
+                        ?>
+                    </div>
+                </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </ul>
+    </div>
+</div>

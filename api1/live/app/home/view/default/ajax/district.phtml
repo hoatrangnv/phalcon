@@ -1,0 +1,8 @@
+<option value="">
+    Chọn Quận/Huyện
+</option>
+<?php foreach ($result as $item): ?>
+    <option value="<?php echo $item->id; ?>">
+        <?php echo $item->title; ?>
+    </option>
+<?php endforeach; ?>

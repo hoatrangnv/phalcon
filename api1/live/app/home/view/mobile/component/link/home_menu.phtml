@@ -1,0 +1,32 @@
+<?php if($result): ?>
+<div class="bottom-slider">
+    <div class="container">
+        <div class="row">
+            <div class="button-1 open-menu-filter hidden-lg">Xem sản phẩm theo <span class="fa"></span></div>
+            <ul class="menu-filter">
+                <?php foreach ($result['main'] as $item): ?>
+                <li class="item-p">
+                    <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>">
+                        <?php echo $item->name; ?>
+                        <?php if (count($result['sub'][$item->id]) > 0): ?>
+                            <span class="fa"></span>
+                        <?php endif; ?>
+                    </a>
+                    <?php if (count($result['sub'][$item->id]) > 0): ?>
+                        <ul class="sub-menu">
+                            <?php foreach ($result['sub'][$item->id] as $sub_item): ?>
+                                <li class="item-s">
+                                    <a href="<?php echo $sub_item->url; ?>" title="<?php echo $sub_item->title; ?>">
+                                        <?php echo $sub_item->name; ?>
+                                    </a>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    <?php endif; ?>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

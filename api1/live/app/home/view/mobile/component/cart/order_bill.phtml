@@ -1,0 +1,101 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<style>
+    .table-left .title {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 5px 0 10px;
+        text-transform: uppercase;
+    }
+    .info-customer {
+        padding: 10px;
+    }
+    .bg-info {
+        background-color: #d9edf7;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    
+    .cart-thanks th {
+        background-color: #f1f1f1;
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    .cart-thanks tbody td {
+        border: 1px solid #dddddd;
+        padding: 0 10px;
+        vertical-align: middle;
+    }
+</style>
+<div class="table-left">
+    <h3 class="title">Hóa đơn đặt hàng</h3>
+    <div class="content-post bg-info info-customer">
+        <p><b>Họ & Tên: </b><?php echo $user['name']; ?></p>
+        <p><b>Số điện thoại: </b><?php echo $user['phone']; ?></p>
+        <p><b>Email: </b><?php echo $user['email']; ?></p>
+        <p><b>Địa chỉ: </b><?php echo $user['address']; ?></p>
+        <p><b>Ngày nhận hàng: </b><?php echo $user['delivery_date']; ?></p>
+        <div class="clearfix"></div>
+    </div>
+    <br>
+    <?php if (isset($user['recipient_name'])):?>
+        <div class="content-post bg-info info-customer">
+            <p><b>THÔNG TIN NGƯỜI NHẬN</b></p> 
+            <p><b>Họ & Tên: </b><?php echo $user['recipient_name']; ?></p>
+            <p><b>Số điện thoại: </b><?php echo $user['recipient_phone']; ?></p>
+            <p><b>Tỉnh/Thành phố: </b><?php echo $user['recipient_province']; ?>
+            <p><b>Quận/Huyện: </b><?php echo $user['recipient_district']; ?>
+            <p><b>Địa chỉ: </b><?php echo $user['recipient_address']; ?></p>
+            <p><b>Thông điệp: </b><?php echo $user['recipient_note']; ?></p>
+            <div class="clearfix"></div>
+        </div>
+    <?php endif; ?>
+    <h2 class="title-category bs-callout bs-callout-danger">Chi tiết đơn hàng</h2> 
+    <div class="content-post cart-thanks">
+        <table width="100%">
+            <thead>
+                <th width="15%">Hình ảnh</th>
+                <th width="45%">Sản phẩm</th>
+                <th width="15%">Giá</th>
+            </thead>
+            <tbody>
+                <?php $total = 0; ?>
+                <?php foreach($carts as $item): ?>
+                <?php $total += $item['total']; ?>
+                    <tr>
+                        <td>
+                            <?php if ($item['image'] != ''): ?>
+                                <img src="<?php echo $image_url . '150/' . $item['image']; ?>" alt="<?php echo $item['title']; ?>" class="w50 h50">
+                            <?php else: ?>
+                                <img src="<?php echo $image_default_url . '/default.gif'; ?>" alt="<?php echo $item['title']; ?>" class="w50 h50">
+                            <?php endif; ?>
+                        </td>
+                        <td><?php echo $item['title']; ?></td>
+                        <td><?php echo Util::formatMoney($item['price']); ?>đ(x<?php echo $item['quantity']; ?>)</td> 
+                    </tr>
+                <?php endforeach; ?>
+
+                    <tr>
+                        <td colspan="2" class="text-right title-total">Phí giao hàng</td>
+                        <td class="price-total">
+                            <?php echo Util::formatMoney($user['fee']); ?>đ
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-right title-total">Tổng cộng</td>
+                        <td class="price-total">
+                            <b>
+                                <?php echo Util::formatMoney($total + $user['fee']); ?>đ
+                            </b>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <div class="clearfix"></div>
+    </div>
+</div>
+        

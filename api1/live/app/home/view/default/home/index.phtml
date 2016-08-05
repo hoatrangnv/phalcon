@@ -1,0 +1,111 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="container">
+    <h1 class="home-h1"><?php echo $title_for_layout; ?></h1>
+</div>
+<?php if (isset($listPostApi)): ?>
+<?php echo $listPostApi ? $listPostApi : '' ?>
+<?php endif; ?>
+<section id="section1">
+    <div class="container">
+        <div class="row congso-list-main-post">
+            <div class="col-sm-12 col-md-12">
+                <h2 class="fresh-title">Tin nổi bật</h2>
+            </div>
+            <?php echo $fresh_layout; ?>
+        </div>
+    </div>
+</section>
+
+<section id="section2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 congso-main-content">
+                <div class="box-hot">
+                    <h2 class="post-title">Tin hot</h2>
+                    <?php echo $hot_layout; ?>   
+                    
+                    <div class="congso-list-post">
+                        <h2 class="post-title">Tin tiêu điểm</h2>
+                        <?php echo $focus_layout; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 congso-main-aside">
+                <!-- <div class="congso-aside-block">
+                    <?php echo $product_newer_layout; ?>
+                </div> -->
+                <div class="congso-aside-block">
+                    <h2 class="aside-title">Tin mới nhất</h2>
+                    <?php echo $most_new_layout; ?>
+                </div>
+
+                <div class="congso-aside-block">
+                    <h2 class="aside-title">Tin xem nhiều nhất</h2>
+                    <?php echo $most_viewed_layout; ?>
+                </div>
+                <?php if(isset($noidung_h2)&& isset($title_h2)){ ?>
+
+                 <div class="congso-aside-block" style="border: #d7d7d7 solid 1px;border-radius: 6px;margin-bottom: 30px;line-height: 1.3;">
+                 
+                     <h2 style="font-size: 15px;max-width:280px;font-weight:bold;margin-top: 10px;margin-left:10px;"><?php echo Util::htmlDecode($title_h2);?></h2>
+                        <div style="font: 13px; max-width: 280px;margin-left:10px;"><?php echo Util::htmlDecode($noidung_h2);?></div>
+                </div>
+                <?php }?>
+                <?php if(isset($noidung_h3)&& isset($title_h3)){ ?>
+                <div class="clearfix"></div>
+
+                 <div class="congso-aside-block" style="border: #d7d7d7 solid 1px;border-radius: 6px;margin-bottom: 30px;    line-height: 1.3;">
+                    <h3 style="font-size: 15px;max-width:280px;font-weight:bold;margin-top: 10px;margin-left:10px;"><?php echo Util::htmlDecode($title_h3);?></h3>
+                    <div style="font: 13px; max-width: 290px;margin-left:10px;"><?php echo Util::htmlDecode($noidung_h3);?></div>
+                </div>
+                <?php }?>
+            </div>  
+            <div class="clearfix"></div>
+            <div class="col-sm-12 col-md-12 congso-main-content">
+                <div class="row congso-list-sub-block">
+                    <?php if ($categories && count($categories) > 0): ?>
+                        <?php $i = 1 ; ?>
+                        <?php foreach ($categories as $item): ?>
+                            <div class="col-lg-4 col-md-4 col-sm-4 box-home">
+                                <div class="congso-sub-block box-detail">
+                                    <?php if(isset($box_layout[$item->id])): ?>
+                                    <?php echo $box_layout[$item->id]; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <?php if ($i % 3 == 0): ?>
+                                <div class="clearfix"></div>
+                            <?php endif; ?>
+                            <?php $i ++ ; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-12 col-md-12 congso-main-content">
+                <?php echo $product_newer_box_layout; ?>
+            </div>
+            <div class="col-sm-12 col-md-12 congso-main-content">
+                <?php echo $most_viewed_box_layout; ?>
+            </div>
+    </div>
+</div>
+</section>
+<div style="text-align: center;">
+<script>
+    $(window).load(function(){
+        $('.main-post-image,.highlight-image,.main-item-image').each(function(){
+            var ratio = $(this).data('ratio');
+            var width = $(this).width();
+            $(this).height(width/ratio);
+        });
+    });
+    $(window).resize(function(){
+      $('.main-post-image,.highlight-image,main-item-image').each(function(){
+        var ratio = $(this).data('ratio');
+        var width = $(this).width();
+        $(this).height(width/ratio);
+    });
+  });
+</script>
+</div>

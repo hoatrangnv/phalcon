@@ -1,0 +1,46 @@
+<link type="text/css" rel="stylesheet" href="<?php echo $this->config->asset->home_css_url . 'blog/prettyImg.css?' . $this->config->asset->version; ?>">
+<script type="text/javascript" src="<?php echo $this->config->asset->home_js_url . 'blog/prettyImg.js?'. $this->config->asset->version; ?>"></script>
+<section id="section2">
+    <div class="container">
+        <div class="box_layout">
+            <?php echo $this->partial($__theme. '/element/layout/_breadcrumbs', array('breadcrumbs' => $breadcrumbs)); ?>
+                <div class="text-des">
+                    <?php echo $category->description; ?>
+                </div>
+				<?php
+					foreach ($box_layout as $key => $category) {
+					 	echo $category;
+					 } 
+				?>
+		</div>
+		<div class="clearfix"></div>
+		<div class="row">
+			<div class="col-sm-12 col-md-12 congso-main-content">
+			    <?php echo $product_newer_box_layout; ?>
+			</div>
+			<div class="col-sm-12 col-md-12 congso-main-content">
+			    <?php echo $most_viewed_box_layout; ?>
+			</div>
+		</div>
+	</div>
+</section>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.box-item .th-frame').prettyImg({
+            align:'top', // middle , left, top, right, bottom,
+            mode:'fit' // fill, fit, center
+        });
+    });
+    $(window).load(function(){
+        $('.box-item .th-frame').prettyImg({
+            align:'top', // middle , left, top, right, bottom,
+            mode:'fit' // fill, fit, center
+        });
+    });
+    $(window).resize(function(){
+        $('.box-item .th-frame').prettyImg({
+            align:'top', // middle , left, top, right, bottom,
+            mode:'fit' // fill, fit, center
+        });
+    });
+</script>

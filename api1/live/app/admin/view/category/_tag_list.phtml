@@ -1,0 +1,36 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<form action="" method="POST" enctype="multipart/form-data">
+<table class="table table-striped table-bordered table-hover table-full-width">
+        <thead>
+            <tr role="row">
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Slug</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach ($result->items as $item): ?>
+                <?php
+                $query = array(
+                    'id' => $item->id,
+                    'page' => $page,
+                    'q' => $q,
+                    'cache_name' => $cache_name
+                );
+                ?>
+                <tr>
+                    <td><?php echo $item->id; ?></td>
+                    <td>
+                        <a href="<?php echo $this->url->get(array('for' => 'category_tag_edit', 'query' => '?' . http_build_query($query))); ?>">
+                            <?php echo $item->title; ?>
+                        </a>
+                    </td>
+                    <td><?php echo $item->slug; ?></td>
+                </tr>
+            <?php endforeach; ?>    
+        </tbody>
+    </table>
+    <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>" />
+</form>    

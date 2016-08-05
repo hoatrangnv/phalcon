@@ -1,0 +1,139 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<?php $ismobile = Util::check_user_agents('mobile'); ?>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=648809378581969&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="container">
+    <div class="m-t-30">
+        <div class="col-md-8 col-lg-7">
+        
+        <!--<h1 style="font-size: 14px;">Tìm kiếm</h1>-->
+            <ul class="list-post-main list-unstyled">
+            <?php echo $this->partial('default/element/layout/_breadcrumbs', array('category' => $category)); ?>
+            <?php if(!$ismobile): ?>
+            
+            <?php else: ?>
+            <div class="container" style="text-align: center;">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- TGCongSo_Mobile_danhmuc_toptext -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:250px"
+                     data-ad-client="ca-pub-1637346731627697"
+                     data-ad-slot="1925529312"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <?php endif; ?>
+
+                <?php foreach($result->items as $item): ?>
+                <li class="item">
+                    <h2 class="title-post"><a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post"><?php echo $item->title; ?></a></h2>
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="thumbnail">
+                        <?php $file_headers = @get_headers($this->config->asset->home_image_url . '500/' . $item->image); ?>
+                         
+                        <?php if ($item->image != '' && $file_headers[0] != 'HTTP/1.1 404 Not Found'): ?>
+                            <img src="<?php echo $this->config->asset->home_image_url . '500/' . $item->image; ?>" alt="<?php echo $item->title; ?>">
+                        <?php else: ?>
+                            <?php if ($item->image == '' || $file_headers[0] == 'HTTP/1.1 404 Not Found'): ?>
+                            <img src="<?php echo $this->config->asset->home_image_url . 'image_not_found.jpg'; ?>" alt="<?php echo $item->title; ?>" style="width:600px; height:600px">
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </a>
+                    <div class="meta-couter" style="display: none;">
+                         70 points · 6 comments 
+                    </div>
+                    <div class="action-bottom">
+                        <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="btn btn-success pull-right ">Xem thêm</a>
+                        <a href="" class="btn btn btn-default pull-right"><span class="fa"></span> <?php echo $item->hits; ?></a>
+                        <div class="btn-facebook">
+                            <div id="fb-root"></div>
+                            <div class="fb-like" data-href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                        </div>
+                        <!--<div class="btn-google">
+                            <script src="https://apis.google.com/js/platform.js" async defer></script>
+                            <div class="g-plusone" data-href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>"></div>
+                        </div>-->
+                        <div class="clearfix"></div>
+                    </div>
+                </li>
+                <?php endforeach;?>            
+            </ul>
+            <div class="pagenavi">
+                        <?php if ($result->total_pages > 1): ?>
+                            <div class="page-navi ajax">
+                                <?php if ($result->before == $result->current): ?>
+                                    <a class="prev item active"><</a>
+                                <?php else: ?>
+                                    <a href="<?php echo $this->url->get(array('for' => 'article_search_result_list', 'query' => '?' . http_build_query(array('tu_khoa' => $search_q, 'danh_muc' => $search_category, 'page' => $result->before)))); ?>" class="prev item"><</a>
+                                <?php endif; ?>
+
+                                <?php if ($result->current == $result->last): ?>
+                                    <?php $start = $result->current - 4; ?>
+                                <?php else: ?>
+                                    <?php $start = $result->current - 3; ?>
+                                <?php endif; ?>
+
+                                <?php for ($i = $start; $i < $result->current; $i++): ?>
+                                    <?php if ($i > 0): ?>
+                                    <a href="<?php echo $this->url->get(array('for' => 'article_search_result_list', 'query' => '?' . http_build_query(array('tu_khoa' => $search_q, 'danh_muc' => $search_category, 'page' => $i)))); ?>" class="item">
+                                            <?php echo $i; ?>
+                                        </a>
+                                    <?php endif; ?>
+                                <?php endfor; ?>
+
+                                <a class="item active">
+                                    <?php echo $result->current; ?>
+                                </a>
+
+                                <?php if ($result->current == 1): ?>
+                                    <?php $end = $result->current + 4; ?>
+                                <?php else: ?>
+                                    <?php $end = $result->current + 3; ?>
+                                <?php endif; ?>
+
+                                <?php for ($i = $result->current + 1; $i <= $end; $i++): ?>
+                                    <?php if ($i <= $result->last): ?>
+                                    <a href="<?php echo $this->url->get(array('for' => 'article_search_result_list', 'query' => '?' . http_build_query(array('tu_khoa' => $search_q, 'danh_muc' => $search_category, 'page' => $i)))); ?>" class="item">
+                                            <?php echo $i; ?>
+                                        </a>
+                                    <?php endif; ?>
+                                <?php endfor; ?>
+
+                                <?php if ($result->next == $result->current): ?>
+                                    <a class="next item active">></a>
+                                <?php else: ?>
+                                    <a href="<?php echo $this->url->get(array('for' => 'article_search_result_list', 'query' => '?' . http_build_query(array('tu_khoa' => $search_q, 'danh_muc' => $search_category, 'page' => $result->next)))); ?>" class="next item">></a>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
+            <?php if(!$ismobile): ?>
+            <div class="container">
+              
+            </div>
+            <?php else: ?>
+            <div class="container" style="text-align: center">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- TGCongSo_Mobile_danhmuc_bottom -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:250px"
+                     data-ad-client="ca-pub-1637346731627697"
+                     data-ad-slot="4878995713"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <?php endif; ?>
+        </div>
+        <?php echo $this->partial($__theme. '/element/layout/_sidebar'); ?>
+        </div>
+    </div>

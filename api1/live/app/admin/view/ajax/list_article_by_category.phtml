@@ -1,0 +1,7 @@
+<?php if(isset($result) && !empty($result)): ?>
+    <?php foreach ($result as $item): ?>
+        <option value="<?php echo $item->id; ?>">
+            <?php echo $item->title; ?>
+        </option>
+    <?php endforeach; ?>
+<?php endif; ?>

@@ -1,0 +1,41 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<?php if($result && count($result) > 0): ?>
+    <h2 class="sub-block-title">
+        <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $category->slug)); ?>" alt="<?php echo $category->name; ?>" title="<?php echo $category->name; ?>" >
+            <?php echo $category->name; ?>
+        </a>
+    </h2>
+    <div class="main-item">
+        <div class="main-item-image" data-ratio="1.333">
+            <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $result[0]->id, 'slug' => $result[0]->alias)); ?>">
+                <?php if ($result[0]->image != ''): ?>
+                    <img src="<?php echo $this->config->asset->home_image_url . '250/' . $result[0]->image; ?>" alt="<?php echo $result[0]->title; ?>">
+                <?php else: ?>
+                    <?php if ($result[0]->image == ''): ?>
+                        <img src="<?php echo $this->config->asset->home_image_url . 'image_not_found.jpg'; ?>" alt="<?php echo $result[0]->title; ?>">
+                    <?php endif; ?>
+                <?php endif; ?>
+            </a>
+        </div>
+        <div class="main-item-name">
+            <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $result[0]->id, 'slug' => $result[0]->alias)); ?>">
+                <?php echo $result[0]->title; ?>
+            </a>
+        </div>
+    </div>
+    <ul class="sub-item">
+        <?php $i = 0;?>
+        <?php foreach ($result as $item): ?>
+            <?php if ($i > 0): ?>
+                <li>
+                    <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>">
+                        <?php echo util::niceWordsByChars($item->title,90); ?>
+                    </a>
+                    <span class="analytics"><?php echo $item->hits; ?></span>
+                </li>
+            <?php endif; ?>
+            <?php $i = $i + 1; ?>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

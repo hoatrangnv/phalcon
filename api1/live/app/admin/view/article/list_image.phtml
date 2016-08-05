@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-md-4 col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-sitemap"></i>
+                Quản lý thư mục hình ảnh 
+            </div>
+            <div class="panel-body">
+                <div id="tree">
+                    <?php echo $dir_layout; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-sitemap"></i>
+                Hình ảnh 
+            </div>
+            <div class="panel-body">
+                <div class="list-image">
+                    <?php if(isset($result['files']) && !empty($result['files'])): ?>
+                        <?php foreach ($result['files'] as $file): ?>
+                            <div class="col-md-2 col-sm-2 gallery-img">
+                                <div class="wrap-image">
+                                    <a class="group1 block text-center" href="<?php echo $image_url . $file; ?>" title="<?php echo $file; ?>">
+                                        <img onclick="setLink('<?php echo $image_url . $file; ?>')" src="<?php echo $image_url . $file; ?>" alt="<?php echo $file; ?>" class="h120 W100">
+                                    </a>
+                                    <div class="chkbox"></div>
+                                    <div class="tools tools-bottom">
+                                        <a href="#">
+                                            <i class="clip-link-4"></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="clip-pencil-3 "></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="clip-close-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function getUrlParam( paramName ) {
+        var reParam = new RegExp( '(?:[\?&]|&)' + paramName + '=([^&]+)', 'i' ) ;
+        var match = window.location.search.match(reParam) ;
+
+        return ( match && match.length > 1 ) ? match[ 1 ] : null ;
+    }
+    function setLink(url) {
+        var funcNum = getUrlParam( 'CKEditorFuncNum' );
+        window.opener.CKEDITOR.tools.callFunction( funcNum, url);
+        window.close();
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on('click','a.dynatree-title',function(){
+            var path = $(this).attr('title');
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_list_image')); ?>',
+                data: {
+                    folder: path
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('.list-image').html($res);
+                    }
+                }
+            });
+        })
+    });
+</script>

@@ -1,0 +1,58 @@
+<?php use TVN\Auth\Lib\Util as LocalUtil; ?>
+
+<div class="container">
+    <div class="inner10">
+        <h3 class="title text-primary">
+            <img src="<?php echo $this->config->asset->home_image_url . 'call.png'; ?>" alt="Hotline miền Nam" class="img-call">
+            Hotline cho Nhà tuyển dụng miền Nam (từ Đà Nẵng trở vào)
+        </h3>
+
+        <?php $hotline = LocalUtil::rotateHotline($this->config->hotline_south); ?>
+
+        <?php $cols = 6; ?>
+        <?php $rows = ceil(count($hotline) / $cols); ?>
+        <?php $index = 1; ?>
+
+        <?php for ($i = 0; $i < $rows; $i++): ?>
+            <?php for ($j = 0; $j < $cols; $j++): ?>
+                <?php if (isset($hotline[$index])): ?>
+                    <?php foreach ($hotline[$index] as $phone => $name): ?>
+                        <span class="text col-xs-2 no-padding">
+                            <b class="text-danger"><?php echo $phone; ?></b>
+                            <?php echo $name; ?>
+                        </span>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php $index++; ?>
+            <?php endfor; ?>
+        <?php endfor; ?>
+
+        <div class="blank17"></div>
+        <h3 class="title text-primary">
+            <img src="<?php echo $this->config->asset->home_image_url . 'call.png'; ?>" alt="Hotline miền Bắc" class="img-call">
+            Hotline cho Nhà tuyển dụng miền Bắc (từ Huế trở ra)
+        </h3>
+
+        <?php $hotline = LocalUtil::rotateHotline($this->config->hotline_north); ?>
+
+        <?php $cols = 6; ?>
+        <?php $rows = ceil(count($hotline) / $cols); ?>
+        <?php $index = 1; ?>
+
+        <?php for ($i = 0; $i < $rows; $i++): ?>
+            <?php for ($j = 0; $j < $cols; $j++): ?>
+                <?php if (isset($hotline[$index])): ?>
+                    <?php foreach ($hotline[$index] as $phone => $name): ?>
+                        <span class="text col-xs-2 no-padding">
+                            <b class="text-danger"><?php echo $phone; ?></b>
+                            <?php echo $name; ?>
+                        </span>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php $index++; ?>
+            <?php endfor; ?>
+        <?php endfor; ?>
+
+        <br>
+    </div>
+</div>

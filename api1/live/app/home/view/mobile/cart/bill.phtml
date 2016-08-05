@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 pull-left table-left box">
+            <?php echo $this->partial('default/element/layout/cart/_step_tow'); ?>
+            <?php echo $this->flashSession->output(); ?>
+            <form id="form" role="form" action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                <?php echo $cart_bill_layout;?>
+                <div class="text-right">
+                    <button type="submit" class="btn submit-cart">Xác nhận thanh toán</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

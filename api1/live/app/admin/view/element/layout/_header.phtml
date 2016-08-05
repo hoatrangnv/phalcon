@@ -1,0 +1,35 @@
+<?php $user = $this->session->get('USER'); ?>
+<div class="navbar-header">
+    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+        <span class="clip-list-2"></span>
+    </button>
+    <a href="<?php echo $this->url->get(array('for' => 'home')); ?>" class="navbar-brand">
+        Administrator
+    </a>
+</div>
+<div class="navbar-tools">
+    <ul class="nav navbar-right">
+        <li class="dropdown current-user">
+            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+                <img src="<?php echo $this->config->asset->admin_image_url . 'avatar_default_small.png'; ?>" class="circle-img" alt="">
+                <span class="username"><?php echo $user['name']; ?></span>
+                <i class="clip-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="<?php echo $this->url->get(array('for' => 'profile')); ?>">
+                        <i class="clip-user-2"></i>
+                        &nbsp;Tài khoản
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="<?php echo $this->url->get(array('for' => 'logout')); ?>">
+                        <i class="clip-exit"></i>
+                        &nbsp;Thoát
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

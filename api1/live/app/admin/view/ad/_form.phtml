@@ -1,0 +1,92 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Tiêu đề :
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('name', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Liên kết tùy chọn
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('url', array('class' => 'form-control', 'placeholder' => 'http://domain')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'url')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Ngày hết hạn
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('expired_at', array('class' => 'form-control date-picker' , 'data-date-format' => 'dd-mm-yyyy', 'data-date-viewmode' => 'years')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'expired_at')); ?>
+    </div>
+</div>
+
+
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Nội Dung :
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('content', array('class' => 'form-control editor','id' => 'editor')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'content')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Vị trí
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('banner_zone_id', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'banner_zone_id')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Trạng thái
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('status', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'status')); ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+        $('#category_product_ajax').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_category_product_list')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#product_select').html($res);
+                    }
+                }
+            });
+        });
+        
+        $('#category_article_ajax').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_category_article_list')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#article_select').html($res);
+                    }
+                }
+            });
+        });
+    });
+</script>

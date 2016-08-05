@@ -1,0 +1,127 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Tiêu đề
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('name', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Liên kết tùy chọn
+    </label>
+    <div class="col-sm-9">
+        <?php echo $form->render('url', array('class' => 'form-control', 'placeholder' => 'http://domain')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'url')); ?>
+    </div>
+</div>
+
+<?php /*
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Liên kết danh mục sản phẩm
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('category_product', array('class' => 'form-control search-select')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'category_product')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Liên kết danh mục bài viết
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('category_article', array('class' => 'form-control search-select')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'category_article')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Liên kết trang tĩnh
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('page', array('class' => 'form-control search-select')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'page')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Liên kết sản phẩm
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('category_product_ajax', array('class' => 'form-control search-select')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'category_product_ajax')); ?>
+    </div>
+    <div class="col-sm-4">
+        <?php echo $form->render('product_select', array('class' => 'form-control search-select')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'product_select')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Liên kết bài viết
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('category_article_ajax', array('class' => 'form-control search-select')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'category_article_ajax')); ?>
+    </div>
+    <div class="col-sm-4">
+        <?php echo $form->render('article_select', array('class' => 'form-control search-select')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'article_select')); ?>
+    </div>
+</div>*/?>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Target
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('target', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'target')); ?>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">
+        Nhóm
+    </label>
+    <div class="col-sm-4">
+        <?php echo $form->render('group_id', array('class' => 'form-control')); ?>
+        <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'group_id')); ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+        $('#category_product_ajax').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_category_product_list')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#product_select').html($res);
+                    }
+                }
+            });
+        });
+        
+        $('#category_article_ajax').on('change', function() {
+            $.ajax({
+                type: 'post',
+                url: '<?php echo $this->url->get(array('for' => 'ajax_category_article_list')); ?>',
+                data: {
+                    id: $(this).val()
+                },
+                success: function($res) {
+                    if (typeof $res != undefined) {
+                        $('#article_select').html($res);
+                    }
+                }
+            });
+        });
+    });
+</script>

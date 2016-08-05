@@ -1,0 +1,97 @@
+<div class="top-header">
+    <div class="container text-center">
+        <h1 class="title-post">Liên hệ</h1>
+        <div class="breamcrum">
+            <?php echo $this->partial($__theme . '/element/layout/_breadcrumbs'); ?>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="entry">
+            <div class="col-md-7 col-lg-6 contact-info " style="height:auto; border:none">
+                <ul class="contact-info-content">
+                    <li style="color:#333">
+                        <img src="<?php echo $this->config->asset->home_image_url . 'diachi.png'; ?>" alt="">
+                        <strong>Công Ty TNHH Trang Trí Nội Ngoại Thất Mạnh Trí</strong><br>
+                        46 Nguyễn Chí Thanh (nối dài), P.16, Q.11, Tp. HCM<br>
+                        MST: 0311236752
+                    </li>
+                    <li style="color:#333">
+                        <img src="<?php echo $this->config->asset->home_image_url . 'email.png'; ?>" alt="">
+                        <strong>Email liên hệ báo giá</strong><br>
+                        info@manhtri.com<br>
+                        tri@manhtri.com
+                    </li>
+                    <li style="color:#333">
+                        <img src="<?php echo $this->config->asset->home_image_url . 'lienhe.png'; ?>" alt="">
+                        <strong>Telephone:</strong> (08) 3969 8283 - 3960 0785 - 2213 2162<br>
+                        <strong>Hotline:</strong> 0913 03 03 03<br>
+                        <strong>Fax</strong>: (08) 3960 0785
+                    </li>
+                    <li style="color:#333">
+                        <img src="<?php echo $this->config->asset->home_image_url . 'bank.png'; ?>" alt="">
+                        <strong>Sacombank: </strong>060038991992 Sacombank,  Q.11, Tp.HCM<br>
+                        <strong>Vietcombank</strong>: 0511000407895 Vietcombank,  Q.5, Tp.HCM<br>
+                        <strong>DongA bank:</strong> 009813740001 DongA bank , Q.11
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-5 col-lg-6 info-contact">
+                <form action="" method="POST" enctype="multipart/form-data" role="form" class="form-horizontal">
+                    <?php echo $this->flashSession->output(); ?>
+
+                    <div class="form-group">
+                        <label class="col-sm-3" style="padding:3px 0">
+                            Họ tên
+                        </label>
+                        <?php echo $form->render('name'); ?>
+                        <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'name')); ?>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3" style="padding:3px 0">
+                            Email
+                        </label>
+                        <?php echo $form->render('email'); ?>
+                        <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'email')); ?>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3" style="padding:3px 0">
+                            Điện thoại
+                        </label>
+                        <?php echo $form->render('phone'); ?>
+                        <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'phone')); ?>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3" style="padding:3px 0">
+                            Tiêu đề
+                        </label>
+                        <?php echo $form->render('title'); ?>
+                        <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'title')); ?>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3" style="padding:3px 0">
+                            Nội dung
+                        </label>
+                        <?php echo $form->render('description', array('style' => 'height: 300px;')); ?>
+                        <?php echo $this->partial('default/element/layout/_message', array('form' => $form, 'element' => 'description')); ?>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3">
+                        </label>
+                        <input type="submit" value="Gửi" class="submit-contact">
+                    </div>
+
+                    <input type="hidden" name="<?php echo $this->security->getTokenKey(); ?>" value="<?php echo $this->security->getToken(); ?>">
+                </form>
+            </div>
+            <div class="clearfix"></div>
+            <div class="full">
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3919.7162259922393!2d106.64989829999999!3d10.756339800000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752e8cff087061%3A0x415031bf1027e0d5!2zNDYgTmd1eeG7hW4gQ2jDrSBUaGFuaCwgMTYsIFF14bqtbiAxMQ!5e0!3m2!1svi!2s!4v1401940033610" frameborder="1" height="450" width="100%"></iframe>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

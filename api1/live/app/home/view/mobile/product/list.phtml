@@ -1,0 +1,121 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="top-header">
+    <div class="container text-center">
+        <h1 class="title-post"><?php echo $category->name; ?></h1>
+        <div class="breamcrum">
+            <?php echo $this->partial($__theme . '/element/layout/_breadcrumbs'); ?>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class=" pull-right primary col-md-9 ">
+            <div class="text-des">
+                <?php echo $category->description; ?>
+            </div>
+            
+                <!-- filter-category -->
+                <div class="list-post-category">
+                <?php if($result): ?>
+                    <?php foreach ($result->items as $item): ?>
+                        <?php
+                            if (!$item->alias):
+                                $item->alias = Util::slug($item->title);
+                            endif;
+                        ?>
+                        <div class="item">
+                            <div class="entry">
+                                <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="thumbnail-pro frame-th">
+                                    <?php if ($item->image != ''): ?>
+                                        <img src="<?php echo $this->config->asset->home_image_url . '250/' . $item->image; ?>" alt="<?php echo $item->title; ?>" style="width: auto; height: 100%; max-height: 100%;">
+                                    <?php else: ?>
+                                        <img src="<?php echo $this->config->asset->home_image_url . 'default.gif'; ?>" alt="<?php echo $item->title; ?>" style="width: auto; height: 100%; max-height: 100%;">
+                                    <?php endif; ?>
+                                </a>
+                                <h3 class="title-post">
+                                    <?php echo $item->title; ?>
+                                </h3>
+                                <div class="price">
+                                    <span class="price-old">
+                                        <?php
+                                        if (isset($attributes[$item->id]['price_old'])):
+                                            if (is_numeric($attributes[$item->id]['price_old'])) :
+                                                echo Util::formatMoney($attributes[$item->id]['price_old']). 'đ';
+                                            else:
+                                                echo $attributes[$item->id]['price_old'];
+                                            endif;
+                                        endif;
+                                        ?>
+                                    </span>
+                                    <span class="price-new">
+                                        <?php
+                                        if (isset($attributes[$item->id]['price'])):
+                                            if (is_numeric($attributes[$item->id]['price'])) :
+                                                echo Util::formatMoney($attributes[$item->id]['price']). 'đ';
+                                            else:
+                                                echo $attributes[$item->id]['price'];
+                                            endif;
+                                        endif;
+                                        ?>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                    <div class="clearfix"></div>
+                    <div class="pagenavi">
+                        <?php if ($result->total_pages > 1): ?>
+                            <?php if ($result->before == $result->current): ?>
+                                <a class="prev item active"><</a>
+                            <?php else: ?>
+                                <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $category->slug, 'query' => '?' . http_build_query(array('page' => $result->before)))); ?>" class="prev item"><</a>
+                            <?php endif; ?>
+
+                            <?php if ($result->current == $result->last): ?>
+                                <?php $start = $result->current - 4; ?>
+                            <?php else: ?>
+                                <?php $start = $result->current - 3; ?>
+                            <?php endif; ?>
+
+                            <?php for ($i = $start; $i < $result->current; $i++): ?>
+                                <?php if ($i > 0): ?>
+                                <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $category->slug, 'query' => '?' . http_build_query(array('page' => $i)))); ?>" class="item">
+                                        <?php echo $i; ?>
+                                    </a>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+
+                            <a class="item active">
+                                <?php echo $result->current; ?>
+                            </a>
+
+                            <?php if ($result->current == 1): ?>
+                                <?php $end = $result->current + 4; ?>
+                            <?php else: ?>
+                                <?php $end = $result->current + 3; ?>
+                            <?php endif; ?>
+
+                            <?php for ($i = $result->current + 1; $i <= $end; $i++): ?>
+                                <?php if ($i <= $result->last): ?>
+                                <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $category->slug, 'query' => '?' . http_build_query(array('page' => $i)))); ?>" class="item">
+                                        <?php echo $i; ?>
+                                    </a>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+
+                            <?php if ($result->next == $result->current): ?>
+                                <a class="next item active">></a>
+                            <?php else: ?>
+                                <a href="<?php echo $this->url->get(array('for' => 'article_list', 'slug' => $category->slug, 'query' => '?' . http_build_query(array('page' => $result->next)))); ?>" class="next item">></a>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                <?php else: ?>
+                    Thông tin đang cập nhật. Bạn có thể xem các thông tin khác hoặc quay lại sau.
+                <?php endif; ?>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>

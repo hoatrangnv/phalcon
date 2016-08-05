@@ -1,0 +1,252 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+
+<?php if($title=false){?>
+    <div class="container">
+        <h1 class="home-h1">Công Sở, Tâm sự, sức khỏe,  Mua Bán Nhanh, Thời trang, Xe máy, Ô tô</h1>
+    </div>
+<?php }?>
+
+<?php
+
+    if (isset($data) && count($data) > 0) {
+        //print_r($data);exit;
+        foreach($data as $data_category) { ?>
+
+            <?php if($data_category['self']->id == '149'){ ?>
+                <div class="block-mbn">
+                    <div class="container">
+                        <h1 class="post-title">
+                            <a>
+                                <?php
+                                //echo isset($data_category['self']) ? $data_category['self']->name : 'Mua bán nhanh dành cho dân Công Sở' ?>
+                                Mua bán nhanh dành cho dân Công Sở
+                            </a>
+                        </h1>
+
+                        <h3 style="font-size: 13px;">
+                        <div class="tags-list cate">
+                            <?php foreach($r['result'] as $key => $value){ ?>
+                                <?php foreach($value['sub_category'] as $key => $item){ ?>
+                                    <?php if($item['parent_id'] == $data_category['self']->id){ ?>
+                                    <?php $url = $this->url->get(array('for'=>'mbn_list','id'=>$item['id'],'slug'=>$item['slug']));?>
+                                        <a href="<?php echo $url; ?>">
+                                            <?php echo $item['name']; ?>
+                                        </a>
+                                    <?php } ?>
+                                <?php } ?>
+                            <?php } ?>
+                        </div>
+                        </h3>
+
+                        <?php if (isset($data_category['posts']) && count($data_category['posts']->result) > 0) : ?>
+                            <div class="list-post block-category-mbn">
+                                <div class="list-wrap">
+                                    <?php
+                                    //print_r($data_category);die;
+                                    $article = $data_category['posts'];
+                                    foreach ($article->result as $key => $item) {
+
+                                        if (isset($item) && $item) :
+
+                                            $url = $this->url->get(array('for'=>'mbn_detail','id'=>$item->id,'slug'=>$item->slug));
+                                            $name           = $item->name ? Util::niceWordsByChars($item->name,45) : "";
+                                            $thumbnail      = $item->default_thumbnail_url ? $item->default_thumbnail_url : "";
+                                            $price          = $item->price ? number_format($item->price,0,".",".").'<sup>VND</sup>' : "Liên hệ" ;
+                                            $type           = $item->type_value == 1 ? "Cần bán/ Dịch vụ" : "Cần mua/ Cần tìm" ;
+                                            $conditions     = $item->conditions ? $item->conditions : "";
+                                            $local          = $item->province->name ? $item->province->name : "";
+                                            $phone          = $item->user->phone ? $item->user->phone : "";
+                                            $updated        = $item->updated_at;
+                                            $user_name      = $item->user->name;
+                                            $type_user      = $item->user->membership_value == 23 ? '<span class="label-premium Partner">Partner</span>' :  $item->user->membership_value == 22 ? '<span class="label-premium">Vip</span>' : '';
+                                            ?>
+                                            <li class="item">
+                                                <div class="entry-item">
+                                                    <a href="<?php echo $url; ?>">
+                                                        <div class="info-left">
+                                                            <span class="thumbnail fix-frame" data-ratio="1.333">
+                                                                <img src="<?php echo $thumbnail; ?>" height="398" width="600" alt="<?php echo $name;?>">
+                                                            </span>
+                                                        </div>
+                                                        <div class="summary">
+                                                            <div class="block-info">
+                                                                <h2 class="title">
+                                                                <?php if($item['user']['membership_value']==23){
+                                                                echo '<span class="label-premium Partner">Partner</span>';
+                                                                }elseif($item['user']['membership_value']==22){
+                                                                    echo '<span class="label-premium">Vip</span>';
+                                                                }else{
+                                                                    echo '';
+                                                            }?><?php echo $name; ?></h2>
+
+                                                                <p>
+                                                                    <span class="fa fa-tags"></span>
+                                                                    <span class="text"><?php echo $type ?></span>
+                                                                </p>
+
+                                                                <p>
+                                                                    <span class="fa fa-info-circle"></span>
+                                                                    <span class="text" itemprop="itemCondition"><?php echo $conditions ?></span>
+                                                                </p>
+
+                                                                <div class="clearfix"></div>
+
+                                                                <p>
+                                                                    <span class="fa fa-map-marker"></span>
+                                                                    <span class="text"><?php echo $local ?></span>
+                                                                </p>
+
+                                                                <p class="telephone-number">
+                                                                    <span class="fa fa-phone"></span>
+                                                                    <b class="text"><?php echo $phone ?></b>
+                                                                </p>
+
+                                                                <div class="clearfix"></div>
+                                                                <div class="price">
+                                                                    <span>
+                                                                        <?php echo $price ?>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                        <div class="post-meta">
+                                                            <div class="author-post"><?php echo $user_name ?></div>
+                                                            <div class="date-update">Cập nhật: <?php echo $updated ?></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        <?php endif;
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <?php
+                                echo (isset($pagination) && $pagination) ?
+                                    $pagination :
+                                    '<div class="text-center">
+                                        <a href="'.$this->url->get(array('for'=>'mbn_list','slug'=>$data_category['self']->slug,'id'=>$data_category['self']->id)).'" class="btn btn-success" style="padding: 6px;">Xem thêm</a>
+                                    </div>';
+                            ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php } else{ ?>
+                <div class="block-mbn">
+                    <div class="container">
+                        <h1 class="post-title">
+                            <?php $url = $this->url->get(array('for'=>'mbn_list','id'=>$data_category['self']->id,'slug'=>$data_category['self']->slug));?>
+                            <a href="<?php echo $url; ?>">
+                                <?php echo $data_category['self']->name; ?>(<?php echo $data_category['self']->article_count; ?>)
+                            </a>
+                        </h1>
+
+                        <h3 style="font-size: 13px;">
+                        <div class="tags-list cate">
+                            <?php foreach($r['result'] as $key => $value){ ?>
+                                <?php foreach($value['sub_category'] as $key => $item){ ?>
+                                    <?php if($item['parent_id'] == $data_category['self']->id){ ?>
+                                    <?php $url = $this->url->get(array('for'=>'mbn_list','id'=>$item['id'],'slug'=>$item['slug']));?>
+                                        <a href="<?php echo $url; ?>">
+                                            <?php echo $item['name']; ?>
+                                        </a>
+                                    <?php } ?>
+                                <?php } ?>
+                            <?php } ?>
+                        </div>
+                        </h3>
+
+                        <?php $url = $this->url->get(array('for'=>'mbn_list','id'=>$data_category['self']->id,'slug'=>$data_category['self']->slug));?>
+                        <?php if (isset($data_category['posts']) && count($data_category['posts']->result) > 0) : ?>
+                            <div class="list-post block-category-mbn">
+                                <div class="list-wrap">
+                                    <?php
+                                    //print_r($data_category);die;
+                                    $article = $data_category['posts'];
+                                    foreach ($article->result as $key => $item) {
+
+                                        if (isset($item) && $item) :
+
+                                            $url = $this->url->get(array('for'=>'mbn_detail','id'=>$item->id,'slug'=>$item->slug));
+                                            $name           = $item->name ? Util::niceWordsByChars($item->name,45) : "";
+                                            $thumbnail      = $item->default_thumbnail_url ? $item->default_thumbnail_url : "";
+                                            $price          = $item->price ? number_format($item->price,0,".",".").'<sup>VND</sup>' : "Liên hệ" ;
+                                            $type           = $item->type_value == 1 ? "Cần bán/ Dịch vụ" : "Cần mua/ Cần tìm" ;
+                                            $conditions     = $item->conditions ? $item->conditions : "";
+                                            $local          = $item->province->name ? $item->province->name : "";
+                                            $phone          = $item->user->phone ? $item->user->phone : "";
+                                            $updated        = $item->updated_at;
+                                            $user_name      = $item->user->name;
+                                            $type_user      = $item->user->membership_value == 23 ? '<span class="label-premium Partner">Partner</span>' :  $item->user->membership_value == 22 ? '<span class="label-premium">Vip</span>' : '';
+                                            ?>
+                                            <li class="item">
+                                                <div class="entry-item">
+                                                    <a href="<?php echo $url; ?>">
+                                                        <div class="info-left">
+                                                            <span class="thumbnail fix-frame" data-ratio="1.333">
+                                                                <img src="<?php echo $thumbnail; ?>" height="398" width="600" alt="<?php echo $name;?>">
+                                                            </span>
+                                                        </div>
+                                                        <div class="summary">
+                                                            <div class="block-info">
+                                                                <h2 class="title"><?php echo $type_user ; echo $name; ?></h2>
+
+                                                                <p>
+                                                                    <span class="fa fa-tags"></span>
+                                                                    <span class="text"><?php echo $type ?></span>
+                                                                </p>
+
+                                                                <p>
+                                                                    <span class="fa fa-info-circle"></span>
+                                                                    <span class="text" itemprop="itemCondition"><?php echo $conditions ?></span>
+                                                                </p>
+
+                                                                <div class="clearfix"></div>
+
+                                                                <p>
+                                                                    <span class="fa fa-map-marker"></span>
+                                                                    <span class="text"><?php echo $local ?></span>
+                                                                </p>
+
+                                                                <p class="telephone-number">
+                                                                    <span class="fa fa-phone"></span>
+                                                                    <b class="text"><?php echo $phone ?></b>
+                                                                </p>
+
+                                                                <div class="clearfix"></div>
+                                                                <div class="price">
+                                                                    <span>
+                                                                        <?php echo $price ?>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                        <div class="post-meta">
+                                                            <div class="author-post"><?php echo $user_name ?></div>
+                                                            <div class="date-update">Cập nhật: <?php echo $updated ?></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        <?php endif;
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+
+                            <?php
+                                echo (isset($pagination) && $pagination) ?
+                                    $pagination :
+                                    '<div class="text-center">
+                                        <a href="'.$this->url->get(array('for'=>'mbn_list','slug'=>$data_category['self']->slug,'id'=>$data_category['self']->id)).'" class="btn btn-success" style="padding: 6px;">Xem thêm</a>
+                                    </div>';
+                            ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php } ?>
+        <?php }
+    }
+?>

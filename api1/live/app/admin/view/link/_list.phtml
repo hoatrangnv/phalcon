@@ -1,0 +1,42 @@
+<?php if($result): ?>
+<div id="links" class="links">
+<?php foreach ($result->items as $group): ?>
+    <?php
+    $query = array(
+        'id' => $group->id,
+        'page' => $page,
+        'q' => $q,
+        'cache_name' => $cache_name,
+        'group_cache_name' => $group_cache_name
+    );
+    ?>
+    <ul class="link-group">
+        <li>
+            <div class="panel panel-default"> 
+                <div class="panel-heading">
+                    <i class="fa fa-reorder"><?php echo $group->id; ?></i>
+                    <?php echo $group->name; ?>
+                    <div class="visible-md visible-lg hidden-sm hidden-xs float-right">
+                        <a class="btn btn-xs btn-teal tooltips" data-original-title="Sửa" data-placement="bottom" href="<?php echo $this->url->get(array('for' => 'link_group_edit', 'query' => '?' . http_build_query($query))); ?>">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-xs btn-bricky tooltips" data-original-title="Xóa" data-placement="bottom" href="<?php echo $this->url->get(array('for' => 'link_group_delete', 'query' => '?' . http_build_query($query))); ?>">
+                            <i class="fa fa-times fa fa-white"></i>
+                        </a>
+                    </div> 
+                </div>
+                <div class="panel-body"> 
+                    <div class="dd nestable" id="nestable3" data-url="<?php echo $this->url->get(array('for' => 'ajax_sort_link')); ?>">
+                        <?php 
+                            if (isset($group_link_layout[$group->id])):
+                                echo $group_link_layout[$group->id]; 
+                            endif; 
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>

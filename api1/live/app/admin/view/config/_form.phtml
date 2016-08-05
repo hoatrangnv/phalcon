@@ -1,0 +1,650 @@
+<style type="text/css">
+    .block-upload-img .thumbnail-img {
+    display: block;
+    border: 1px solid #ebebeb;
+    width: 110px;
+    height: 91px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: 0px;
+}
+
+.block-upload-img-view .thumbnail-img {
+    display: block;
+    border: 1px solid #ebebeb;
+    width: 940px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.block-upload-img .thumbnail-img img{
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.block-upload-img-view .thumbnail-img img {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.block-upload-img .thumbnail-img .delete-img{
+    font-size: 20px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.box-gallery .thumbnail-img {
+    float: left;
+}
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-cogs"></i>
+        Giao diện người dùng
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Mẫu
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('theme', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'theme')); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ads -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-cogs"></i>
+        Quảng cáo từ MuaBanNhanh
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Tùy chọn
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('ads', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'ads')); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end ads -->
+<!--  -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-cogs"></i>
+        Tùy Chỉnh Module H2 :
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <!-- image -->
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Tiêu Đề :
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('title_h2', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'title_h2')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Nội Dung  :
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('noidung_h2', array('class' => 'form-control editor')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'noidung_h2')); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--  -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-cogs"></i>
+        Tùy Chỉnh Module H3 :
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <!-- <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Hình Ảnh :
+            </label>
+            <div class="col-sm-9">
+                <?php if (isset($result['logo1'])): ?>
+                    <?php $file_headers = @get_headers($image_url . '150/' . $result['logo1']); ?>
+                    <?php if ($file_headers[0] != 'HTTP/1.1 404 Not Found'): ?>
+                        <img class="thumbnail w80" src="<?php echo $this->config->asset->home_image_url . '150/' . $result['logo1']; ?>">
+                    <?php else: ?>
+                        <img class="w80" src="<?php echo $image_default_url . 'default.gif'; ?>">
+                    <?php endif; ?>
+                <?php endif; ?>
+                    <p></p>
+                    <div class="col-sm-3 text-left">
+                        <div data-provides="fileupload" class="fileupload fileupload-new">
+                            <span class="btn btn-file btn-light-grey"><i class="fa fa-folder-open-o"></i> <span class="fileupload-new">Chọn file</span><span class="fileupload-exists">Thay đổi</span>
+                                <input type="file" name="logo1">
+                            </span>
+                            <span class="fileupload-preview"></span>
+                            <a style="float: none" data-dismiss="fileupload" class="close fileupload-exists" href="#">
+                                    &times;
+                            </a>
+                        </div>
+                    </div>
+
+            </div>
+        </div> -->
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Tiêu Đề :
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('title_h3', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'title_h3')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Nội Dung :
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('noidung_h3', array('class' => 'form-control editor')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'noidung_h3')); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-cogs"></i>
+        Tổng quát
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Tiêu đề website
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('site_title', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'site_title')); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Float Banner Link :
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('float_banner', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'float_banner')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Title Float Banner :
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('float_banner_title', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'float_banner_title')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Meta title
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('meta_title', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'meta_title')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Meta description
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('meta_description', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'meta_description')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Meta keyword
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('meta_keyword', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'meta_keyword')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Geo Region
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('geo_region', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'geo_region')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Geo Placename
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('geo_placename', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'geo_placename')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Geo Position
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('geo_position', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'geo_position')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                ICBM
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('icbm', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'icbm')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Chiều rộng logo
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('logo_w', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'logo_w')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Chiều dài logo
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('logo_h', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'logo_h')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Logo
+            </label>
+            <div class="col-sm-9">
+                <?php if (isset($result['logo'])): ?>
+                    <?php $file_headers = @get_headers($image_url . '150/' . $result['logo']); ?>
+                    <?php if ($file_headers[0] != 'HTTP/1.1 404 Not Found'): ?>
+                        <img class="thumbnail w80" src="<?php echo $this->config->asset->home_image_url . '150/' . $result['logo']; ?>">
+                    <?php else: ?>
+                        <img class="w80" src="<?php echo $image_default_url . 'default.gif'; ?>">
+                    <?php endif; ?>
+                <?php endif; ?>
+                    <p></p>
+                    <div class="col-sm-3 text-left">
+                        <div data-provides="fileupload" class="fileupload fileupload-new">
+                            <span class="btn btn-file btn-light-grey"><i class="fa fa-folder-open-o"></i> <span class="fileupload-new">Chọn file</span><span class="fileupload-exists">Thay đổi</span>
+                                <input type="file" name="logo">
+                            </span>
+                            <span class="fileupload-preview"></span>
+                            <a style="float: none" data-dismiss="fileupload" class="close fileupload-exists" href="#">
+                                    &times;
+                            </a>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Footer Title
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('footer_title', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'footer_title')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Footer Content
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('footer', array('class' => 'form-control editor')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'footer')); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-cogs"></i>
+        Social Networking
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Twitter
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('social_twitter', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'social_twitter')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Facebook
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('social_facebook', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'social_facebook')); ?>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Facebook Admins
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('fb_admins', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'fb_admins')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Page facebook
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('page_face_book', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'page_face_book')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Google Author
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('social_google', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'social_google')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Google Analytics
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('google_analytics', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'google_analytics')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Google Analytics Domain
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('google_analytics_domain', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'google_analytics_domain')); ?>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-cogs"></i>
+        Bản đồ google
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Tọa độ x
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('latitude', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'latitude')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Tọa độ y
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('longitude', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'longitude')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Thông tin
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('google_maps', array('class' => 'form-control editor')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'google_maps')); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-cogs"></i>
+        Cấu hình gửi email
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Email
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('email_name', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'email_name')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Mật khẩu
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('email_password', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'email_password')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Tiêu đề
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('email_title', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'email_title')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Chữ ký
+            </label>
+            <div class="col-sm-9">
+                <?php echo $form->render('email_signature', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'signature')); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-cogs"></i>
+        Module mặc định
+        <div class="panel-tools">
+            <a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+            </a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Box menu footer
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('footer_navigation', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'footer_navigation')); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+               Tin Nổi Bật :
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('noi_bat', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'noi_bat')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+               Tin Hot :
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('tin_hot', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'tin_hot')); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+               Tin Tiêu Điểm :
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('tieu_diem', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'tieu_diem')); ?>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+               Tin Mới Nhất :
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('moi_nhat', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'moi_nhat')); ?>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+               Tin Xem Nhiều Nhất :
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('nhieu_nhat', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'nhieu_nhat')); ?>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+               Bài viết mới hơn :
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('moi_hon', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'moi_hon')); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+               Bài viết cũ hơn :
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('cu_hon', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'cu_hon')); ?>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+               Tin Hiển thị Box :
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('hien_thi', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'hien_thi')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Box tab tin tức
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('tabs', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'tabs')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Hotline
+            </label>
+            <div class="col-sm-4">
+                <?php echo $form->render('hotline', array('class' => 'form-control')); ?>
+                <?php echo $this->partial('element/layout/_message', array('form' => $form, 'element' => 'hotline')); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="<?php echo $this->config->asset->admin_js_url . 'upload_image.js?' . $this->config->asset->version; ?>"></script>

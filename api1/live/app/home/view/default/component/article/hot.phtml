@@ -1,0 +1,28 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php if($result && count($result) > 0): ?>
+    <div class="row highlight-list-post">
+        <?php foreach($result as $item): ?>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 highlight-block-320">
+                <div class="highlight-block">
+                    <div class="highlight-image" data-ratio="1.333">
+                        <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>">
+
+                            <?php if ($item->image != ''): ?>
+                                <img src="<?php echo $this->config->asset->home_image_url . '250/' . $item->image; ?>" alt="<?php echo $item->title; ?>">
+                            <?php else: ?>
+                                <?php if ($item->image == ''): ?>
+                                    <img src="<?php echo $this->config->asset->home_image_url . 'image_not_found.jpg'; ?>" alt="<?php echo $item->title; ?>">
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </a>
+                    </div>
+                    <div class="highlight-title">
+                        <a href="<?php echo $this->url->get(array('for' => 'article_detail','id' => $item->id, 'slug' => $item->alias)); ?>" class="title-post"><?php echo util::niceWordsByChars($item->title,90); ?></a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

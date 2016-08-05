@@ -1,0 +1,58 @@
+<?php use ITECH\Admin\Lib\Constant as LocalConstant; ?>
+
+<?php $user = $this->session->get('USER'); ?>
+<?php $sidebar = LocalConstant::sideBar(); ?>
+
+<?php $controller = $this->router->getControllerName(); ?>
+<?php $action = $this->router->getActionName(); ?>
+
+<div class="main-navigation navbar-collapse collapse">
+    <div class="navigation-toggler">
+        <i class="clip-chevron-left"></i>
+        <i class="clip-chevron-right"></i>
+    </div>
+
+    <ul class="main-navigation-menu">
+        <?php foreach ($sidebar as $for => $item): ?>
+            <?php if ($item['controller'] == $controller): ?>
+                <?php $class = 'active open'; ?>
+            <?php else: ?>
+                <?php $class = ''; ?>
+            <?php endif; ?>
+
+            <?php if (in_array($user['type'], $item['role'])): ?>
+                <li class="<?php echo $class; ?>">
+                    <?php if (!isset($item['sub_menu'])): ?>
+                        <a href="<?php echo $this->url->get(array('for' => $for)); ?>">
+                            <i class="<?php echo $item['icon_class']; ?>"></i>
+                            <span class="title"><?php echo $item['title']; ?></span>
+                        </a>
+                    <?php else: ?>
+                        <a href="javascript:void(0);">
+                            <i class="<?php echo $item['icon_class']; ?>"></i>
+                            <span class="title"><?php echo $item['title']; ?></span>
+                            <i class="icon-arrow"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <?php foreach ($item['sub_menu'] as $s_for => $s_item): ?>
+                                <?php if ($s_item['controller'] == $controller && $s_item['action'] == $action): ?>
+                                    <?php $s_class = 'active'; ?>
+                                <?php else: ?>
+                                    <?php $s_class = ''; ?>
+                                <?php endif; ?>
+
+                                <?php if (in_array($user['type'], $s_item['role'])): ?>
+                                    <li class="<?php echo $s_class; ?>">
+                                        <a href="<?php echo $this->url->get(array('for' => $s_for)); ?>">
+                                            <span class="title"><?php echo $s_item['title']; ?></span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+</div>

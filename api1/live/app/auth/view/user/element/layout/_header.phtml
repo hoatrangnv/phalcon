@@ -1,0 +1,75 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php
+$field_select = Constant::fieldSelect();
+$province_select = Constant::provinceSelect();
+?>
+
+<div class="container">
+    <div class="col-xs-5 logo">
+        <div class="inner-10">
+            <h1>
+                <a href="<?php echo $this->config->static->home_url; ?>" title="Tìm việc nhanh">
+                    <img src="<?php echo $this->config->asset->home_image_url . 'logo.png'; ?>" alt="Tìm việc nhanh">
+                </a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="col-xs-7 header-right">
+        <div class="inner-10">
+            <div class="action-top text-right">
+                <a href="tel:19006118" class="hotline pull-left" title="Hotline">
+                    <span class="icon icon-call icon-xs"></span>
+                    Hotline: <b>1900 6118</b>
+                </a>
+                <?php
+                /*
+                <a href="" class="mess-job pu" data-count="2">
+                    <span class="icon icon-chuong icon-xs"></span>
+                    Thông báo việc làm
+                </a>
+                <a href="<?php echo $this->config->static->home_url . 'dang-nhap'; ?>" class="sign-in" title="Đăng nhập">
+                    <span class="icon icon-login icon-xs"></span>
+                    Đăng nhập
+                </a>
+                <a href="<?php echo $this->config->static->home_url . 'dang-ky'; ?>" class="register" title="Đăng ký">
+                    <span class="icon icon-res icon-xs"></span>
+                    Đăng ký
+                </a>
+                */
+                ?>
+                <div class="clearfix"></div>
+            </div>
+
+            <form role="form" action="<?php echo $this->config->static->home_url . 'viec-lam/tim-kiem'; ?>" method="GET" class="form-inline form-search-top" enctype="multipart/form-data">
+                <input type="text" id="key-s" name="tu_khoa" class="form-control col-xs-" placeholder="Nhập tên công việc, vị trí...">
+
+                <button type="submit" class="btn submit btn-danger col-xs-">
+                    <i class="icon icon-xs icon-search"></i>
+                </button>
+
+                <div class="style-flat">
+                    <select name="nganh_nghe[]" class="select-style">
+                        <option value="">Chọn ngành nghề</option>
+                        <?php foreach ($field_select as $key => $item): ?>
+                            <option value="<?php echo $key; ?>"><?php echo $item; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="style-flat">
+                    <select name="tinh_thanh[]" class="select-style">
+                        <option value="">Chọn tỉnh thành</option>
+                        <?php foreach ($province_select as $key => $item): ?>
+                            <option value="<?php echo $key; ?>"><?php echo $item; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <button type="button" onclick="javascript:window.location.href = '<?php echo $this->config->static->home_url . 'viec-lam/tim-kiem-nang-cao'; ?>';" class="plush fix-box">+</button>
+            </form>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

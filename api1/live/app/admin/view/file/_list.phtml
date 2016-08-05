@@ -1,0 +1,46 @@
+<table class="table table-striped table-bordered table-hover table-full-width">
+    <thead>
+        <tr role="row">
+            <th>STT</th>
+            <th>Tiêu đề</th>
+            <th>Hình ảnh</th>
+            <th>Dung lượng</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php foreach ($result->items as $item): ?>
+            <?php
+            $query = array(
+                'id' => $item->id,
+                'category_id' => $item->category_id,
+                'page' => $page,
+                'q' => $q,
+                'cache_name' => $cache_name
+            );
+            ?>
+            <tr>
+                <td><?php echo $item->id; ?></td>
+                <td>
+                    <a href="<?php echo $this->url->get(array('for' => 'file_edit', 'query' => '?' . http_build_query($query))); ?>">
+                        <?php echo $item->title; ?>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <img class="h80" src="<?php echo $this->config->asset->home_image_url . '150/' . $item->file_name; ?>" alt="<?php echo $item->title; ?>" >
+                </td>
+                <td>
+                    <?php 
+                    echo round($item->file_size/102400, 3) . 'Mb'; 
+                    ?>
+                </td>
+                <td align="center">
+                    <a href="<?php echo $this->url->get(array('for' => 'file_delete', 'query' => '?' . http_build_query($query))); ?>" onclick="javascript:return confirm('Đồng ý xoá?');" class="btn btn-xs btn-bricky">
+                        <i class="fa fa-times fa fa-white"></i>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>   
+    </tbody>
+</table>   

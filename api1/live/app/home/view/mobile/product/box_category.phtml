@@ -1,0 +1,32 @@
+<?php use ITECH\Datasource\Lib\Util; ?>
+<div class="top-header">
+    <div class="container text-center">
+        <h1 class="title-post"><?php echo $category->name; ?></h1>
+        <div class="breamcrum">
+            <?php echo $this->partial($__theme . '/element/layout/_breadcrumbs'); ?>
+        </div>
+    </div>
+</div>
+<section id="section2">
+    <div class="container">
+        <div class="box_layout">
+                <div class="text-des">
+                    <?php echo $category->description; ?>
+                </div>
+                <?php
+                    foreach ($box_layout as $key => $category) {
+                        echo $category;
+                     } 
+                ?>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 congso-main-content">
+                <?php echo $product_newer_box_layout; ?>
+            </div>
+            <div class="col-sm-12 col-md-12 congso-main-content">
+                <?php echo $most_viewed_box_layout; ?>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,55 @@
+<?php use ITECH\Datasource\Lib\Constant; ?>
+
+<?php $status_select = Constant::statusSelect(); ?>
+
+<table class="table table-striped table-bordered table-hover table-full-width">
+    <thead>
+        <tr role="row">
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Slug</th>
+            <th>Rộng</th>
+            <th>Cao</th>
+            <th>Trang thái</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php foreach ($result->items as $item): ?>
+            <?php
+            $query = array(
+                'id' => $item->id,
+                'page' => $page,
+                'q' => $q,
+                'cache_name' => $cache_name
+            );
+            ?>
+            <tr>
+                <td><?php echo $item->id; ?></td>
+                <td>
+                    <a href="<?php echo $this->url->get(array('for' => 'ad_position_edit', 'query' => '?' . http_build_query($query))); ?>">
+                        <?php echo $item->name; ?>
+                    </a>
+                </td>
+                <td>
+                    <?php echo $item->slug; ?>
+                </td>
+                <td>
+                    <?php echo $item->width; ?>
+                </td>
+                <td>
+                    <?php echo $item->height; ?>
+                </td>
+                <td>
+                    <?php echo $status_select[$item->status]; ?>
+                </td>
+                <td align="center">
+                    <a href="<?php echo $this->url->get(array('for' => 'ad_position_delete', 'query' => '?' . http_build_query($query))); ?>" onclick="javascript:return confirm('Đồng ý xoá?');" class="btn btn-xs btn-bricky">
+                        <i class="fa fa-times fa fa-white"></i>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>   
+    </tbody>
+</table>   

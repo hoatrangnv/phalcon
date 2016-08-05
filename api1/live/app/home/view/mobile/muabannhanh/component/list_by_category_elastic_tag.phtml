@@ -1,0 +1,40 @@
+<?php  use ITECH\Datasource\Lib\Util; ?>
+<?php foreach ($data as $category) { ?>
+<?php if($category['total_item'] > 0 && $category['self']['slug']=='xe-oto-kia'){?>
+    <div class="block-mbn mobile">
+        <div class="container">
+            <h3 class="post-title">
+                <?php  $url = $this->url->get(array('for'=>'mbn_listtag','id'=>360253,'slug'=>'xe-oto-hyundai'));?>
+                <a href="<?php echo $url; ?>">
+                    Xe Ô Tô kia
+                    &#160(<?php echo number_format($category['total_item']); ?>)
+                </a>
+            </h3><br>
+
+            <div class="list-post block-category-mbn">
+                <div class="list-wrap list-wrap list-product">
+                    <?php
+                    foreach ($category['posts'] as $key => $item) {
+                        $item = $item['_source'];
+                        echo $this->partial('../item_loop_array');
+                    }
+                    ?>
+                </div>
+            </div>
+
+         <?php 
+        if( $this->router->getControllerName() == 'home' &&  $this->router->getActionName() == 'index'){?>
+            <div class="text-center">
+                    <a class="btn btn-success" style="padding: 6px;" href="<?php echo $this->url->get(array('for'=>'mbn_listtag','id'=>360253,'slug'=>'xe-oto-kia')); ?>">Xem thêm tất cả sản phẩm  »</a>
+            </div>
+            </div>
+    </div><br>
+        <?php }else{?>
+            </div>
+    </div>
+           <?php echo isset($pagination) ? $pagination : '';
+        }?>
+    <?php }?>
+<?php }
+
+

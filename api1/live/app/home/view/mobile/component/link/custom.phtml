@@ -1,0 +1,14 @@
+<?php if($result): ?>
+    <ul>
+        <?php foreach ($result['main'] as $item): ?>
+            <li>
+                <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>">
+                    <?php echo $item->name; ?>
+                    <?php if (count($result['sub'][$item->id]) > 0): ?>
+                        <span class="fa"></span>
+                    <?php endif; ?>
+                </a>
+            </li> 
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
